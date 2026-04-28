@@ -1,7 +1,8 @@
 import { Hero } from "@/components/Hero";
-import { ExperienceTimeline } from "@/components/ExperienceTimeline";
-import { ContactForm } from "@/components/ContactForm";
+import { ExperienceTimeline } from "@/components/experience-timeline";
 import { HeroHeader } from "@/components/HeroHeader";
+import { FAQSection } from "@/components/FAQSection";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -14,7 +15,8 @@ export default function Home() {
           avatarSrc="/avatar.jfif"
         />
         <ExperienceTimeline />
-        <ContactForm />
+        <FAQSection />
+        <Footer />
       </main>
     </div>
   );

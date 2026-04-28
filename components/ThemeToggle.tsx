@@ -1,56 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { cn } from "@/lib/utils";
-
-function SunIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-    </svg>
-  );
-}
-
-function MoonIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-    </svg>
-  );
-}
+import { SunIcon } from "./icons/SunIcon";
+import { MoonIcon } from "./icons/MoonIcon";
 
 export function ThemeToggle({ className }: { className?: string }) {
-  const [dark, setDark] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const isDark = document.documentElement.classList.contains("dark");
-    setDark(isDark);
-  }, []);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
+  const [dark, setDark] = useState(
+    () =>
+      typeof document !== "undefined" &&
+      document.documentElement.classList.contains("dark")
+  );
 
   useEffect(() => {
     if (!mounted) return;
@@ -74,29 +39,38 @@ export function ThemeToggle({ className }: { className?: string }) {
       aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
       className={cn(
         "relative flex h-9 w-16 shrink-0 items-center justify-between rounded-full bg-muted px-1.5 transition-colors",
-        "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring cursor-pointer ",
+        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring cursor-pointer",
         className,
       )}
     >
       <span
         className={cn(
-          "relative z-10 flex size-6 items-center justify-center",
-          dark ? "text-muted-foreground" : "text-foreground",
+          "flex size-6 items-center justify-center",
+          {
+            "text-muted-foreground": dark,
+            "text-foreground": !dark
+          }
         )}
       >
         <SunIcon />
       </span>
       <span
         className={cn(
-          "absolute left-1 top-1 size-7 rounded-full bg-foreground shadow-sm transition-transform",
-          dark && "translate-x-6",
+          "absolute top-1 size-7 rounded-full",
+          {
+            "right-1 shadow-sm shadow-gray-500/30": dark,
+            "left-1 shadow-md": !dark
+          },
         )}
         aria-hidden
       />
       <span
         className={cn(
-          "relative z-10 flex size-6 items-center justify-center",
-          !dark ? "text-muted-foreground" : "text-foreground",
+          "flex size-6 items-center justify-center",
+          {
+            "text-muted-foreground": !dark,
+            "text-foreground": dark
+          }
         )}
       >
         <MoonIcon />

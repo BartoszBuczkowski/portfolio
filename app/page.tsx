@@ -1,8 +1,8 @@
-import { Hero } from "@/components/Hero";
+import { FAQSection } from "@/components/faq-section";
+import { Footer } from "@/components/footer";
+import { Hero } from "@/components/hero";
+import { HeroHeader } from "@/components/hero-header";
 import { ExperienceTimeline } from "@/components/experience-timeline";
-import { HeroHeader } from "@/components/HeroHeader";
-import { FAQSection } from "@/components/FAQSection";
-import { Footer } from "@/components/Footer";
 import { TechStackMarquee } from "@/components/tech-stack-marquee";
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
     <div className="min-h-screen bg-background font-sans text-foreground">
       <main>
         <HeroHeader />
-        <Hero headline="Crafting User-Centric Experiences." email="ampitanb@yahoo.com" avatarSrc="/avatar.jfif" />
+        <Hero />
         <TechStackMarquee />
         <ExperienceTimeline />
         <FAQSection />

@@ -2,7 +2,7 @@
 
 import { type Variants, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { useExperienceTimelineMeasurements } from "@/components/experience-timeline/hooks/useExperienceTimelineMeasurements";
+import { useExperienceTimelineMeasurements } from "@/components/experience-timeline/hooks/use-experience-timeline-measurements";
 import { experience } from "@/static/experience";
 import { TimelineItemRow } from "./timeline-item-row";
 

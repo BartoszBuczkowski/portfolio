@@ -2,7 +2,7 @@
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-import type { TechStackItem } from "./types";
+import type { TechStackItem } from "../types";
 import { useActiveTechLabel } from "./wrapper";
 
 type StackTileProps = {

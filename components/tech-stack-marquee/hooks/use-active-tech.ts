@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import { techStack } from "./data";
-import { getCandidateTechItems, getNextIndex, getPreviouslyActiveLabel, getVisibleTechLabels } from "./functions";
-import type { TechStackItem } from "./types";
+import { techStack } from "../data";
+import { getCandidateTechItems, getNextIndex, getPreviouslyActiveLabel, getVisibleTechLabels } from "../functions";
+import type { TechStackItem } from "../types";
 
 type OptionalTechStackItem = TechStackItem | undefined;
 type ActiveTech = [OptionalTechStackItem, OptionalTechStackItem, OptionalTechStackItem, OptionalTechStackItem] | [];

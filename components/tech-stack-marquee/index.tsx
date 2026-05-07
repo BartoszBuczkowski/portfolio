@@ -1,6 +1,6 @@
+import { StackTile } from "./components/stack-tile";
+import { TechStackMarqueeWrapper } from "./components/wrapper";
 import { techStack } from "./data";
-import { StackTile } from "./stack-tile";
-import { TechStackMarqueeWrapper } from "./wrapper";
 
 export function TechStackMarquee() {
   const firstRow = techStack.filter((_, index) => index % 2 === 0);

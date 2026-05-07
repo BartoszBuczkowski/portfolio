@@ -1,4 +1,6 @@
+import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -17,14 +19,24 @@ export const metadata: Metadata = {
   description: "Portfolio of a JavaScript Developer. Experience, projects, and contact.",
 };
 
-export default function RootLayout({
+const THEME_COOKIE_NAME = "theme";
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const isThemeDark = cookieStore.get(THEME_COOKIE_NAME)?.value === "dark";
+
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}>{children}</body>
+    <html
+      lang="en"
+      className={cn({
+        dark: isThemeDark,
+      })}
+    >
+      <body className={cn(geistSans.variable, geistMono.variable, "antialiased scroll-smooth")}>{children}</body>
     </html>
   );
 }

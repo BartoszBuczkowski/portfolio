@@ -6,14 +6,8 @@ export const experience: TimelineItem[] = [
     yearTo: 2020,
     roleTitle: "Owner / Creative Graphic Designer",
     companyName: "Lara’s Clothes",
-    description:
-      "Managed own clothing brand, including design, branding, e-commerce operations, logistics, and marketing.",
-    technologies: [
-      "E-commerce",
-      "Graphic Design",
-      "Branding",
-      "Marketing",
-    ],
+    description: "Managed own clothing brand, including design, branding, e-commerce operations, logistics, and marketing.",
+    technologies: ["E-commerce", "Graphic Design", "Branding", "Marketing"],
   },
   {
     yearFrom: 2020,
@@ -42,15 +36,7 @@ export const experience: TimelineItem[] = [
     companyName: "Europa Systems",
     description:
       "Worked on scalable frontend architecture, component libraries, and performance optimization for large data-driven applications.",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Webpack",
-      "Rollup",
-      "Storybook",
-      "Ant Design",
-      "Monorepo",
-    ],
+    technologies: ["React", "TypeScript", "Webpack", "Rollup", "Storybook", "Ant Design", "Monorepo"],
   },
   {
     yearFrom: 2021,
@@ -59,13 +45,7 @@ export const experience: TimelineItem[] = [
     companyName: "Global4Net",
     description:
       "Contributed to React Native mobile applications and modernized React applications with TypeScript and Redux improvements.",
-    technologies: [
-      "React",
-      "React Native",
-      "TypeScript",
-      "Redux",
-      "JavaScript",
-    ],
+    technologies: ["React", "React Native", "TypeScript", "Redux", "JavaScript"],
   },
   {
     yearFrom: 2022,
@@ -74,25 +54,14 @@ export const experience: TimelineItem[] = [
     companyName: "Punkta",
     description:
       "Led frontend modernization initiatives, migrated legacy systems to React, unified frontend technologies, and improved UX consistency.",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Redux",
-      "Material UI",
-      "Rails",
-      "Jest",
-      "React Testing Library",
-      "Monorepo",
-      "JavaScript",
-    ],
+    technologies: ["React", "TypeScript", "Redux", "Material UI", "Rails", "Jest", "React Testing Library", "Monorepo", "JavaScript"],
   },
   {
     yearFrom: 2025,
-    yearTo: null,
+    yearTo: 2026,
     roleTitle: "JavaScript Engineer",
     companyName: "Neti Soft",
-    description:
-      "Worked on secure business solutions, including biometric authentication, encryption, and Web3-related applications.",
+    description: "Worked on secure business solutions, including biometric authentication, encryption, and Web3-related applications.",
     technologies: [
       "JavaScript",
       "TypeScript",
@@ -102,6 +71,17 @@ export const experience: TimelineItem[] = [
       "Authentication",
       "Encryption",
       "Figma",
+      "NestJS",
+      "PostgreSQL",
+      "Node.js",
     ],
+  },
+  {
+    yearFrom: 2026,
+    yearTo: null,
+    roleTitle: "Owner / Software Engineer",
+    companyName: "The Off",
+    description: "Building a new business from scratch, including branding, software development, and marketing.",
+    technologies: ["Branding", "NestJS", "Hasura", "Monorepo"],
   },
 ];

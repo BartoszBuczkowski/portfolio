@@ -3,8 +3,8 @@
 import { createContext, useContext, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
-import { TechStackItem } from "./types";
-import { useActiveTech } from "./use-active-tech";
+import { useActiveTech } from "../hooks/use-active-tech";
+import type { TechStackItem } from "../types";
 
 interface TechStackMarqueeWrapperProps {
   children: ReactNode;

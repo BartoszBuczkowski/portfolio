@@ -6,7 +6,7 @@ export function Nav({ className, ...props }: React.ComponentProps<"nav">) {
     <nav
       className={cn(
         "sticky top-0 z-50 w-full border-b border-white/10 bg-background/80 backdrop-blur-md",
-        className
+        className,
       )}
       {...props}
     >

@@ -4,7 +4,7 @@ import { type Variants, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useExperienceTimelineMeasurements } from "@/components/experience-timeline/hooks/useExperienceTimelineMeasurements";
 import { experience } from "@/static/experience";
-import { TimelineItemRow } from "./TimelineItemRow";
+import { TimelineItemRow } from "./timeline-item-row";
 
 const itemVariants: Variants = {
   hidden: (side: "left" | "right") => ({
@@ -21,8 +21,14 @@ const itemVariants: Variants = {
 export function ExperienceTimeline({
   className,
 }: React.ComponentProps<"section">) {
-  const { sectionRef, listRef, dotOffsets, lineHeight, indicatorTop, setItemRef } =
-    useExperienceTimelineMeasurements();
+  const {
+    sectionRef,
+    listRef,
+    dotOffsets,
+    lineHeight,
+    indicatorTop,
+    setItemRef,
+  } = useExperienceTimelineMeasurements();
 
   return (
     <section
@@ -53,7 +59,10 @@ export function ExperienceTimeline({
             />
           </motion.div>
 
-          <ul ref={listRef} className="relative -mt-3 flex flex-col gap-12 pl-12 md:pl-0 md:-mt-3">
+          <ul
+            ref={listRef}
+            className="relative -mt-3 flex flex-col gap-12 pl-12 md:pl-0 md:-mt-3"
+          >
             {experience.map((item, i) => {
               const isLeft = i % 2 === 0;
               return (

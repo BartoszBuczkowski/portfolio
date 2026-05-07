@@ -3,6 +3,7 @@ import { ExperienceTimeline } from "@/components/experience-timeline";
 import { HeroHeader } from "@/components/HeroHeader";
 import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
+import { TechStackMarquee } from "@/components/tech-stack-marquee";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
           email="ampitanb@yahoo.com"
           avatarSrc="/avatar.jfif"
         />
+        <TechStackMarquee />
         <ExperienceTimeline />
         <FAQSection />
         <Footer />

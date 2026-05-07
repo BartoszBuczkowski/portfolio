@@ -1,12 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import {
-  motion,
-  useInView,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { TimelineItemRowProps } from "./types";
 
@@ -19,12 +14,15 @@ export function TimelineItemRow({
   itemVariants,
 }: TimelineItemRowProps) {
   const itemRef = useRef<HTMLLIElement>(null);
-  const isInView = useInView(itemRef, { once: true, margin: "-60px 0px -80px 0px" });
+  const isInView = useInView(itemRef, {
+    once: true,
+    margin: "-60px 0px -80px 0px",
+  });
   const safeDotOffset = Number.isFinite(dotOffset) ? dotOffset : 0;
   const revealProgress = useTransform(
     lineHeight,
     [safeDotOffset - 28, safeDotOffset + 8],
-    [0, 1]
+    [0, 1],
   );
   const smoothReveal = useSpring(revealProgress, {
     stiffness: 220,
@@ -47,7 +45,7 @@ export function TimelineItemRow({
       className={cn(
         "relative flex min-h-[100px] items-center",
         "md:flex-row md:[&>.spacer]:block",
-        isLeft ? "md:flex-row" : "md:flex-row-reverse"
+        isLeft ? "md:flex-row" : "md:flex-row-reverse",
       )}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
@@ -59,7 +57,7 @@ export function TimelineItemRow({
           "w-full py-4 md:w-[calc(50%-32px)]",
           "text-left pl-0",
           "md:pl-0 md:pr-0",
-          isLeft ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"
+          isLeft ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left",
         )}
         style={{
           scale: contentScale,
@@ -81,7 +79,7 @@ export function TimelineItemRow({
 
       <div
         className={cn(
-          "absolute left-[-32px] top-1/2 z-10 -translate-y-1/2 md:left-1/2"
+          "absolute left-[-32px] top-1/2 z-10 -translate-y-1/2 md:left-1/2",
         )}
       >
         <motion.div

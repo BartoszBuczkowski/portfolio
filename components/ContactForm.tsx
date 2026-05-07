@@ -55,11 +55,7 @@ export function ContactForm({
   }
 
   return (
-    <section
-      id="contact"
-      className={cn("py-24 px-6", className)}
-      {...props}
-    >
+    <section id="contact" className={cn("py-24 px-6", className)} {...props}>
       <div className="mx-auto max-w-lg">
         <h2 className="mb-10 text-center text-3xl font-semibold tracking-tight text-foreground">
           Contact
@@ -67,7 +63,7 @@ export function ContactForm({
         <div
           className={cn(
             "rounded-2xl border border-white/20 bg-white/70 p-6 shadow-[0_0_40px_-8px_var(--glow-violet)] backdrop-blur-xl",
-            "focus-within:ring-2 focus-within:ring-accent-violet/20"
+            "focus-within:ring-2 focus-within:ring-accent-violet/20",
           )}
         >
           <Form {...form}>
@@ -124,7 +120,7 @@ export function ContactForm({
                           "flex w-full rounded-md border border-input bg-transparent px-3 py-2 text-base shadow-xs outline-none",
                           "placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
                           "focus-visible:border-accent-violet focus-visible:ring-accent-violet/30",
-                          "disabled:pointer-events-none disabled:opacity-50 md:text-sm"
+                          "disabled:pointer-events-none disabled:opacity-50 md:text-sm",
                         )}
                         {...field}
                       />
@@ -137,7 +133,7 @@ export function ContactForm({
                 <p
                   className={cn(
                     "text-sm",
-                    state.ok ? "text-accent-violet" : "text-destructive"
+                    state.ok ? "text-accent-violet" : "text-destructive",
                   )}
                 >
                   {state.message}

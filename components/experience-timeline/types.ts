@@ -9,10 +9,10 @@ export type TimelineItem = {
 };
 
 export interface TimelineItemRowProps {
-    setItemRef: (el: HTMLLIElement | null) => void;
-    item: TimelineItem;
-    isLeft: boolean;
-    lineHeight: MotionValue<number>;
-    dotOffset: number;
-    itemVariants: Variants;
-  }
+  setItemRef: (el: HTMLLIElement | null) => void;
+  item: TimelineItem;
+  isLeft: boolean;
+  lineHeight: MotionValue<number>;
+  dotOffset: number;
+  itemVariants: Variants;
+}

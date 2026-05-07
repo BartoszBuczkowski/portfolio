@@ -17,17 +17,17 @@ export function StackTile({ item }: StackTileProps) {
   const isActive = activeTechLabel === item.label;
 
   return (
-    <div className="flex h-20 w-28 flex-col items-center justify-center gap-2 bg-card/70 transition-colors">
+    <div className="flex h-20 w-28 flex-col items-center justify-center gap-2 transition-colors">
       <Image
         src={src}
         alt={alt}
         width={size}
         height={size}
         data-tech-label={item.label}
-        className={cn(
-          "size-8 cursor-pointer transition-all duration-300",
-          isActive ? "scale-120 opacity-95 dark:opacity-95" : "opacity-20 dark:opacity-35",
-        )}
+        className={cn("size-8 cursor-pointer transition-all duration-300 dark:invert", {
+          "scale-130 opacity-95": isActive,
+          "opacity-20": !isActive,
+        })}
       />
     </div>
   );

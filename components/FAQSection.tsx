@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
-import { faqItems } from "@/static/faq";
 import { Button } from "@/components/ui/button";
+import { faqItems } from "@/static/faq";
+import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 export function FAQSection() {
   const [expandedItemId, setExpandedItemId] = useState<string>("faq-4");
@@ -36,7 +36,9 @@ export function FAQSection() {
                   className="w-full justify-between"
                   onClick={() => setExpandedItemId(isExpanded ? "" : item.id)}
                 >
-                  <span className="max-w-[358px] text-base leading-6 font-medium text-foreground">{item.question}</span>
+                  <span className="w-[358px] max-w-full text-base leading-6 font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">
+                    {item.question}
+                  </span>
                   <ChevronDown
                     className={`size-5 shrink-0 text-muted-foreground transition-transform ${isExpanded ? "rotate-180" : ""}`}
                     aria-hidden

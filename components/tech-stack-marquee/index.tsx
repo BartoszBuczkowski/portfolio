@@ -11,14 +11,14 @@ export function TechStackMarquee() {
   return (
     <TechStackMarqueeWrapper>
       <div className="tech-stack-fade-mask overflow-hidden px-6">
-        <div className="divide-y divide-muted">
-          <div className="tech-stack-scroll flex w-max divide-x divide-muted">
+        <div className="divide-y divide-muted dark:divide-muted/40">
+          <div className="tech-stack-scroll flex w-max divide-x divide-muted dark:divide-muted/40">
             {firstRowItems.map((item, index) => (
               <StackTile key={`row-1-${item.label}-${index}`} item={item} />
             ))}
           </div>
 
-          <div className="tech-stack-scroll flex w-max divide-x divide-muted">
+          <div className="tech-stack-scroll flex w-max divide-x divide-muted dark:divide-muted/40">
             {secondRowItems.map((item, index) => (
               <StackTile key={`row-2-${item.label}-${index}`} item={item} />
             ))}

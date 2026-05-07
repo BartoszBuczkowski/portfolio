@@ -2,12 +2,20 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { faqItems } from "@/static/faq";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
+type FaqItem = {
+  id: string;
+  question: string;
+  answer: string;
+};
+
 export function FAQSection() {
+  const t = useTranslations("FAQ");
+  const items = t.raw("items") as FaqItem[];
   const [expandedItemId, setExpandedItemId] = useState<string>("faq-1");
 
   return (
@@ -16,24 +24,21 @@ export function FAQSection() {
         <div className="relative flex-1 h-152">
           <Image
             src="/bartosz.jpg"
-            alt="Bartosz Buczkowski - Software Developer"
+            alt={t("imageAlt")}
             width={1200}
             height={1794}
             className="md:absolute rounded-sm w-full h-full object-cover object-bottom iv"
           />
 
           <div className="absolute bottom-0 flex flex-col gap-4 p-10">
-            <h2 className="text-5xl font-extrabold text-white">FAQ</h2>
-            <p className="max-w-xl text-base text-muted dark:text-muted-foreground">
-              Everything you may want to know about collaboration, development workflows, and how I help teams build and improve software
-              products.
-            </p>
+            <h2 className="text-5xl font-extrabold text-white">{t("title")}</h2>
+            <p className="max-w-xl text-base text-muted dark:text-muted-foreground">{t("subtitle")}</p>
           </div>
         </div>
 
         <div className="flex-1">
           <div className="flex flex-col">
-            {faqItems.map((item) => {
+            {items.map((item) => {
               const isExpanded = expandedItemId === item.id;
 
               return (

@@ -1,12 +1,15 @@
 import type { TimelineItem } from "@/components/experience-timeline/types";
 
-export const experience: TimelineItem[] = [
+export type ExperienceLocale = "en" | "pl";
+
+const experienceEn: TimelineItem[] = [
   {
     yearFrom: 2018,
     yearTo: 2020,
     roleTitle: "Owner / Creative Graphic Designer",
     companyName: "Lara’s Clothes",
-    description: "Managed own clothing brand, including design, branding, e-commerce operations, logistics, and marketing.",
+    description:
+      "Managed own clothing brand, including design, branding, e-commerce operations, logistics, and marketing.",
     technologies: ["E-commerce", "Graphic Design", "Branding", "Marketing"],
   },
   {
@@ -61,7 +64,8 @@ export const experience: TimelineItem[] = [
     yearTo: 2026,
     roleTitle: "JavaScript Engineer",
     companyName: "Neti Soft",
-    description: "Worked on secure business solutions, including biometric authentication, encryption, and Web3-related applications.",
+    description:
+      "Worked on secure business solutions, including biometric authentication, encryption, and Web3-related applications.",
     technologies: [
       "JavaScript",
       "TypeScript",
@@ -85,3 +89,96 @@ export const experience: TimelineItem[] = [
     technologies: ["Branding", "NestJS", "Hasura", "Monorepo"],
   },
 ];
+
+const experiencePl: TimelineItem[] = [
+  {
+    yearFrom: 2018,
+    yearTo: 2020,
+    roleTitle: "Właściciel / Creative Graphic Designer",
+    companyName: "Lara’s Clothes",
+    description:
+      "Prowadzenie własnej marki odzieżowej: projektowanie, branding, e‑commerce, logistyka i marketing.",
+    technologies: ["E-commerce", "Graphic Design", "Branding", "Marketing"],
+  },
+  {
+    yearFrom: 2020,
+    yearTo: 2021,
+    roleTitle: "Junior Frontend Engineer",
+    companyName: "ReasonApps",
+    description:
+      "Rozwój graficznego edytora w przeglądarce dla dziennikarzy sportowych, e‑commerce oraz utrzymanie aplikacji React on Rails.",
+    technologies: [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "React Query",
+      "Apollo",
+      "GraphQL",
+      "Styled Components",
+      "Storybook",
+      "Tailwind CSS",
+    ],
+  },
+  {
+    yearFrom: 2021,
+    yearTo: 2021,
+    roleTitle: "Frontend Engineer",
+    companyName: "Europa Systems",
+    description:
+      "Skalowalna architektura frontendu, biblioteki komponentów i optymalizacja wydajności dużych aplikacji opartych na danych.",
+    technologies: ["React", "TypeScript", "Webpack", "Rollup", "Storybook", "Ant Design", "Monorepo"],
+  },
+  {
+    yearFrom: 2021,
+    yearTo: 2022,
+    roleTitle: "Frontend Engineer",
+    companyName: "Global4Net",
+    description:
+      "Aplikacje mobilne React Native oraz modernizacja aplikacji React z TypeScript i Redux.",
+    technologies: ["React", "React Native", "TypeScript", "Redux", "JavaScript"],
+  },
+  {
+    yearFrom: 2022,
+    yearTo: 2025,
+    roleTitle: "Senior Frontend Engineer",
+    companyName: "Punkta",
+    description:
+      "Inicjatywy modernizacji frontendu, migracja systemów legacy do Reacta, ujednolicenie stacku i spójność UX.",
+    technologies: ["React", "TypeScript", "Redux", "Material UI", "Rails", "Jest", "React Testing Library", "Monorepo", "JavaScript"],
+  },
+  {
+    yearFrom: 2025,
+    yearTo: 2026,
+    roleTitle: "JavaScript Engineer",
+    companyName: "Neti Soft",
+    description:
+      "Bezpieczne rozwiązania biznesowe: m.in. biometria, szyfrowanie i aplikacje z obszaru Web3.",
+    technologies: [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Web3",
+      "Authentication",
+      "Encryption",
+      "Figma",
+      "NestJS",
+      "PostgreSQL",
+      "Node.js",
+    ],
+  },
+  {
+    yearFrom: 2026,
+    yearTo: null,
+    roleTitle: "Właściciel / Software Engineer",
+    companyName: "The Off",
+    description: "Budowa działalności od zera: branding, rozwój oprogramowania i marketing.",
+    technologies: ["Branding", "NestJS", "Hasura", "Monorepo"],
+  },
+];
+
+export const experienceByLocale: Record<ExperienceLocale, TimelineItem[]> = {
+  en: experienceEn,
+  pl: experiencePl,
+};

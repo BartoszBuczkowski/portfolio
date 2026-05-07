@@ -6,13 +6,21 @@ import { useRef } from "react";
 import { TechBadge } from "./tech-badge";
 import { TimelineItemRowProps } from "./types";
 
-function formatPeriod(yearFrom: number, yearTo: number | null): string {
-  if (yearTo === null) return `${yearFrom} — Present`;
+function formatPeriod(yearFrom: number, yearTo: number | null, presentLabel: string): string {
+  if (yearTo === null) return `${yearFrom} — ${presentLabel}`;
   if (yearTo === yearFrom) return `${yearFrom}`;
   return `${yearFrom} — ${yearTo}`;
 }
 
-export function TimelineItemRow({ setItemRef, item, isLeft, lineHeight, dotOffset, itemVariants }: TimelineItemRowProps) {
+export function TimelineItemRow({
+  setItemRef,
+  item,
+  isLeft,
+  lineHeight,
+  dotOffset,
+  itemVariants,
+  presentLabel,
+}: TimelineItemRowProps) {
   const itemRef = useRef<HTMLLIElement>(null);
   const isInView = useInView(itemRef, {
     once: true,
@@ -35,7 +43,7 @@ export function TimelineItemRow({ setItemRef, item, isLeft, lineHeight, dotOffse
     setItemRef(el);
   };
 
-  const period = formatPeriod(item.yearFrom, item.yearTo);
+  const period = formatPeriod(item.yearFrom, item.yearTo, presentLabel);
 
   return (
     <motion.li

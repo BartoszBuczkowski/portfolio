@@ -1,24 +1,28 @@
 "use client";
 
+import { submitContact, type ContactState } from "@/app/actions/contact";
+import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
+import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { submitContact, type ContactState } from "@/app/actions/contact";
-
-const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
-
-type ContactValues = z.infer<typeof contactSchema>;
 
 export function ContactForm({ className, ...props }: React.ComponentProps<"section">) {
+  const locale = useLocale();
+  const t = useTranslations("Contact");
+  const tv = useTranslations("Contact.validation");
   const [state, setState] = useState<ContactState | null>(null);
+
+  const contactSchema = z.object({
+    name: z.string().min(2, tv("nameMin")),
+    email: z.string().email(tv("emailInvalid")),
+    message: z.string().min(10, tv("messageMin")),
+  });
+
+  type ContactValues = z.infer<typeof contactSchema>;
 
   const form = useForm<ContactValues>({
     defaultValues: { name: "", email: "", message: "" },
@@ -39,6 +43,7 @@ export function ContactForm({ className, ...props }: React.ComponentProps<"secti
     fd.set("name", name);
     fd.set("email", email);
     fd.set("message", message);
+    fd.set("locale", locale);
     const result = await submitContact(fd);
     setState(result);
     if (result.ok) form.reset();
@@ -47,7 +52,7 @@ export function ContactForm({ className, ...props }: React.ComponentProps<"secti
   return (
     <section id="contact" className={cn("py-24 px-6", className)} {...props}>
       <div className="mx-auto max-w-lg">
-        <h2 className="mb-10 text-center text-3xl font-semibold tracking-tight text-foreground">Contact</h2>
+        <h2 className="mb-10 text-center text-3xl font-semibold tracking-tight text-foreground">{t("title")}</h2>
         <div
           className={cn(
             "rounded-2xl border border-white/20 bg-white/70 p-6 shadow-[0_0_40px_-8px_var(--glow-violet)] backdrop-blur-xl",
@@ -61,9 +66,9 @@ export function ContactForm({ className, ...props }: React.ComponentProps<"secti
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel>{t("name")}</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your name" className="border-border focus-visible:ring-accent-violet/50" {...field} />
+                      <Input placeholder={t("namePlaceholder")} className="border-border focus-visible:ring-accent-violet/50" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -74,11 +79,11 @@ export function ContactForm({ className, ...props }: React.ComponentProps<"secti
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>{t("email")}</FormLabel>
                     <FormControl>
                       <Input
                         type="email"
-                        placeholder="you@example.com"
+                        placeholder={t("emailPlaceholder")}
                         className="border-border focus-visible:ring-accent-violet/50"
                         {...field}
                       />
@@ -92,10 +97,10 @@ export function ContactForm({ className, ...props }: React.ComponentProps<"secti
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel>{t("message")}</FormLabel>
                     <FormControl>
                       <textarea
-                        placeholder="Your message..."
+                        placeholder={t("messagePlaceholder")}
                         rows={4}
                         className={cn(
                           "flex w-full rounded-md border border-input bg-transparent px-3 py-2 text-base shadow-xs outline-none",
@@ -116,7 +121,7 @@ export function ContactForm({ className, ...props }: React.ComponentProps<"secti
                 disabled={form.formState.isSubmitting}
                 className="bg-accent-violet text-white hover:bg-accent-violet/90 focus-visible:ring-accent-violet/50"
               >
-                {form.formState.isSubmitting ? "Sending…" : "Send message"}
+                {form.formState.isSubmitting ? t("submitting") : t("submit")}
               </Button>
             </form>
           </Form>

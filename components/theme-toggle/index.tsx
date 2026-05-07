@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { MoonIcon } from "../icons/moon-icon";
 import { SunIcon } from "../icons/sun-icon";
@@ -19,8 +20,9 @@ interface ThemeToggleProps {
 
 export function ThemeToggle({ initialDark }: ThemeToggleProps) {
   const [dark, setDark] = useState(initialDark);
+  const t = useTranslations("Theme");
 
-  const toggleLabel = dark ? "Switch to light mode" : "Switch to dark mode";
+  const toggleLabel = dark ? t("switchToLight") : t("switchToDark");
 
   const toggleTheme = () => {
     setDark((d) => {

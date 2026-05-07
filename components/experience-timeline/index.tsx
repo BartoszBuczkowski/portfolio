@@ -3,7 +3,8 @@
 import { type Variants, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useExperienceTimelineMeasurements } from "@/components/experience-timeline/hooks/use-experience-timeline-measurements";
-import { experience } from "@/static/experience";
+import { experienceByLocale } from "@/static/experience";
+import { useLocale, useTranslations } from "next-intl";
 import { TimelineItemRow } from "./timeline-item-row";
 
 const itemVariants: Variants = {
@@ -20,11 +21,14 @@ const itemVariants: Variants = {
 
 export function ExperienceTimeline({ className }: React.ComponentProps<"section">) {
   const { sectionRef, listRef, dotOffsets, lineHeight, indicatorTop, setItemRef } = useExperienceTimelineMeasurements();
+  const locale = useLocale();
+  const t = useTranslations("Experience");
+  const experience = experienceByLocale[locale === "pl" ? "pl" : "en"];
 
   return (
     <section ref={sectionRef} id="experience" className={cn("relative py-24 px-4 md:px-6", className)}>
       <div className="mx-auto max-w-4xl">
-        <h2 className="mb-16 md:mb-20 text-center text-3xl font-semibold tracking-tight text-foreground">Experience</h2>
+        <h2 className="mb-16 md:mb-20 text-center text-3xl font-semibold tracking-tight text-foreground">{t("title")}</h2>
 
         <div className="relative">
           <motion.div
@@ -52,6 +56,7 @@ export function ExperienceTimeline({ className }: React.ComponentProps<"section"
                   lineHeight={lineHeight}
                   dotOffset={dotOffsets[i] ?? 0}
                   itemVariants={itemVariants}
+                  presentLabel={t("timeline.present")}
                 />
               );
             })}

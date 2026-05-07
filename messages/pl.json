@@ -1,0 +1,104 @@
+{
+  "Metadata": {
+    "title": "Twoje imię | JavaScript Developer",
+    "description": "Portfolio JavaScript Developera. Doświadczenie, projekty i kontakt."
+  },
+  "Hero": {
+    "avatarAlt": "Bartosz Buczkowski - Software Developer - Awatar",
+    "headline": "Tworzę rozwiązania software’owe wspierane przez AI",
+    "description": "Projektuję i buduję nowoczesne aplikacje webowe z naciskiem na myślenie produktowe, skalowalność i szybkie iteracje w ekosystemie JavaScript."
+  },
+  "Availability": {
+    "label": "Otwarty na propozycje"
+  },
+  "Logo": {
+    "location": "Rzeszów, Polska"
+  },
+  "Header": {
+    "switchToEnglish": "Przełącz na angielski",
+    "switchToPolish": "Przełącz na polski",
+    "english": "EN",
+    "polish": "PL"
+  },
+  "Footer": {
+    "ctaTitle": "Zbudujmy coś wartościowego",
+    "ctaDescription": "Masz pomysł na produkt, wyzwanie techniczne lub projekt? Napisz na e‑mail i omówmy, jak mogę pomóc.",
+    "emailLabel": "Adres e‑mail",
+    "emailPlaceholder": "Wpisz adres e‑mail",
+    "sendEmail": "Wyślij e‑mail",
+    "copyright": "© Bartosz Buczkowski"
+  },
+  "FAQ": {
+    "imageAlt": "Bartosz Buczkowski - Software Developer",
+    "title": "FAQ",
+    "subtitle": "Wszystko, co możesz chcieć wiedzieć o współpracy, sposobie pracy i o tym, jak pomagam zespołom budować i rozwijać produkty.",
+    "items": [
+      {
+        "id": "faq-1",
+        "question": "Jakie usługi oferujesz?",
+        "answer": "Świadczę usługi rozwoju oprogramowania i konsultingu technicznego z naciskiem na nowoczesne aplikacje webowe, rozwój produktu, modernizację systemów oraz procesy wspierane przez AI."
+      },
+      {
+        "id": "faq-2",
+        "question": "Pracujesz wyłącznie jako frontend developer?",
+        "answer": "Frontend to moja główna specjalizacja, zwłaszcza React i TypeScript, ale działam też po stronie backendu, architektury, rozwoju produktu i konsultingu technicznego."
+      },
+      {
+        "id": "faq-3",
+        "question": "Czy pomagasz przy istniejących projektach?",
+        "answer": "Tak. Często pracuję przy istniejących produktach: modernizacja kodu, utrzymanie, optymalizacja procesów i szybsze dostarczanie funkcji."
+      },
+      {
+        "id": "faq-4",
+        "question": "Na czym polega rozwój wspierany przez AI?",
+        "answer": "To wykorzystanie nowoczesnych narzędzi AI do przyspieszania powtarzalnych zadań, researchu i debugowania, prototypowania i skracania czasu dostaw przy zachowaniu jakości inżynierskiej."
+      },
+      {
+        "id": "faq-5",
+        "question": "Czy współpracujesz ze startupami?",
+        "answer": "Tak. Lubię pracę ze startupami, zwłaszcza tam, gdzie liczy się szybka iteracja, pragmatyczne decyzje i tempo dostarczania."
+      },
+      {
+        "id": "faq-6",
+        "question": "Czy modernizujesz aplikacje legacy?",
+        "answer": "Tak. Mam doświadczenie w stopniowej modernizacji systemów legacy bez przerywania bieżącej działalności."
+      },
+      {
+        "id": "faq-7",
+        "question": "Czy oferujesz konsulting?",
+        "answer": "Tak. Oprócz implementacji pomagam zespołom w decyzjach dotyczących architektury, skalowalności, modernizacji, workflow i strategii produktowej."
+      }
+    ]
+  },
+  "Experience": {
+    "title": "Doświadczenie",
+    "timeline": {
+      "present": "Obecnie"
+    }
+  },
+  "Contact": {
+    "title": "Kontakt",
+    "name": "Imię i nazwisko",
+    "email": "E‑mail",
+    "message": "Wiadomość",
+    "namePlaceholder": "Twoje imię",
+    "emailPlaceholder": "twoj@email.pl",
+    "messagePlaceholder": "Twoja wiadomość…",
+    "submit": "Wyślij wiadomość",
+    "submitting": "Wysyłanie…",
+    "validation": {
+      "nameMin": "Imię musi mieć co najmniej 2 znaki",
+      "emailInvalid": "Podaj prawidłowy adres e‑mail",
+      "messageMin": "Wiadomość musi mieć co najmniej 10 znaków"
+    },
+    "server": {
+      "requiredFields": "Wszystkie pola są wymagane.",
+      "invalidEmail": "Podaj prawidłowy adres e‑mail.",
+      "success": "Dzięki! Wiadomość została wysłana."
+    }
+  },
+  "Theme": {
+    "switchToLight": "Przełącz na tryb jasny",
+    "switchToDark": "Przełącz na tryb ciemny"
+  }
+}

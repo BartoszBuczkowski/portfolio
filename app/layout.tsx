@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
-import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
+import { getLocale } from "next-intl/server";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,11 +14,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Your Name | JavaScript Developer",
-  description: "Portfolio of a JavaScript Developer. Experience, projects, and contact.",
-};
-
 const THEME_COOKIE_NAME = "theme";
 
 export default async function RootLayout({
@@ -28,10 +23,11 @@ export default async function RootLayout({
 }>) {
   const cookieStore = await cookies();
   const isThemeDark = cookieStore.get(THEME_COOKIE_NAME)?.value === "dark";
+  const locale = await getLocale();
 
   return (
     <html
-      lang="en"
+      lang={locale}
       className={cn({
         dark: isThemeDark,
       })}

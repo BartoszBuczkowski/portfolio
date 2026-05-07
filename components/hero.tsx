@@ -1,18 +1,16 @@
 import { AvailabilityBadge } from "@/components/availability-badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { getTranslations } from "next-intl/server";
 import { MailIcon } from "lucide-react";
 import Image from "next/image";
 
 const email = "bartosz.r.buczkowski@gmail.com";
 
-export function Hero() {
+export async function Hero() {
+  const t = await getTranslations("Hero");
   const avatarSrc = "/avatar.jfif";
   const mailToLink = `mailto:${email}`;
-  const avatarAlt = "Bartosz Buczkowski - Software Developer - Avatar";
-  const headline = "AI-Driven Software Solutions Builder";
-  const description =
-    "I design and build modern web applications with a strong focus on product thinking, scalability, and fast iteration using the JavaScript ecosystem.";
 
   return (
     <header className="relative flex w-full flex-col overflow-hidden bg-background px-6 py-20">
@@ -49,12 +47,12 @@ export function Hero() {
             "ring-2 ring-black/5 dark:ring-white/10",
           )}
         >
-          <Image src={avatarSrc} alt={avatarAlt} className="h-full w-full object-cover" width={208} height={208} />
+          <Image src={avatarSrc} alt={t("avatarAlt")} className="h-full w-full object-cover" width={208} height={208} />
         </div>
 
         <div className="flex flex-col gap-6">
-          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl max-w-3xl">{headline}</h1>
-          <p className="text-lg text-muted-foreground max-w-3xl">{description}</p>
+          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl max-w-3xl">{t("headline")}</h1>
+          <p className="text-lg text-muted-foreground max-w-3xl">{t("description")}</p>
 
           <Button
             asChild

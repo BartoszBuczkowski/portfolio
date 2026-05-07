@@ -16,4 +16,5 @@ export interface TimelineItemRowProps {
   lineHeight: MotionValue<number>;
   dotOffset: number;
   itemVariants: Variants;
+  presentLabel: string;
 }

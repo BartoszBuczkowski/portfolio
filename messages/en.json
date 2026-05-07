@@ -1,0 +1,104 @@
+{
+  "Metadata": {
+    "title": "Your Name | JavaScript Developer",
+    "description": "Portfolio of a JavaScript Developer. Experience, projects, and contact."
+  },
+  "Hero": {
+    "avatarAlt": "Bartosz Buczkowski - Software Developer - Avatar",
+    "headline": "AI-Driven Software Solutions Builder",
+    "description": "I design and build modern web applications with a strong focus on product thinking, scalability, and fast iteration using the JavaScript ecosystem."
+  },
+  "Availability": {
+    "label": "Open to work"
+  },
+  "Logo": {
+    "location": "Rzeszów, Poland"
+  },
+  "Header": {
+    "switchToEnglish": "Switch to English",
+    "switchToPolish": "Switch to Polish",
+    "english": "EN",
+    "polish": "PL"
+  },
+  "Footer": {
+    "ctaTitle": "Let’s Build Something Valuable",
+    "ctaDescription": "Have a product idea, technical challenge, or project in mind? Send me an email and let’s discuss how I can help.",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "Enter e-mail address",
+    "sendEmail": "Send an email",
+    "copyright": "© Bartosz Buczkowski"
+  },
+  "FAQ": {
+    "imageAlt": "Bartosz Buczkowski - Software Developer",
+    "title": "FAQ",
+    "subtitle": "Everything you may want to know about collaboration, development workflows, and how I help teams build and improve software products.",
+    "items": [
+      {
+        "id": "faq-1",
+        "question": "What services do you offer?",
+        "answer": "I provide software development and technical consulting services focused on modern web applications, product development, system modernization, and AI-assisted engineering workflows."
+      },
+      {
+        "id": "faq-2",
+        "question": "Do you work only as a frontend developer?",
+        "answer": "Frontend engineering is my main specialization, particularly in React and TypeScript, but I also work across backend services, architecture decisions, product development, and technical consulting."
+      },
+      {
+        "id": "faq-3",
+        "question": "Can you help with existing projects?",
+        "answer": "Yes. I often work with existing products, helping teams modernize codebases, improve maintainability, optimize workflows, and deliver new features faster."
+      },
+      {
+        "id": "faq-4",
+        "question": "What is AI-assisted development?",
+        "answer": "AI-assisted development means using modern AI tools to accelerate repetitive work, improve research and debugging, speed up prototyping, and reduce delivery time while maintaining engineering quality."
+      },
+      {
+        "id": "faq-5",
+        "question": "Do you work with startups?",
+        "answer": "Yes. I enjoy working with startups, especially where fast iteration, pragmatic decisions, and rapid product delivery are important."
+      },
+      {
+        "id": "faq-6",
+        "question": "Can you modernize legacy applications?",
+        "answer": "Yes. I have experience working with legacy systems and gradually modernizing them without interrupting ongoing business operations."
+      },
+      {
+        "id": "faq-7",
+        "question": "Do you offer consulting services?",
+        "answer": "Yes. Besides implementation, I help teams make technical decisions related to architecture, scalability, modernization, workflows, and product development strategy."
+      }
+    ]
+  },
+  "Experience": {
+    "title": "Experience",
+    "timeline": {
+      "present": "Present"
+    }
+  },
+  "Contact": {
+    "title": "Contact",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@example.com",
+    "messagePlaceholder": "Your message…",
+    "submit": "Send message",
+    "submitting": "Sending…",
+    "validation": {
+      "nameMin": "Name must be at least 2 characters",
+      "emailInvalid": "Please enter a valid email",
+      "messageMin": "Message must be at least 10 characters"
+    },
+    "server": {
+      "requiredFields": "All fields are required.",
+      "invalidEmail": "Please enter a valid email address.",
+      "success": "Thanks! Your message has been sent."
+    }
+  },
+  "Theme": {
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode"
+  }
+}

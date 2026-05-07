@@ -22,34 +22,26 @@ interface TechStackItemProps {
 
 function TechStackItem({ tech }: TechStackItemProps) {
   return (
-    <p className="my-4 inline-block w-min whitespace-nowrap align-top font-light leading-none animate-horizontal-pixel-smear">
+    <p className="text-muted-foreground my-4 inline-block w-min whitespace-nowrap align-top font-light leading-none animate-horizontal-pixel-smear">
       {tech?.label}
     </p>
   );
 }
 
-export function TechStackMarqueeWrapper({
-  children,
-}: TechStackMarqueeWrapperProps) {
+export function TechStackMarqueeWrapper({ children }: TechStackMarqueeWrapperProps) {
   const activeTech = useActiveTech();
   const currentActiveTechIndex = activeTech.findIndex(Boolean);
-  const activeTechLabel =
-    currentActiveTechIndex === -1 ? undefined : activeTech[currentActiveTechIndex]?.label;
+  const activeTechLabel = currentActiveTechIndex === -1 ? undefined : activeTech[currentActiveTechIndex]?.label;
 
   return (
-    <section
-      className="mx-auto mt-10 w-full max-w-5xl px-4"
-      data-active-tech-index={currentActiveTechIndex}
-    >
-      <div className="flex justify-between">
+    <section className="mx-auto mt-10 w-full max-w-5xl px-4" data-active-tech-index={currentActiveTechIndex}>
+      <div className="flex justify-between h-16">
         {activeTech.map((tech, index) => (
           <TechStackItem key={`tech-${index}`} tech={tech} />
         ))}
       </div>
 
-      <ActiveTechLabelContext.Provider value={activeTechLabel}>
-        {children}
-      </ActiveTechLabelContext.Provider>
+      <ActiveTechLabelContext.Provider value={activeTechLabel}>{children}</ActiveTechLabelContext.Provider>
     </section>
   );
 }

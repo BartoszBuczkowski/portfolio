@@ -6,14 +6,7 @@ import { z } from "zod";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { submitContact, type ContactState } from "@/app/actions/contact";
 
 const contactSchema = z.object({
@@ -24,10 +17,7 @@ const contactSchema = z.object({
 
 type ContactValues = z.infer<typeof contactSchema>;
 
-export function ContactForm({
-  className,
-  ...props
-}: React.ComponentProps<"section">) {
+export function ContactForm({ className, ...props }: React.ComponentProps<"section">) {
   const [state, setState] = useState<ContactState | null>(null);
 
   const form = useForm<ContactValues>({
@@ -57,9 +47,7 @@ export function ContactForm({
   return (
     <section id="contact" className={cn("py-24 px-6", className)} {...props}>
       <div className="mx-auto max-w-lg">
-        <h2 className="mb-10 text-center text-3xl font-semibold tracking-tight text-foreground">
-          Contact
-        </h2>
+        <h2 className="mb-10 text-center text-3xl font-semibold tracking-tight text-foreground">Contact</h2>
         <div
           className={cn(
             "rounded-2xl border border-white/20 bg-white/70 p-6 shadow-[0_0_40px_-8px_var(--glow-violet)] backdrop-blur-xl",
@@ -67,10 +55,7 @@ export function ContactForm({
           )}
         >
           <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="flex flex-col gap-6"
-            >
+            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-6">
               <FormField
                 control={form.control}
                 name="name"
@@ -78,11 +63,7 @@ export function ContactForm({
                   <FormItem>
                     <FormLabel>Name</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder="Your name"
-                        className="border-border focus-visible:ring-accent-violet/50"
-                        {...field}
-                      />
+                      <Input placeholder="Your name" className="border-border focus-visible:ring-accent-violet/50" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -129,16 +110,7 @@ export function ContactForm({
                   </FormItem>
                 )}
               />
-              {state && (
-                <p
-                  className={cn(
-                    "text-sm",
-                    state.ok ? "text-accent-violet" : "text-destructive",
-                  )}
-                >
-                  {state.message}
-                </p>
-              )}
+              {state && <p className={cn("text-sm", state.ok ? "text-accent-violet" : "text-destructive")}>{state.message}</p>}
               <Button
                 type="submit"
                 disabled={form.formState.isSubmitting}

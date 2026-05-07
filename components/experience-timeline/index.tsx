@@ -18,28 +18,13 @@ const itemVariants: Variants = {
   }),
 };
 
-export function ExperienceTimeline({
-  className,
-}: React.ComponentProps<"section">) {
-  const {
-    sectionRef,
-    listRef,
-    dotOffsets,
-    lineHeight,
-    indicatorTop,
-    setItemRef,
-  } = useExperienceTimelineMeasurements();
+export function ExperienceTimeline({ className }: React.ComponentProps<"section">) {
+  const { sectionRef, listRef, dotOffsets, lineHeight, indicatorTop, setItemRef } = useExperienceTimelineMeasurements();
 
   return (
-    <section
-      ref={sectionRef}
-      id="experience"
-      className={cn("relative py-24 px-4 md:px-6", className)}
-    >
+    <section ref={sectionRef} id="experience" className={cn("relative py-24 px-4 md:px-6", className)}>
       <div className="mx-auto max-w-4xl">
-        <h2 className="mb-16 md:mb-20 text-center text-3xl font-semibold tracking-tight text-foreground">
-          Experience
-        </h2>
+        <h2 className="mb-16 md:mb-20 text-center text-3xl font-semibold tracking-tight text-foreground">Experience</h2>
 
         <div className="relative">
           <motion.div
@@ -48,10 +33,7 @@ export function ExperienceTimeline({
             aria-hidden
           />
 
-          <motion.div
-            className="pointer-events-none absolute left-0 z-20 h-3 w-full"
-            style={{ top: indicatorTop }}
-          >
+          <motion.div className="pointer-events-none absolute left-0 z-20 h-3 w-full" style={{ top: indicatorTop }}>
             <div
               className="absolute left-4 h-3 w-3 shrink-0 rounded-full border-2 border-background shadow-[0_0_12px_var(--glow-violet)] md:left-1/2 md:-translate-x-1/2"
               style={{ backgroundColor: "var(--accent-violet)" }}
@@ -59,10 +41,7 @@ export function ExperienceTimeline({
             />
           </motion.div>
 
-          <ul
-            ref={listRef}
-            className="relative -mt-3 flex flex-col gap-12 pl-12 md:pl-0 md:-mt-3"
-          >
+          <ul ref={listRef} className="relative -mt-3 flex flex-col gap-12 pl-12 md:pl-0 md:-mt-3">
             {experience.map((item, i) => {
               const isLeft = i % 2 === 0;
               return (

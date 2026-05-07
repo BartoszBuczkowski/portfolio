@@ -14,16 +14,12 @@ export function useExperienceTimelineMeasurements() {
     offset: ["start center", "end center"],
   });
   const lineHeight = useTransform(scrollYProgress, [0, 1], [0, listHeight]);
-  const indicatorTop = useTransform(lineHeight, (height) =>
-    Math.max(height - 6, -6),
-  );
+  const indicatorTop = useTransform(lineHeight, (height) => Math.max(height - 6, -6));
 
   const measureDotOffsets = () => {
     const list = listRef.current;
     if (!list) return;
-    const offsets = itemRefs.current.map((item) =>
-      item ? item.offsetTop + item.offsetHeight / 2 : 0,
-    );
+    const offsets = itemRefs.current.map((item) => (item ? item.offsetTop + item.offsetHeight / 2 : 0));
     setDotOffsets(offsets);
   };
 

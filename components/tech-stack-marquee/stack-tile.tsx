@@ -26,7 +26,7 @@ export function StackTile({ item }: StackTileProps) {
         data-tech-label={item.label}
         className={cn(
           "size-8 cursor-pointer transition-all duration-300",
-          isActive ? "scale-120 opacity-95 dark:opacity-95" : "opacity-20 dark:opacity-35"
+          isActive ? "scale-120 opacity-95 dark:opacity-95" : "opacity-20 dark:opacity-35",
         )}
       />
     </div>

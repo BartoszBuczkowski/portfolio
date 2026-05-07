@@ -5,25 +5,14 @@ import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { TimelineItemRowProps } from "./types";
 
-export function TimelineItemRow({
-  setItemRef,
-  item,
-  isLeft,
-  lineHeight,
-  dotOffset,
-  itemVariants,
-}: TimelineItemRowProps) {
+export function TimelineItemRow({ setItemRef, item, isLeft, lineHeight, dotOffset, itemVariants }: TimelineItemRowProps) {
   const itemRef = useRef<HTMLLIElement>(null);
   const isInView = useInView(itemRef, {
     once: true,
     margin: "-60px 0px -80px 0px",
   });
   const safeDotOffset = Number.isFinite(dotOffset) ? dotOffset : 0;
-  const revealProgress = useTransform(
-    lineHeight,
-    [safeDotOffset - 28, safeDotOffset + 8],
-    [0, 1],
-  );
+  const revealProgress = useTransform(lineHeight, [safeDotOffset - 28, safeDotOffset + 8], [0, 1]);
   const smoothReveal = useSpring(revealProgress, {
     stiffness: 220,
     damping: 24,
@@ -64,24 +53,15 @@ export function TimelineItemRow({
           opacity: contentOpacity,
         }}
       >
-        <p
-          className="mb-1 text-sm font-medium"
-          style={{ color: "var(--accent-violet)" }}
-        >
+        <p className="mb-1 text-sm font-medium" style={{ color: "var(--accent-violet)" }}>
           {item.period}
         </p>
         <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
         <p className="mb-2 text-sm text-muted-foreground">{item.company}</p>
-        <p className="text-sm leading-relaxed text-muted-foreground">
-          {item.description}
-        </p>
+        <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
       </motion.div>
 
-      <div
-        className={cn(
-          "absolute left-[-32px] top-1/2 z-10 -translate-y-1/2 md:left-1/2",
-        )}
-      >
+      <div className={cn("absolute left-[-32px] top-1/2 z-10 -translate-y-1/2 md:left-1/2")}>
         <motion.div
           className="h-3 w-3 -translate-x-1/2 rounded-full border-2 border-background shadow-[0_0_12px_var(--glow-violet)]"
           style={{

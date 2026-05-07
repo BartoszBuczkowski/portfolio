@@ -12,11 +12,7 @@ export function ThemeToggle({ className }: { className?: string }) {
     () => true,
     () => false,
   );
-  const [dark, setDark] = useState(
-    () =>
-      typeof document !== "undefined" &&
-      document.documentElement.classList.contains("dark"),
-  );
+  const [dark, setDark] = useState(() => typeof document !== "undefined" && document.documentElement.classList.contains("dark"));
 
   useEffect(() => {
     if (!mounted) return;
@@ -25,12 +21,7 @@ export function ThemeToggle({ className }: { className?: string }) {
   }, [dark, mounted]);
 
   if (!mounted) {
-    return (
-      <div
-        className={cn("h-9 w-14 rounded-full bg-muted", className)}
-        aria-hidden
-      />
-    );
+    return <div className={cn("h-9 w-14 rounded-full bg-muted", className)} aria-hidden />;
   }
 
   return (

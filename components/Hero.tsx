@@ -20,12 +20,7 @@ export function Hero({
   description?: string;
 } & React.ComponentProps<"header">) {
   return (
-    <header
-      className={cn(
-        "relative flex w-full flex-col overflow-hidden bg-background px-6 py-20",
-        className,
-      )}
-    >
+    <header className={cn("relative flex w-full flex-col overflow-hidden bg-background px-6 py-20", className)}>
       {/* Subtle grid background */}
       <div
         className="absolute inset-0 opacity-[0.4] dark:opacity-[0.15]"
@@ -65,37 +60,21 @@ export function Hero({
           )}
         >
           {avatarSrc ? (
-            <Image
-              src={avatarSrc}
-              alt=""
-              className="h-full w-full object-cover"
-              width={208}
-              height={208}
-            />
+            <Image src={avatarSrc} alt="" className="h-full w-full object-cover" width={208} height={208} />
           ) : (
-            <div
-              className="h-full w-full bg-linear-to-br from-accent-violet/20 via-accent-pink/20 to-accent-blue/20"
-              aria-hidden
-            />
+            <div className="h-full w-full bg-linear-to-br from-accent-violet/20 via-accent-pink/20 to-accent-blue/20" aria-hidden />
           )}
         </div>
 
         <div className="flex flex-col gap-6">
-          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl max-w-3xl">
-            {headline}
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-3xl">
-            {description}
-          </p>
+          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl max-w-3xl">{headline}</h1>
+          <p className="text-lg text-muted-foreground max-w-3xl">{description}</p>
           {email && (
             <Button
               asChild
               className="bg-primary text-base font-medium text-primary-foreground shadow-md hover:bg-primary/90 self-center px-4 py-2"
             >
-              <a
-                href={`mailto:${email}`}
-                className="inline-flex items-center gap-2"
-              >
+              <a href={`mailto:${email}`} className="inline-flex items-center gap-2">
                 <MailIcon className="size-4" />
                 {email}
               </a>

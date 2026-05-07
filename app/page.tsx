@@ -10,11 +10,7 @@ export default function Home() {
     <div className="min-h-screen bg-background font-sans text-foreground">
       <main>
         <HeroHeader />
-        <Hero
-          headline="Crafting User-Centric Experiences."
-          email="ampitanb@yahoo.com"
-          avatarSrc="/avatar.jfif"
-        />
+        <Hero headline="Crafting User-Centric Experiences." email="ampitanb@yahoo.com" avatarSrc="/avatar.jfif" />
         <TechStackMarquee />
         <ExperienceTimeline />
         <FAQSection />

@@ -1,17 +1,11 @@
 import { useEffect, useState } from "react";
 
 import { techStack } from "./data";
+import { getCandidateTechItems, getNextIndex, getPreviouslyActiveLabel } from "./functions";
 import type { TechStackItem } from "./types";
 
 type OptionalTechStackItem = TechStackItem | undefined;
-type ActiveTech =
-  | [
-      OptionalTechStackItem,
-      OptionalTechStackItem,
-      OptionalTechStackItem,
-      OptionalTechStackItem,
-    ]
-  | [];
+type ActiveTech = [OptionalTechStackItem, OptionalTechStackItem, OptionalTechStackItem, OptionalTechStackItem] | [];
 
 const intervalMs = 2000;
 const marqueeContainerSelector = ".tech-stack-fade-mask";
@@ -37,9 +31,7 @@ function getVisibleTechLabels() {
   const containerStyles = getComputedStyle(container);
   const containerLeft = containerRect.left + parseCssPx(containerStyles.paddingLeft);
   const containerRight = containerRect.right - parseCssPx(containerStyles.paddingRight);
-  const techTiles = Array.from(
-    document.querySelectorAll<HTMLElement>(techTileSelector),
-  );
+  const techTiles = Array.from(document.querySelectorAll<HTMLElement>(techTileSelector));
   const visibleLabels = new Set<string>();
 
   techTiles.forEach((tile) => {
@@ -56,10 +48,7 @@ function getVisibleTechLabels() {
     const centerX = (tileOuterLeft + tileOuterRight) / 2;
     const centerY = (tileRect.top + tileRect.bottom) / 2;
     const isVisibleInsideContainer =
-      centerX >= containerLeft &&
-      centerX <= containerRight &&
-      centerY >= containerRect.top &&
-      centerY <= containerRect.bottom;
+      centerX >= containerLeft && centerX <= containerRight && centerY >= containerRect.top && centerY <= containerRect.bottom;
 
     if (isVisibleInsideContainer) {
       visibleLabels.add(label);
@@ -77,9 +66,7 @@ export function useActiveTech() {
       setActiveTech((prev) => {
         const next: ActiveTech = [undefined, undefined, undefined, undefined];
         const visibleTechLabels = getVisibleTechLabels();
-        const visibleTechItems = techStack.filter((item) =>
-          visibleTechLabels.includes(item.label),
-        );
+        const visibleTechItems = techStack.filter((item) => visibleTechLabels.includes(item.label));
 
         if (!visibleTechItems.length) {
           return prev;
@@ -94,20 +81,9 @@ export function useActiveTech() {
           }
         }
 
-        const nextIndex =
-          currentActiveDisplayIndex === -1
-            ? 0
-            : currentActiveDisplayIndex === 3
-              ? 0
-              : currentActiveDisplayIndex + 1;
-
-        const previouslyActiveLabel =
-          currentActiveDisplayIndex === -1
-            ? undefined
-            : prev[currentActiveDisplayIndex]?.label;
-        const candidateTechItems = previouslyActiveLabel
-          ? visibleTechItems.filter((item) => item.label !== previouslyActiveLabel)
-          : visibleTechItems;
+        const nextIndex = getNextIndex(currentActiveDisplayIndex);
+        const previouslyActiveLabel = getPreviouslyActiveLabel(prev, currentActiveDisplayIndex);
+        const candidateTechItems = getCandidateTechItems(visibleTechItems, previouslyActiveLabel);
 
         if (!candidateTechItems.length) {
           return prev;

@@ -36,7 +36,7 @@ export function FAQSection() {
                   className="w-full justify-between"
                   onClick={() => setExpandedItemId(isExpanded ? "" : item.id)}
                 >
-                  <span className="w-[358px] max-w-full text-base leading-6 font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">
+                  <span className="max-w-full text-base leading-6 font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">
                     {item.question}
                   </span>
                   <ChevronDown

@@ -1,11 +1,12 @@
 import { MotionValue, Variants } from "framer-motion";
 
 export type TimelineItem = {
-  id: string;
-  title: string;
-  company: string;
-  period: string;
+  yearFrom: number;
+  yearTo: number | null;
+  roleTitle: string;
+  companyName: string;
   description: string;
+  technologies: string[];
 };
 
 export interface TimelineItemRowProps {

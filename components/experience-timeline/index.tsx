@@ -28,15 +28,14 @@ export function ExperienceTimeline({ className }: React.ComponentProps<"section"
 
         <div className="relative">
           <motion.div
-            className="absolute top-0 left-4 w-px bg-linear-to-b from-accent-violet/50 via-accent-blue/60 to-accent-pink/50 transition-[height] duration-150 ease-out md:left-1/2 md:-translate-x-1/2"
+            className="absolute top-0 left-4 w-px bg-linear-to-b from-foreground/20 via-foreground/50 to-foreground/20 transition-[height] duration-150 ease-out md:left-1/2 md:-translate-x-1/2"
             style={{ height: lineHeight }}
             aria-hidden
           />
 
           <motion.div className="pointer-events-none absolute left-0 z-20 h-3 w-full" style={{ top: indicatorTop }}>
             <div
-              className="absolute left-4 h-3 w-3 shrink-0 rounded-full border-2 border-background shadow-[0_0_12px_var(--glow-violet)] md:left-1/2 md:-translate-x-1/2"
-              style={{ backgroundColor: "var(--accent-violet)" }}
+              className="absolute left-4 h-3 w-3 shrink-0 rounded-full border-2 border-background bg-foreground md:left-1/2 md:-translate-x-1/2"
               aria-hidden
             />
           </motion.div>
@@ -46,7 +45,7 @@ export function ExperienceTimeline({ className }: React.ComponentProps<"section"
               const isLeft = i % 2 === 0;
               return (
                 <TimelineItemRow
-                  key={item.id}
+                  key={`${item.companyName}-${item.yearFrom}`}
                   setItemRef={(el) => setItemRef(i, el)}
                   item={item}
                   isLeft={isLeft}

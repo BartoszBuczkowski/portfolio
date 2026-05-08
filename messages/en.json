@@ -74,6 +74,43 @@
     "title": "Experience",
     "timeline": {
       "present": "Present"
+    },
+    "items": {
+      "laras": {
+        "roleTitle": "Owner / Creative Graphic Designer",
+        "companyName": "Lara’s Clothes",
+        "description": "Managed own clothing brand, including design, branding, e-commerce operations, logistics, and marketing."
+      },
+      "reasonapps": {
+        "roleTitle": "Junior Frontend Engineer",
+        "companyName": "ReasonApps",
+        "description": "Developed browser-based graphic editor for sports journalists, worked on e-commerce solutions and maintained React on Rails applications."
+      },
+      "edocs": {
+        "roleTitle": "Frontend Engineer",
+        "companyName": "Europa Systems",
+        "description": "Worked on scalable frontend architecture, component libraries, and performance optimization for large data-driven applications."
+      },
+      "global4net": {
+        "roleTitle": "Frontend Engineer",
+        "companyName": "Global4Net",
+        "description": "Contributed to React Native mobile applications and modernized React applications with TypeScript and Redux improvements."
+      },
+      "punkta": {
+        "roleTitle": "Senior Frontend Engineer",
+        "companyName": "Punkta",
+        "description": "Led frontend modernization initiatives, migrated legacy systems to React, unified frontend technologies, and improved UX consistency."
+      },
+      "neti": {
+        "roleTitle": "JavaScript Engineer",
+        "companyName": "Neti Soft",
+        "description": "Worked on secure business solutions, including biometric authentication, encryption, and Web3-related applications."
+      },
+      "off": {
+        "roleTitle": "Owner / Software Engineer",
+        "companyName": "The Off",
+        "description": "Building a new business from scratch, including branding, software development, and marketing."
+      }
     }
   },
   "Contact": {

@@ -5,8 +5,9 @@ import { techStack } from "./data";
 export function TechStackMarquee() {
   const firstRow = techStack.filter((_, index) => index % 2 === 0);
   const secondRow = techStack.filter((_, index) => index % 2 === 1);
+  const normalizedSecondRow = secondRow.length === firstRow.length ? secondRow : [...secondRow, secondRow[0]];
   const firstRowItems = [...firstRow, ...firstRow];
-  const secondRowItems = [...secondRow, ...secondRow];
+  const secondRowItems = [...normalizedSecondRow, ...normalizedSecondRow];
 
   return (
     <TechStackMarqueeWrapper>
@@ -18,10 +19,12 @@ export function TechStackMarquee() {
             ))}
           </div>
 
-          <div className="tech-stack-scroll flex w-max divide-x divide-muted dark:divide-muted/40">
-            {secondRowItems.map((item, index) => (
-              <StackTile key={`row-2-${item.label}-${index}`} item={item} />
-            ))}
+          <div className="-ml-24">
+            <div className="tech-stack-scroll flex w-max divide-x divide-muted dark:divide-muted/40">
+              {secondRowItems.map((item, index) => (
+                <StackTile key={`row-2-${item.label}-${index}`} item={item} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

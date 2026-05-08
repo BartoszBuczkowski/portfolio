@@ -1,4 +1,5 @@
 import { MotionValue, Variants } from "framer-motion";
+import { JSX } from "react";
 
 export type TimelineItem = {
   yearFrom: number;
@@ -7,6 +8,7 @@ export type TimelineItem = {
   companyName: string;
   description: string;
   technologies: string[];
+  icon: (props: { className?: string }) => JSX.Element;
 };
 
 export interface TimelineItemRowProps {

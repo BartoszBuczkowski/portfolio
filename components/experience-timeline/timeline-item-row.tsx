@@ -3,7 +3,9 @@
 import { cn } from "@/lib/utils";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { TechBadge } from "./tech-badge";
+import { TechnologiesList } from "./components/technologies-list";
+import { TimelineDot } from "./components/timeline-dot";
+import { TimelineItemDetails } from "./components/timeline-item-details";
 import { TimelineItemRowProps } from "./types";
 
 function formatPeriod(yearFrom: number, yearTo: number | null, presentLabel: string): string {
@@ -12,15 +14,7 @@ function formatPeriod(yearFrom: number, yearTo: number | null, presentLabel: str
   return `${yearFrom} — ${yearTo}`;
 }
 
-export function TimelineItemRow({
-  setItemRef,
-  item,
-  isLeft,
-  lineHeight,
-  dotOffset,
-  itemVariants,
-  presentLabel,
-}: TimelineItemRowProps) {
+export function TimelineItemRow({ setItemRef, item, isLeft, lineHeight, dotOffset, itemVariants, presentLabel }: TimelineItemRowProps) {
   const itemRef = useRef<HTMLLIElement>(null);
   const isInView = useInView(itemRef, {
     once: true,
@@ -44,6 +38,7 @@ export function TimelineItemRow({
   };
 
   const period = formatPeriod(item.yearFrom, item.yearTo, presentLabel);
+  const Icon = item.icon;
 
   return (
     <motion.li
@@ -67,34 +62,24 @@ export function TimelineItemRow({
           opacity: contentOpacity,
         }}
       >
-        <p className="mb-1 text-sm font-medium text-muted-foreground">{period}</p>
-        <h3 className="text-lg font-semibold text-foreground">{item.roleTitle}</h3>
-        <p className="mb-2 text-sm text-muted-foreground">{item.companyName}</p>
-        <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+        <Icon className="mb-4 md:hidden" />
 
-        {item.technologies.length > 0 && (
-          <ul className={cn("mt-3 flex flex-wrap gap-1.5", isLeft ? "md:justify-end" : "md:justify-start")}>
-            {item.technologies.map((tech) => (
-              <li key={tech}>
-                <TechBadge label={tech} />
-              </li>
-            ))}
-          </ul>
-        )}
+        <TimelineItemDetails period={period} item={item} />
+
+        <TechnologiesList technologies={item.technologies} isLeft={isLeft} />
       </motion.div>
 
-      <div className={cn("absolute left-[-32px] top-1/2 z-10 -translate-y-1/2 md:left-1/2")}>
-        <motion.div
-          className="h-3 w-3 -translate-x-1/2 rounded-full border-2 border-background bg-foreground"
-          style={{
-            scale: dotScale,
-            opacity: dotOpacity,
-          }}
-          transition={{ duration: 0.25, ease: "easeOut" }}
-        />
-      </div>
+      <TimelineDot dotScale={dotScale} dotOpacity={dotOpacity} />
 
-      <div className="hidden w-[calc(50%-32px)] spacer" />
+      <div
+        aria-hidden
+        className={cn("spacer hidden md:flex md:w-[calc(50%-32px)] md:items-center", {
+          "md:pl-8 md:justify-start": isLeft,
+          "md:pr-8 md:justify-end": !isLeft,
+        })}
+      >
+        <Icon className="size-40 m-auto" />
+      </div>
     </motion.li>
   );
 }

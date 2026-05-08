@@ -5,7 +5,7 @@
   },
   "Hero": {
     "avatarAlt": "Bartosz Buczkowski - Software Developer - Awatar",
-    "headline": "Tworzę rozwiązania software’owe wspierane przez AI",
+    "headline": "Tworzę rozwiązania software’owe wspierany przez AI",
     "description": "Projektuję i buduję nowoczesne aplikacje webowe z naciskiem na myślenie produktowe, skalowalność i szybkie iteracje w ekosystemie JavaScript."
   },
   "Availability": {
@@ -74,6 +74,43 @@
     "title": "Doświadczenie",
     "timeline": {
       "present": "Obecnie"
+    },
+    "items": {
+      "laras": {
+        "roleTitle": "Właściciel / Creative Graphic Designer",
+        "companyName": "Lara’s Clothes",
+        "description": "Prowadzenie własnej marki odzieżowej: projektowanie, branding, e-commerce, logistyka i marketing."
+      },
+      "reasonapps": {
+        "roleTitle": "Junior Frontend Engineer",
+        "companyName": "ReasonApps",
+        "description": "Rozwój graficznego edytora w przeglądarce dla dziennikarzy sportowych, e-commerce oraz utrzymanie aplikacji React on Rails."
+      },
+      "edocs": {
+        "roleTitle": "Frontend Engineer",
+        "companyName": "Europa Systems",
+        "description": "Skalowalna architektura frontendu, biblioteki komponentów i optymalizacja wydajności dużych aplikacji opartych na danych."
+      },
+      "global4net": {
+        "roleTitle": "Frontend Engineer",
+        "companyName": "Global4Net",
+        "description": "Aplikacje mobilne React Native oraz modernizacja aplikacji React z TypeScript i Redux."
+      },
+      "punkta": {
+        "roleTitle": "Senior Frontend Engineer",
+        "companyName": "Punkta",
+        "description": "Inicjatywy modernizacji frontendu, migracja systemów legacy do Reacta, ujednolicenie stacku i spójność UX."
+      },
+      "neti": {
+        "roleTitle": "JavaScript Engineer",
+        "companyName": "Neti Soft",
+        "description": "Bezpieczne rozwiązania biznesowe: m.in. biometria, szyfrowanie i aplikacje z obszaru Web3."
+      },
+      "off": {
+        "roleTitle": "Właściciel / Software Engineer",
+        "companyName": "The Off",
+        "description": "Budowa działalności od zera: branding, rozwój oprogramowania i marketing."
+      }
     }
   },
   "Contact": {

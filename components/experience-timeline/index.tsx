@@ -1,10 +1,10 @@
 "use client";
 
-import { type Variants, motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 import { useExperienceTimelineMeasurements } from "@/components/experience-timeline/hooks/use-experience-timeline-measurements";
-import { experienceByLocale } from "@/static/experience";
-import { useLocale, useTranslations } from "next-intl";
+import { cn } from "@/lib/utils";
+import { getExperience } from "@/static/experience";
+import { motion, type Variants } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { TimelineItemRow } from "./timeline-item-row";
 
 const itemVariants: Variants = {
@@ -21,9 +21,9 @@ const itemVariants: Variants = {
 
 export function ExperienceTimeline({ className }: React.ComponentProps<"section">) {
   const { sectionRef, listRef, dotOffsets, lineHeight, indicatorTop, setItemRef } = useExperienceTimelineMeasurements();
-  const locale = useLocale();
+
   const t = useTranslations("Experience");
-  const experience = experienceByLocale[locale === "pl" ? "pl" : "en"];
+  const experience = getExperience(t);
 
   return (
     <section ref={sectionRef} id="experience" className={cn("relative py-24 px-4 md:px-6", className)}>

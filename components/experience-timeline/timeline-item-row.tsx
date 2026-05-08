@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { TechnologiesList } from "./components/technologies-list";
 import { TimelineDot } from "./components/timeline-dot";
 import { TimelineItemDetails } from "./components/timeline-item-details";
@@ -14,11 +14,20 @@ function formatPeriod(yearFrom: number, yearTo: number | null, presentLabel: str
   return `${yearFrom} — ${yearTo}`;
 }
 
-export function TimelineItemRow({ setItemRef, item, isLeft, lineHeight, dotOffset, itemVariants, presentLabel }: TimelineItemRowProps) {
+export function TimelineItemRow({
+  setItemRef,
+  item,
+  isLeft,
+  lineHeight,
+  dotOffset,
+  isActive,
+  itemVariants,
+  presentLabel,
+}: TimelineItemRowProps) {
   const itemRef = useRef<HTMLLIElement>(null);
   const isInView = useInView(itemRef, {
     once: true,
-    margin: "-60px 0px -80px 0px",
+    margin: "0px",
   });
   const safeDotOffset = Number.isFinite(dotOffset) ? dotOffset : 0;
   const revealProgress = useTransform(lineHeight, [safeDotOffset - 28, safeDotOffset + 8], [0, 1]);
@@ -27,10 +36,21 @@ export function TimelineItemRow({ setItemRef, item, isLeft, lineHeight, dotOffse
     damping: 24,
     mass: 0.7,
   });
+  const smoothActivity = useSpring(isActive ? 1 : 0.3, {
+    stiffness: 260,
+    damping: 28,
+    mass: 0.8,
+  });
+  useEffect(() => {
+    smoothActivity.set(isActive ? 1 : 0.3);
+  }, [isActive, smoothActivity]);
   const dotScale = useTransform(smoothReveal, [0, 1], [0.7, 1]);
-  const dotOpacity = useTransform(smoothReveal, [0, 1], [0, 1]);
-  const contentScale = useTransform(smoothReveal, [0, 1], [0.96, 1]);
-  const contentOpacity = useTransform(smoothReveal, [0, 1], [0.3, 1]);
+  const dotOpacity = useTransform([smoothReveal, smoothActivity], ([reveal, activity]) => Number(reveal) * Number(activity));
+  const contentScale = useTransform(smoothReveal, [0, 1], [1, 1]);
+  const contentOpacity = useTransform([smoothReveal, smoothActivity], ([reveal, activity]) => {
+    const combined = Number(reveal) * Number(activity);
+    return Math.min(Math.max(combined, 0.3), 1);
+  });
 
   const handleItemRef = (el: HTMLLIElement | null) => {
     itemRef.current = el;
@@ -51,6 +71,10 @@ export function TimelineItemRow({ setItemRef, item, isLeft, lineHeight, dotOffse
       animate={isInView ? "visible" : "hidden"}
       variants={itemVariants}
       custom={isLeft ? "left" : "right"}
+      style={{
+        scale: contentScale,
+        opacity: contentOpacity,
+      }}
     >
       <motion.div
         className={cn("w-full py-4 md:w-[calc(50%-32px)] text-left pl-0", "md:pl-0 md:pr-0", {
@@ -62,7 +86,7 @@ export function TimelineItemRow({ setItemRef, item, isLeft, lineHeight, dotOffse
           opacity: contentOpacity,
         }}
       >
-        <Icon className="mb-4 md:hidden" />
+        <Icon className="block md:hidden w-40 mb-8" />
 
         <TimelineItemDetails period={period} item={item} />
 
@@ -78,7 +102,7 @@ export function TimelineItemRow({ setItemRef, item, isLeft, lineHeight, dotOffse
           "md:pr-8 md:justify-end": !isLeft,
         })}
       >
-        <Icon className="size-40 m-auto" />
+        <Icon className="w-40 m-auto" />
       </div>
     </motion.li>
   );

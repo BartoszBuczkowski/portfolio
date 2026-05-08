@@ -20,7 +20,7 @@ const itemVariants: Variants = {
 };
 
 export function ExperienceTimeline({ className }: React.ComponentProps<"section">) {
-  const { sectionRef, listRef, dotOffsets, lineHeight, indicatorTop, setItemRef } = useExperienceTimelineMeasurements();
+  const { sectionRef, listRef, dotOffsets, activeIndex, lineHeight, indicatorTop, setItemRef } = useExperienceTimelineMeasurements();
 
   const t = useTranslations("Experience");
   const experience = getExperience(t);
@@ -55,6 +55,7 @@ export function ExperienceTimeline({ className }: React.ComponentProps<"section"
                   isLeft={isLeft}
                   lineHeight={lineHeight}
                   dotOffset={dotOffsets[i] ?? 0}
+                  isActive={activeIndex === i}
                   itemVariants={itemVariants}
                   presentLabel={t("timeline.present")}
                 />

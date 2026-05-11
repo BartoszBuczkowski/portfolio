@@ -21,8 +21,8 @@
     "polish": "PL"
   },
   "Footer": {
-    "ctaTitle": "Zbudujmy coś wartościowego",
-    "ctaDescription": "Masz pomysł na produkt, wyzwanie techniczne lub projekt? Napisz na e‑mail i omówmy, jak mogę pomóc.",
+    "ctaTitle": "Szukasz partnera do rozwoju produktu?",
+    "ctaDescription": "Masz pomysł na produkt, wyzwanie techniczne lub projekt, ale brakuje Ci Software Developera? Napisz do mnie na e‑mail i omówmy, jak mogę pomóc.",
     "emailLabel": "Adres e‑mail",
     "emailPlaceholder": "Wpisz adres e‑mail",
     "sendEmail": "Wyślij e‑mail",
@@ -72,6 +72,11 @@
   },
   "Experience": {
     "title": "Doświadczenie",
+    "caseStudiesHeading": "Wybrane realizacje",
+    "caseStudy": {
+      "problem": "Problem",
+      "contribution": "Wkład"
+    },
     "timeline": {
       "present": "Obecnie"
     },
@@ -79,7 +84,24 @@
       "laras": {
         "roleTitle": "Właściciel / Creative Graphic Designer",
         "companyName": "Lara’s Clothes",
-        "description": "Prowadzenie własnej marki odzieżowej: projektowanie, branding, e-commerce, logistyka i marketing."
+        "description": "Prowadzenie własnej marki odzieżowej: projektowanie, branding, e-commerce, logistyka i marketing.",
+        "caseStudies": [
+          {
+            "productName": "Sklep internetowy marki",
+            "problem": "Oferta była rozproszona po kilku kanałach, a klienci nie mieli jednego prostego miejsca na zakupy online.",
+            "contribution": "Zaprojektowałem witrynę i ścieżkę zakupową, spójne z identyfikacją wizualną kolekcji."
+          },
+          {
+            "productName": "Identyfikacja i materiały kolekcji",
+            "problem": "Nowe linie produktów potrzebowyły spójnej oprawy graficznej, żeby wyróżniać się na rynku i budować rozpoznawalność.",
+            "contribution": "Opracowałem kluczowe elementy brandingu oraz layouty lookbooków i materiałów promocyjnych."
+          },
+          {
+            "productName": "Kanały marketingowe",
+            "problem": "Komunikacja marki była nierówna między social media, newsletterem a sklepem, co utrudniało utrzymanie zainteresowania.",
+            "contribution": "Ujednoliciłem przekaz wizualny i ton komunikacji w kampaniach oraz treściach cyklicznych."
+          }
+        ]
       },
       "reasonapps": {
         "roleTitle": "Junior Frontend Engineer",

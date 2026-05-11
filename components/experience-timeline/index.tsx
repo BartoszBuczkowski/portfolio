@@ -1,10 +1,12 @@
 "use client";
 
+import { ExperienceTimelineScrollContext } from "@/components/experience-timeline/experience-timeline-scroll-context";
 import { useExperienceTimelineMeasurements } from "@/components/experience-timeline/hooks/use-experience-timeline-measurements";
 import { cn } from "@/lib/utils";
 import { getExperience } from "@/static/experience";
 import { motion, type Variants } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { useMemo } from "react";
 import { TimelineItemRow } from "./timeline-item-row";
 
 const itemVariants: Variants = {
@@ -22,6 +24,19 @@ export function ExperienceTimeline({ className }: React.ComponentProps<"section"
 
   const t = useTranslations("Experience");
   const experience = getExperience(t);
+  const presentLabel = t("timeline.present");
+
+  const scrollContextValue = useMemo(
+    () => ({
+      lineHeight,
+      setItemRef,
+      dotOffsets,
+      activeIndex,
+      itemVariants,
+      presentLabel,
+    }),
+    [lineHeight, setItemRef, dotOffsets, activeIndex, presentLabel],
+  );
 
   return (
     <section ref={sectionRef} id="experience" className={cn("relative py-24 px-4 md:px-6", className)}>
@@ -42,24 +57,13 @@ export function ExperienceTimeline({ className }: React.ComponentProps<"section"
             />
           </motion.div>
 
-          <ul ref={listRef} className="relative -mt-3 flex flex-col gap-12 pl-12 md:pl-0 md:-mt-3">
-            {experience.map((item, i) => {
-              const isLeft = i % 2 === 0;
-              return (
-                <TimelineItemRow
-                  key={`${item.companyName}-${item.yearFrom}`}
-                  setItemRef={(el) => setItemRef(i, el)}
-                  item={item}
-                  isLeft={isLeft}
-                  lineHeight={lineHeight}
-                  dotOffset={dotOffsets[i] ?? 0}
-                  isActive={activeIndex === i}
-                  itemVariants={itemVariants}
-                  presentLabel={t("timeline.present")}
-                />
-              );
-            })}
-          </ul>
+          <ExperienceTimelineScrollContext.Provider value={scrollContextValue}>
+            <ul ref={listRef} className="relative -mt-3 flex flex-col gap-12 pl-12 md:pl-0 md:-mt-3">
+              {experience.map((item, i) => (
+                <TimelineItemRow key={`${item.companyName}-${item.yearFrom}`} index={i} item={item} />
+              ))}
+            </ul>
+          </ExperienceTimelineScrollContext.Provider>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import type { TimelineItem } from "@/components/experience-timeline/types";
+import type { CaseStudy, TimelineItem } from "@/components/experience-timeline/types";
 import { EdocsIcon } from "@/components/icons/edocs-icon";
 import { LarasIcon } from "@/components/icons/laras-icon";
 import { NetiIcon } from "@/components/icons/neti-icon";
@@ -6,10 +6,23 @@ import { OffIcon } from "@/components/icons/off-icon";
 import { PunktaPlIcon } from "@/components/icons/punkta-icon";
 import { ReasonappsIcon } from "@/components/icons/reasonapps-icon";
 import { UnivioG4nIcon } from "@/components/icons/univio-g4n-icon";
+import { _Translator } from "next-intl";
 
-type ExperienceTranslator = (key: string) => string;
+function optionalCaseStudies(t: _Translator, itemKey: string): CaseStudy[] | undefined {
+  const path = `items.${itemKey}.caseStudies`;
+  const isDefined = t.has(path);
 
-export const getExperience = (t: ExperienceTranslator): TimelineItem[] => {
+  if (!isDefined) return undefined;
+
+  const value = t.raw(path);
+  const isArray = Array.isArray(value);
+
+  if (!isArray) return undefined;
+
+  return value;
+}
+
+export const getExperience = (t: _Translator): TimelineItem[] => {
   return [
     {
       roleTitle: t(`items.laras.roleTitle`),
@@ -19,6 +32,7 @@ export const getExperience = (t: ExperienceTranslator): TimelineItem[] => {
       yearTo: 2020,
       technologies: ["E-commerce", "Graphic Design", "Branding", "Marketing"],
       icon: LarasIcon,
+      caseStudies: optionalCaseStudies(t, "laras"),
     },
     {
       roleTitle: t(`items.reasonapps.roleTitle`),

@@ -1,5 +1,10 @@
-import { MotionValue, Variants } from "framer-motion";
 import { JSX } from "react";
+
+export type CaseStudy = {
+  productName: string;
+  problem: string;
+  contribution: string;
+};
 
 export type TimelineItem = {
   yearFrom: number;
@@ -9,15 +14,10 @@ export type TimelineItem = {
   description: string;
   technologies: string[];
   icon: (props: { className?: string }) => JSX.Element;
+  caseStudies?: CaseStudy[];
 };
 
-export interface TimelineItemRowProps {
-  setItemRef: (el: HTMLLIElement | null) => void;
+export type TimelineItemRowProps = {
   item: TimelineItem;
-  isLeft: boolean;
-  lineHeight: MotionValue<number>;
-  dotOffset: number;
-  isActive: boolean;
-  itemVariants: Variants;
-  presentLabel: string;
-}
+  index: number;
+};

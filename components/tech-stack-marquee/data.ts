@@ -14,7 +14,6 @@ export const techStack: TechStackItem[] = [
   { label: "Redux", icon: "redux.svg" },
   { label: "PostgreSQL", icon: "postgresql.svg" },
   { label: "Jest", icon: "jest.svg" },
-  { label: "Apollo", icon: "graphql.svg" },
   { label: "Cypress", icon: "cypress.svg" },
   { label: "Material UI", icon: "material-ui.svg" },
   { label: "Ant Design", icon: "ant-design.svg" },
@@ -23,9 +22,9 @@ export const techStack: TechStackItem[] = [
   { label: "Rollup", icon: "rollup.svg" },
   { label: "Turborepo", icon: "vercel.svg" },
   { label: "Yarn Workspaces", icon: "yarn.svg" },
+  { label: "React Native", icon: "react-native.svg" },
   { label: "Storybook", icon: "storybook.svg" },
   { label: "Biome", icon: "hasura.svg" },
   { label: "Git", icon: "git.svg" },
   { label: "GitHub Actions", icon: "github.svg" },
-  { label: "React Native", icon: "react.svg" },
 ];

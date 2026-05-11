@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { useScroll, useTransform } from "framer-motion";
 
 export function useExperienceTimelineMeasurements() {
   const sectionRef = useRef<HTMLElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
+  const itemResizeObserverRef = useRef<ResizeObserver | null>(null);
   const [listHeight, setListHeight] = useState(0);
   const [dotOffsets, setDotOffsets] = useState<number[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -17,14 +18,14 @@ export function useExperienceTimelineMeasurements() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], [0, listHeight]);
   const indicatorTop = useTransform(lineHeight, (height) => Math.max(height - 6, -6));
 
-  const measureDotOffsets = () => {
+  const measureDotOffsetsRef = useRef<() => void>(() => {
     const list = listRef.current;
     if (!list) return;
     const offsets = itemRefs.current.map((item) => (item ? item.offsetTop + item.offsetHeight / 2 : 0));
     setDotOffsets(offsets);
-  };
+  });
 
-  const measureActiveIndex = () => {
+  const measureActiveIndexRef = useRef<() => void>(() => {
     const viewportCenterY = window.innerHeight / 2;
     let closestIndex = 0;
     let closestDistance = Number.POSITIVE_INFINITY;
@@ -43,45 +44,58 @@ export function useExperienceTimelineMeasurements() {
     });
 
     setActiveIndex(closestIndex);
-  };
+  });
 
-  useEffect(() => {
+  const updateListMeasurementsRef = useRef<() => void>(() => {
+    const list = listRef.current;
+    if (!list) return;
+    setListHeight(list.offsetHeight);
+    measureDotOffsetsRef.current();
+    measureActiveIndexRef.current();
+  });
+
+  useLayoutEffect(() => {
     const list = listRef.current;
     if (!list) return;
 
-    const updateListMeasurements = () => {
-      setListHeight(list.offsetHeight);
-      measureDotOffsets();
-      measureActiveIndex();
-    };
+    const updateListMeasurements = updateListMeasurementsRef.current;
+    const measureDotOffsets = measureDotOffsetsRef.current;
+    const measureActiveIndex = measureActiveIndexRef.current;
 
-    const ro = new ResizeObserver(updateListMeasurements);
-    ro.observe(list);
+    const listResizeObserver = new ResizeObserver(updateListMeasurements);
+    listResizeObserver.observe(list);
+
     const itemResizeObserver = new ResizeObserver(() => {
       measureDotOffsets();
       measureActiveIndex();
     });
+    itemResizeObserverRef.current = itemResizeObserver;
     itemRefs.current.forEach((item) => {
       if (item) itemResizeObserver.observe(item);
     });
 
     updateListMeasurements();
-    measureDotOffsets();
-    measureActiveIndex();
     window.addEventListener("resize", updateListMeasurements);
     window.addEventListener("scroll", measureActiveIndex, { passive: true });
 
     return () => {
       window.removeEventListener("resize", updateListMeasurements);
       window.removeEventListener("scroll", measureActiveIndex);
-      ro.disconnect();
+      listResizeObserver.disconnect();
       itemResizeObserver.disconnect();
+      itemResizeObserverRef.current = null;
     };
   }, []);
 
-  const setItemRef = (index: number, el: HTMLLIElement | null) => {
+  const setItemRef = useCallback((index: number, el: HTMLLIElement | null) => {
+    const observer = itemResizeObserverRef.current;
+    const previous = itemRefs.current[index];
+    if (previous && observer) observer.unobserve(previous);
     itemRefs.current[index] = el;
-  };
+    if (el && observer) observer.observe(el);
+    measureDotOffsetsRef.current();
+    measureActiveIndexRef.current();
+  }, []);
 
   return {
     sectionRef,

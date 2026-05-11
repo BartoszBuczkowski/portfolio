@@ -3,41 +3,43 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { TechnologiesList } from "./components/technologies-list";
+import { TimelineCaseStudies } from "./components/timeline-case-studies";
 import { TimelineDot } from "./components/timeline-dot";
 import { TimelineItemDetails } from "./components/timeline-item-details";
-import { useTimelineItemRowMotion } from "./hooks/use-timeline-item-row-motion";
+import { TimelineItemLogo } from "./components/timeline-item-logo";
+import { useExperienceTimelineScroll } from "./experience-timeline-scroll-context";
 import { formatPeriod } from "./helpers";
+import { useTimelineItemRowMotion } from "./hooks/use-timeline-item-row-motion";
 import { TimelineItemRowProps } from "./types";
 
-export function TimelineItemRow({
-  setItemRef,
-  item,
-  isLeft,
-  lineHeight,
-  dotOffset,
-  isActive,
-  itemVariants,
-  presentLabel,
-}: TimelineItemRowProps) {
+export function TimelineItemRow({ item, index }: TimelineItemRowProps) {
+  const { lineHeight, setItemRef, dotOffsets, activeIndex, itemVariants, presentLabel } = useExperienceTimelineScroll();
+  const isLeft = index % 2 === 0;
+  const dotOffset = dotOffsets[index] ?? 0;
+  const isActive = activeIndex === index;
+
   const { handleItemRef, dotScale, dotOpacity, contentOpacity, isInView } = useTimelineItemRowMotion({
-    setItemRef,
+    setItemRef: (el) => setItemRef(index, el),
     lineHeight,
     dotOffset,
     isActive,
   });
 
   const period = formatPeriod(item.yearFrom, item.yearTo, presentLabel);
-  const Icon = item.icon;
   const animateVariant = isInView ? "visible" : "hidden";
   const side = isLeft ? "left" : "right";
 
   return (
     <motion.li
       ref={handleItemRef}
-      className={cn("relative flex min-h-[100px] items-center md:flex-row md:[&>.spacer]:block", {
-        "md:flex-row": isLeft,
-        "md:flex-row-reverse": !isLeft,
-      })}
+      data-timeline-side={isLeft ? "left" : "right"}
+      className={cn(
+        "group/timeline-row relative flex min-h-[100px] flex-col items-stretch md:flex-row md:items-center md:[&>.spacer]:block",
+        {
+          "md:flex-row": isLeft,
+          "md:flex-row-reverse": !isLeft,
+        },
+      )}
       initial="hidden"
       animate={animateVariant}
       variants={itemVariants}
@@ -52,7 +54,9 @@ export function TimelineItemRow({
           "md:pl-8 md:text-left": !isLeft,
         })}
       >
-        <Icon className="block md:hidden w-40 mb-8" />
+        <div className={cn("mb-8 flex justify-start", isLeft && "md:justify-end")}>
+          <TimelineItemLogo item={item} />
+        </div>
 
         <TimelineItemDetails period={period} item={item} />
 
@@ -62,13 +66,16 @@ export function TimelineItemRow({
       <TimelineDot dotScale={dotScale} dotOpacity={dotOpacity} />
 
       <div
-        aria-hidden
-        className={cn("spacer hidden md:flex md:w-[calc(50%-32px)] md:items-center", {
-          "md:pl-8 md:justify-start": isLeft,
-          "md:pr-8 md:justify-end": !isLeft,
-        })}
+        className={cn(
+          "spacer",
+          "flex w-full shrink-0 flex-col pt-2 pb-4 md:w-[calc(50%-32px)] md:items-start md:justify-start md:py-4 md:pt-0",
+          {
+            "md:pl-8 md:justify-start": isLeft,
+            "md:pr-8 md:justify-end": !isLeft,
+          },
+        )}
       >
-        <Icon className="h-24 w-46 m-auto" />
+        {item.caseStudies && <TimelineCaseStudies caseStudies={item.caseStudies} />}
       </div>
     </motion.li>
   );

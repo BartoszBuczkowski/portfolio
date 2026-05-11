@@ -10,7 +10,6 @@ export function ReasonappsIcon({ className }: ReasonappsIconProps) {
         fill="currentColor"
         viewBox="0 0 948 88"
         xmlSpace="preserve"
-        className="size-full"
         preserveAspectRatio="xMidYMid meet"
       >
         <path

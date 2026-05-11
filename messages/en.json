@@ -72,6 +72,11 @@
   },
   "Experience": {
     "title": "Experience",
+    "caseStudiesHeading": "Selected work",
+    "caseStudy": {
+      "problem": "Problem",
+      "contribution": "Contribution"
+    },
     "timeline": {
       "present": "Present"
     },
@@ -79,7 +84,24 @@
       "laras": {
         "roleTitle": "Owner / Creative Graphic Designer",
         "companyName": "Lara’s Clothes",
-        "description": "Managed own clothing brand, including design, branding, e-commerce operations, logistics, and marketing."
+        "description": "Managed own clothing brand, including design, branding, e-commerce operations, logistics, and marketing.",
+        "caseStudies": [
+          {
+            "productName": "Brand online store",
+            "problem": "The offer was scattered across several channels, and customers lacked one straightforward place to shop online.",
+            "contribution": "Designed the website and purchase flow aligned with the collection’s visual identity."
+          },
+          {
+            "productName": "Collection identity and materials",
+            "problem": "New product lines needed cohesive graphic treatment to stand out in the market and build recognition.",
+            "contribution": "Developed core branding elements and layouts for lookbooks and promotional assets."
+          },
+          {
+            "productName": "Marketing channels",
+            "problem": "Brand messaging was inconsistent across social, newsletter, and the store, which weakened ongoing engagement.",
+            "contribution": "Unified the visual language and tone across campaigns and recurring content."
+          }
+        ]
       },
       "reasonapps": {
         "roleTitle": "Junior Frontend Engineer",

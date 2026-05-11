@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 type NetiIconProps = {
@@ -13,7 +14,7 @@ export function NetiIcon({ className, imageClassName }: NetiIconProps) {
         alt="Neti"
         width={512}
         height={512}
-        className={`size-full object-contain brightness-0 dark:invert ${imageClassName ?? ""}`.trim()}
+        className={cn("object-contain brightness-0 dark:invert", imageClassName)}
       />
     </div>
   );

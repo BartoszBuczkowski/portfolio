@@ -87,46 +87,131 @@
         "description": "Prowadzenie własnej marki odzieżowej: projektowanie, branding, e-commerce, logistyka i marketing.",
         "caseStudies": [
           {
-            "productName": "Sklep internetowy marki",
-            "problem": "Oferta była rozproszona po kilku kanałach, a klienci nie mieli jednego prostego miejsca na zakupy online.",
-            "contribution": "Zaprojektowałem witrynę i ścieżkę zakupową, spójne z identyfikacją wizualną kolekcji."
+            "productName": "Marka odzieżowa i sklep internetowy",
+            "problem": "Potrzebne było stworzenie od podstaw spójnej marki oraz kanału sprzedaży online.",
+            "contribution": "Zaprojektowałem identyfikację wizualną marki, uruchomiłem sklep oparty o PrestaShop oraz obsługiwałem sprzedaż i logistykę."
           },
           {
-            "productName": "Identyfikacja i materiały kolekcji",
-            "problem": "Nowe linie produktów potrzebowyły spójnej oprawy graficznej, żeby wyróżniać się na rynku i budować rozpoznawalność.",
-            "contribution": "Opracowałem kluczowe elementy brandingu oraz layouty lookbooków i materiałów promocyjnych."
+            "productName": "Projekty produktów i branding",
+            "problem": "Nowe kolekcje wymagały spójnej oprawy wizualnej i materiałów promocyjnych.",
+            "contribution": "Projektowałem nadruki, materiały marketingowe oraz elementy identyfikacji wizualnej wspierające rozwój marki."
           },
           {
-            "productName": "Kanały marketingowe",
-            "problem": "Komunikacja marki była nierówna między social media, newsletterem a sklepem, co utrudniało utrzymanie zainteresowania.",
-            "contribution": "Ujednoliciłem przekaz wizualny i ton komunikacji w kampaniach oraz treściach cyklicznych."
+            "productName": "Marketing i komunikacja marki",
+            "problem": "Marka potrzebowała rozpoznawalnej komunikacji wspierającej sprzedaż produktów online.",
+            "contribution": "Tworzyłem materiały do social media i kampanii promocyjnych, dbając o spójność komunikacji wizualnej."
           }
         ]
       },
       "reasonapps": {
         "roleTitle": "Junior Frontend Engineer",
         "companyName": "ReasonApps",
-        "description": "Rozwój graficznego edytora w przeglądarce dla dziennikarzy sportowych, e-commerce oraz utrzymanie aplikacji React on Rails."
+        "description": "Rozwój graficznego edytora w przeglądarce dla dziennikarzy sportowych, e-commerce oraz utrzymanie aplikacji React on Rails.",
+        "caseStudies": [
+          {
+            "productName": "Brisk / Tisa Group",
+            "problem": "Dziennikarze sportowi potrzebowali narzędzia do szybkiego generowania i publikowania grafik opartych o dane z wydarzeń sportowych na żywo.",
+            "contribution": "Współtworzyłem aplikację do automatycznego generowania grafik z integracją API Statscore oraz projektowałem edytor graficzny oparty o system warstw inspirowany Photoshopem. Brałem również udział w konsultacjach technicznych i bezpośredniej współpracy z klientem."
+          },
+          {
+            "productName": "Legia.com",
+            "problem": "Serwis największego klubu piłkarskiego w Polsce wymagał dalszego rozwoju i utrzymania w oparciu o niszowy stack React on Rails.",
+            "contribution": "Rozwijałem i utrzymywałem frontend aplikacji, pracując z wymagającą architekturą oraz wspierając rozwój platformy."
+          },
+          {
+            "productName": "Fansi.pl",
+            "problem": "Platforma wymagała skalowalnej architektury frontendowej oraz współdzielonych komponentów dla wielu części systemu.",
+            "contribution": "Współtworzyłem monorepo oparte o Yarn Workspaces i Lerna, rozwijałem aplikację w Next.js oraz integrowałem GraphQL API z wykorzystaniem Hasura GraphQL Engine."
+          }
+        ]
       },
       "edocs": {
         "roleTitle": "Frontend Engineer",
         "companyName": "Europa Systems",
-        "description": "Skalowalna architektura frontendu, biblioteki komponentów i optymalizacja wydajności dużych aplikacji opartych na danych."
+        "description": "Skalowalna architektura frontendu, biblioteki komponentów i optymalizacja wydajności dużych aplikacji opartych na danych.",
+        "caseStudies": [
+          {
+            "productName": "EDOCS Systems",
+            "problem": "Firma rozwijała zaawansowany system do monitorowania procesów na liniach produkcyjnych, przetwarzający dane z setek urządzeń i odbiorników elektrycznych.",
+            "contribution": "Utrzymywałem istniejący produkt oraz współtworzyłem architekturę nowej wersji systemu przeznaczonej do wdrożeń w zamkniętych sieciach klientów. Budowałem frontend oparty o React i własną konfigurację Webpack, współtworzyłem bibliotekę komponentów bundlowaną przez Rollup oraz dokumentowaną w Storybooku."
+          },
+          {
+            "productName": "Architektura monorepo i UI system",
+            "problem": "Nowa platforma wymagała skalowalnej architektury frontendowej oraz możliwości wdrażania wyłącznie wybranych modułów systemu zależnie od potrzeb klienta.",
+            "contribution": "Brałem udział w projektowaniu modularnej architektury frontendowej z wykorzystaniem Yarn Workspaces, Lerna oraz współdzielonych komponentów UI."
+          },
+          {
+            "productName": "Wydajność interfejsów przemysłowych",
+            "problem": "System operował na dużych ilościach danych generowanych w czasie rzeczywistym przez środowiska produkcyjne.",
+            "contribution": "Pracowałem nad optymalizacją wydajności interfejsów oraz renderingiem dużych zbiorów danych."
+          }
+        ]
       },
       "global4net": {
         "roleTitle": "Frontend Engineer",
         "companyName": "Global4Net",
-        "description": "Aplikacje mobilne React Native oraz modernizacja aplikacji React z TypeScript i Redux."
+        "description": "Aplikacje mobilne React Native oraz modernizacja aplikacji React z TypeScript i Redux.",
+        "caseStudies": [
+          {
+            "productName": "MyBenefit",
+            "problem": "Rozbudowana platforma wymagała dalszego rozwoju oraz stopniowej modernizacji frontendowego stacku technologicznego.",
+            "contribution": "Zapoczątkowałem wdrażanie TypeScript do istniejącej bazy kodu, wspierając poprawę typowania i maintainability aplikacji."
+          },
+          {
+            "productName": "Aplikacja mobilna React Native",
+            "problem": "Projekt wymagał równoległego rozwoju aplikacji mobilnej oraz szybkiego wdrożenia się w ekosystem React Native.",
+            "contribution": "Rozwijałem aplikację mobilną opartą o React Native, szybko adaptując się do nowego środowiska i wspierając rozwój funkcjonalności produktu."
+          },
+          {
+            "productName": "Frontend architecture improvements",
+            "problem": "Rosnąca aplikacja wymagała uproszczenia przepływu danych i bardziej przewidywalnego zarządzania stanem.",
+            "contribution": "Optymalizowałem sposób zarządzania globalnym stanem aplikacji oraz wspierałem dalszy rozwój architektury frontendowej."
+          }
+        ]
       },
       "punkta": {
         "roleTitle": "Senior Frontend Engineer",
         "companyName": "Punkta",
-        "description": "Inicjatywy modernizacji frontendu, migracja systemów legacy do Reacta, ujednolicenie stacku i spójność UX."
+        "description": "Inicjatywy modernizacji frontendu, migracja systemów legacy do Reacta, ujednolicenie stacku i spójność UX.",
+        "caseStudies": [
+          {
+            "productName": "Modernizacja frontendowego stacku",
+            "problem": "Aplikacja korzystała równolegle z AngularJS, Vue 1, React on Rails, Webpackera oraz globalnych styli CSS trudnych w utrzymaniu i skalowaniu.",
+            "contribution": "Brałem udział w stopniowej redukcji legacy stacku oraz migracji istniejącej logiki biznesowej do architektury opartej o React, SCSS Modules i Material UI."
+          },
+          {
+            "productName": "Kalkulator ubezpieczeniowy Punkta",
+            "problem": "Rozbudowany kalkulator ubezpieczeniowy wymagał dalszego rozwoju oraz utrzymania stabilności przy stale rozwijanym produkcie.",
+            "contribution": "Rozwijałem i utrzymywałem kluczowe funkcjonalności platformy, wspierając rozwój produktu oraz implementację nowych wymagań biznesowych."
+          },
+          {
+            "productName": "Optymalizacja lejka sprzedażowego",
+            "problem": "Proces zakupowy wymagał poprawy doświadczeń użytkownika oraz ograniczenia problemów wpływających na konwersję.",
+            "contribution": "Pracowałem nad uszczelnieniem lejka sprzedażowego, optymalizacją interfejsów oraz poprawą UX w kluczowych etapach procesu zakupowego."
+          }
+        ]
       },
       "neti": {
         "roleTitle": "JavaScript Engineer",
         "companyName": "Neti Soft",
-        "description": "Bezpieczne rozwiązania biznesowe: m.in. biometria, szyfrowanie i aplikacje z obszaru Web3."
+        "description": "Bezpieczne rozwiązania biznesowe: m.in. biometria, szyfrowanie i aplikacje z obszaru Web3.",
+        "caseStudies": [
+          {
+            "productName": "Kryptonim",
+            "problem": "Projekt wymagał stworzenia bezpiecznego portfela kryptowalutowego umożliwiającego przewalutowania do stablecoinów, zarządzanie kontaktami oraz wygodne wykonywanie transferów środków.",
+            "contribution": "Współtworzyłem aplikację mobilną opartą o React Native, rozwijając funkcjonalności portfela oraz system bezpieczeństwa oparty o PIN, biometrię i lokalną bazę danych Mongo Realm. Pracowałem również nad UX aplikacji i obsługą bezpiecznych transferów kryptowalut."
+          },
+          {
+            "productName": "Golem Base / Arkiv",
+            "problem": "Produkty wymagały narzędzi do monitorowania i analizy danych blockchainowych oraz obsługi transakcji bridgingowych pomiędzy warstwami sieci.",
+            "contribution": "Rozwijałem block explorery dla sieci L2 i L3 oparte o Blockscout, budowałem interfejsy do obsługi bridgingu oraz tworzyłem indexer oparty o Subsquid do śledzenia i przetwarzania transakcji między sieciami blockchain."
+          },
+          {
+            "productName": "Aertura",
+            "problem": "Rynek carbon credits wymagał nowoczesnej platformy umożliwiającej zarządzanie oraz realizację transakcji związanych z offsetowaniem emisji.",
+            "contribution": "Współtworzyłem produkt od podstaw z wykorzystaniem TanStack Start, NestJS, Prisma i RainbowKit, rozwijając architekturę aplikacji oraz integracje związane z obsługą transakcji blockchainowych."
+          }
+        ]
       },
       "off": {
         "roleTitle": "Właściciel / Software Engineer",

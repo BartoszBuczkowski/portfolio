@@ -1,4 +1,4 @@
-import type { CaseStudy, TimelineItem } from "@/components/experience-timeline/types";
+import type { TimelineItem } from "@/components/experience-timeline/types";
 import { EdocsIcon } from "@/components/icons/edocs-icon";
 import { LarasIcon } from "@/components/icons/laras-icon";
 import { NetiIcon } from "@/components/icons/neti-icon";
@@ -7,20 +7,6 @@ import { PunktaPlIcon } from "@/components/icons/punkta-icon";
 import { ReasonappsIcon } from "@/components/icons/reasonapps-icon";
 import { UnivioG4nIcon } from "@/components/icons/univio-g4n-icon";
 import { _Translator } from "next-intl";
-
-function optionalCaseStudies(t: _Translator, itemKey: string): CaseStudy[] | undefined {
-  const path = `items.${itemKey}.caseStudies`;
-  const isDefined = t.has(path);
-
-  if (!isDefined) return undefined;
-
-  const value = t.raw(path);
-  const isArray = Array.isArray(value);
-
-  if (!isArray) return undefined;
-
-  return value;
-}
 
 export const getExperience = (t: _Translator): TimelineItem[] => {
   return [
@@ -32,7 +18,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
       yearTo: 2020,
       technologies: ["E-commerce", "Graphic Design", "Branding", "Marketing"],
       icon: LarasIcon,
-      caseStudies: optionalCaseStudies(t, "laras"),
+      caseStudies: t.raw(`items.laras.caseStudies`),
     },
     {
       roleTitle: t(`items.reasonapps.roleTitle`),
@@ -53,6 +39,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
         "Tailwind CSS",
       ],
       icon: ReasonappsIcon,
+      caseStudies: t.raw(`items.reasonapps.caseStudies`),
     },
     {
       roleTitle: t(`items.edocs.roleTitle`),
@@ -62,6 +49,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
       yearTo: 2021,
       technologies: ["React", "TypeScript", "Webpack", "Rollup", "Storybook", "Ant Design", "Monorepo"],
       icon: EdocsIcon,
+      caseStudies: t.raw(`items.edocs.caseStudies`),
     },
     {
       roleTitle: t(`items.global4net.roleTitle`),
@@ -71,6 +59,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
       yearTo: 2022,
       technologies: ["React", "React Native", "TypeScript", "Redux", "JavaScript"],
       icon: UnivioG4nIcon,
+      caseStudies: t.raw(`items.global4net.caseStudies`),
     },
     {
       roleTitle: t(`items.punkta.roleTitle`),
@@ -80,6 +69,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
       yearTo: 2025,
       technologies: ["React", "TypeScript", "Redux", "Material UI", "Rails", "Jest", "React Testing Library", "Monorepo", "JavaScript"],
       icon: PunktaPlIcon,
+      caseStudies: t.raw(`items.punkta.caseStudies`),
     },
     {
       roleTitle: t(`items.neti.roleTitle`),
@@ -101,6 +91,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
         "Node.js",
       ],
       icon: NetiIcon,
+      caseStudies: t.raw(`items.neti.caseStudies`),
     },
     {
       roleTitle: t(`items.off.roleTitle`),

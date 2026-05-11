@@ -1,16 +1,18 @@
 "use client";
 
-import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { useScroll, useTransform } from "framer-motion";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
 export function useExperienceTimelineMeasurements() {
   const sectionRef = useRef<HTMLElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
   const itemResizeObserverRef = useRef<ResizeObserver | null>(null);
+
   const [listHeight, setListHeight] = useState(0);
   const [dotOffsets, setDotOffsets] = useState<number[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start center", "end center"],
@@ -21,7 +23,13 @@ export function useExperienceTimelineMeasurements() {
   const measureDotOffsetsRef = useRef<() => void>(() => {
     const list = listRef.current;
     if (!list) return;
-    const offsets = itemRefs.current.map((item) => (item ? item.offsetTop + item.offsetHeight / 2 : 0));
+
+    const getItemCenterY = (item: HTMLLIElement | null) => {
+      if (!item) return 0;
+      return item.offsetTop + item.offsetHeight / 2;
+    };
+
+    const offsets = itemRefs.current.map(getItemCenterY);
     setDotOffsets(offsets);
   });
 

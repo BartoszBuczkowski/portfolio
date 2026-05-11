@@ -81,10 +81,6 @@ export function useExperienceTimelineMeasurements() {
 
   const setItemRef = (index: number, el: HTMLLIElement | null) => {
     itemRefs.current[index] = el;
-    if (el) {
-      measureDotOffsets();
-      measureActiveIndex();
-    }
   };
 
   return {

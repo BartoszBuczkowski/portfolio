@@ -9,11 +9,9 @@ import { TimelineItemRow } from "./timeline-item-row";
 
 const itemVariants: Variants = {
   hidden: (side: "left" | "right") => ({
-    opacity: 0,
     x: side === "left" ? -24 : 24,
   }),
   visible: () => ({
-    opacity: 1,
     x: 0,
     transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
   }),

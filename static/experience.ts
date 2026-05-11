@@ -1,6 +1,11 @@
 import type { TimelineItem } from "@/components/experience-timeline/types";
+import { EdocsIcon } from "@/components/icons/edocs-icon";
 import { LarasIcon } from "@/components/icons/laras-icon";
+import { NetiIcon } from "@/components/icons/neti-icon";
+import { OffIcon } from "@/components/icons/off-icon";
+import { PunktaPlIcon } from "@/components/icons/punkta-icon";
 import { ReasonappsIcon } from "@/components/icons/reasonapps-icon";
+import { UnivioG4nIcon } from "@/components/icons/univio-g4n-icon";
 
 type ExperienceTranslator = (key: string) => string;
 
@@ -42,7 +47,7 @@ export const getExperience = (t: ExperienceTranslator): TimelineItem[] => {
       yearFrom: 2021,
       yearTo: 2021,
       technologies: ["React", "TypeScript", "Webpack", "Rollup", "Storybook", "Ant Design", "Monorepo"],
-      icon: ReasonappsIcon,
+      icon: EdocsIcon,
     },
     {
       roleTitle: t(`items.global4net.roleTitle`),
@@ -51,7 +56,7 @@ export const getExperience = (t: ExperienceTranslator): TimelineItem[] => {
       yearFrom: 2021,
       yearTo: 2022,
       technologies: ["React", "React Native", "TypeScript", "Redux", "JavaScript"],
-      icon: ReasonappsIcon,
+      icon: UnivioG4nIcon,
     },
     {
       roleTitle: t(`items.punkta.roleTitle`),
@@ -60,7 +65,7 @@ export const getExperience = (t: ExperienceTranslator): TimelineItem[] => {
       yearFrom: 2022,
       yearTo: 2025,
       technologies: ["React", "TypeScript", "Redux", "Material UI", "Rails", "Jest", "React Testing Library", "Monorepo", "JavaScript"],
-      icon: ReasonappsIcon,
+      icon: PunktaPlIcon,
     },
     {
       roleTitle: t(`items.neti.roleTitle`),
@@ -81,7 +86,7 @@ export const getExperience = (t: ExperienceTranslator): TimelineItem[] => {
         "PostgreSQL",
         "Node.js",
       ],
-      icon: ReasonappsIcon,
+      icon: NetiIcon,
     },
     {
       roleTitle: t(`items.off.roleTitle`),
@@ -90,7 +95,7 @@ export const getExperience = (t: ExperienceTranslator): TimelineItem[] => {
       yearFrom: 2026,
       yearTo: null,
       technologies: ["Branding", "NestJS", "Hasura", "Monorepo"],
-      icon: ReasonappsIcon,
+      icon: OffIcon,
     },
   ];
 };

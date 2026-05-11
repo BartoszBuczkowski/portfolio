@@ -1,6 +1,6 @@
 "use client";
 
-import { useScroll, useTransform } from "framer-motion";
+import { useMotionValueEvent, useScroll, useSpring, useTransform } from "framer-motion";
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
 export function useExperienceTimelineMeasurements() {
@@ -12,13 +12,50 @@ export function useExperienceTimelineMeasurements() {
   const [listHeight, setListHeight] = useState(0);
   const [dotOffsets, setDotOffsets] = useState<number[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const initialScrollProgressRef = useRef<number | null>(null);
+  const isScrollTrackingEnabledRef = useRef(false);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start center", "end center"],
   });
-  const lineHeight = useTransform(scrollYProgress, [0, 1], [0, listHeight]);
+  const lineHeight = useSpring(0, {
+    stiffness: 220,
+    damping: 28,
+    mass: 0.7,
+  });
   const indicatorTop = useTransform(lineHeight, (height) => Math.max(height - 6, -6));
+
+  const updateLineHeight = useCallback(() => {
+    const rawHeight = scrollYProgress.get() * listHeight;
+    const clampedRawHeight = Math.min(Math.max(rawHeight, 0), listHeight);
+    const activeCheckpointOffset = dotOffsets[activeIndex] ?? 0;
+
+    if (isScrollTrackingEnabledRef.current) {
+      lineHeight.set(clampedRawHeight);
+      return;
+    }
+
+    lineHeight.set(Math.min(Math.max(Math.max(clampedRawHeight, activeCheckpointOffset), 0), listHeight));
+  }, [scrollYProgress, listHeight, dotOffsets, activeIndex, lineHeight]);
+
+  const updateLineHeightRef = useRef(updateLineHeight);
+  useLayoutEffect(() => {
+    updateLineHeightRef.current = updateLineHeight;
+  }, [updateLineHeight]);
+
+  const onScrollProgressChange = useCallback((latest: number) => {
+    const initial = initialScrollProgressRef.current;
+    if (initial === null) {
+      initialScrollProgressRef.current = latest;
+    } else if (Math.abs(latest - initial) > 0.001) {
+      isScrollTrackingEnabledRef.current = true;
+    }
+
+    updateLineHeightRef.current();
+  }, []);
+
+  useMotionValueEvent(scrollYProgress, "change", onScrollProgressChange);
 
   const measureDotOffsetsRef = useRef<() => void>(() => {
     const list = listRef.current;
@@ -82,7 +119,9 @@ export function useExperienceTimelineMeasurements() {
       if (item) itemResizeObserver.observe(item);
     });
 
+    initialScrollProgressRef.current = scrollYProgress.get();
     updateListMeasurements();
+    updateLineHeightRef.current();
     window.addEventListener("resize", updateListMeasurements);
     window.addEventListener("scroll", measureActiveIndex, { passive: true });
 
@@ -93,7 +132,7 @@ export function useExperienceTimelineMeasurements() {
       itemResizeObserver.disconnect();
       itemResizeObserverRef.current = null;
     };
-  }, []);
+  }, [scrollYProgress]);
 
   const setItemRef = useCallback((index: number, el: HTMLLIElement | null) => {
     const observer = itemResizeObserverRef.current;
@@ -104,6 +143,10 @@ export function useExperienceTimelineMeasurements() {
     measureDotOffsetsRef.current();
     measureActiveIndexRef.current();
   }, []);
+
+  useLayoutEffect(() => {
+    updateLineHeight();
+  }, [updateLineHeight]);
 
   return {
     sectionRef,

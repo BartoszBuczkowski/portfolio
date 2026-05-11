@@ -10,12 +10,7 @@ type UseTimelineItemRowMotionParams = {
   isActive: boolean;
 };
 
-export function useTimelineItemRowMotion({
-  setItemRef,
-  lineHeight,
-  dotOffset,
-  isActive,
-}: UseTimelineItemRowMotionParams) {
+export function useTimelineItemRowMotion({ setItemRef, lineHeight, dotOffset, isActive }: UseTimelineItemRowMotionParams) {
   const itemRef = useRef<HTMLLIElement>(null);
   const isInView = useInView(itemRef, {
     once: true,

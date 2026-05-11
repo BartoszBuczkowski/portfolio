@@ -12,8 +12,8 @@ export function NetiIcon({ className, imageClassName }: NetiIconProps) {
       <Image
         src="/neti.webp"
         alt="Neti"
-        width={512}
-        height={512}
+        width={180}
+        height={180}
         className={cn("object-contain brightness-0 dark:invert", imageClassName)}
       />
     </div>

@@ -75,7 +75,9 @@
     "caseStudiesHeading": "Selected work",
     "caseStudy": {
       "problem": "Problem",
-      "contribution": "Contribution"
+      "contribution": "Contribution",
+      "goTo": "Go to case study",
+      "next": "Next"
     },
     "timeline": {
       "present": "Present"

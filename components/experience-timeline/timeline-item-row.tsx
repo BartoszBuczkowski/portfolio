@@ -45,7 +45,7 @@ export function TimelineItemRow({ item, index }: TimelineItemRowProps) {
       variants={itemVariants}
       custom={side}
       style={{
-        opacity: contentOpacity,
+        opacity: isActive ? 1 : contentOpacity,
       }}
     >
       <motion.div
@@ -75,7 +75,17 @@ export function TimelineItemRow({ item, index }: TimelineItemRowProps) {
           },
         )}
       >
-        {item.caseStudies && <TimelineCaseStudies caseStudies={item.caseStudies} />}
+        {item.caseStudies && (
+          <TimelineCaseStudies
+            caseStudies={item.caseStudies}
+            isRight={!isLeft}
+            isTimelineRowActive={isActive}
+            className={cn({
+              "ml-6 mr-2 md:ml-14": isLeft,
+              "ml-6 mr-2 md:ml-0 md:mr-14": !isLeft,
+            })}
+          />
+        )}
       </div>
     </motion.li>
   );

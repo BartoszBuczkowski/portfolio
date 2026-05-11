@@ -7,8 +7,7 @@ type TimelineItemLogoProps = {
   item: TimelineItem;
 };
 
-const logoSlotClassName =
-  "flex h-24 max-h-24 w-[min(100%,12rem)] shrink-0 items-center sm:w-[min(100%,13.5rem)]";
+const logoSlotClassName = "flex h-24 max-h-24 w-[min(100%,12rem)] shrink-0 items-center sm:w-[min(100%,9rem)]";
 
 export function TimelineItemLogo({ item }: TimelineItemLogoProps) {
   const Icon = item.icon;

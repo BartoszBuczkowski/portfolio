@@ -75,7 +75,9 @@
     "caseStudiesHeading": "Wybrane realizacje",
     "caseStudy": {
       "problem": "Problem",
-      "contribution": "Wkład"
+      "contribution": "Wkład",
+      "goTo": "Przejdź do realizacji",
+      "next": "Dalej"
     },
     "timeline": {
       "present": "Obecnie"
@@ -111,7 +113,7 @@
           {
             "productName": "Brisk / Tisa Group",
             "problem": "Dziennikarze sportowi potrzebowali narzędzia do szybkiego generowania i publikowania grafik opartych o dane z wydarzeń sportowych na żywo.",
-            "contribution": "Współtworzyłem aplikację do automatycznego generowania grafik z integracją API Statscore oraz projektowałem edytor graficzny oparty o system warstw inspirowany Photoshopem. Brałem również udział w konsultacjach technicznych i bezpośredniej współpracy z klientem."
+            "contribution": "Współtworzyłem aplikację do automatycznego generowania grafik z integracją API Statscore oraz projektowałem edytor graficzny inspirowany Photoshopem. Brałem udział w konsultacjach technicznych i bezpośredniej współpracy z klientem."
           },
           {
             "productName": "Legia.com",

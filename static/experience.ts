@@ -10,7 +10,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
       yearFrom: 2018,
       yearTo: 2020,
       technologies: ["E-commerce", "Graphic Design", "Branding", "Marketing"],
-      logoSrc: "/experience-brands/laras.svg",
+      logoSrc: "laras",
       caseStudies: t.raw(`items.laras.caseStudies`),
     },
     {
@@ -31,7 +31,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
         "Storybook",
         "Tailwind CSS",
       ],
-      logoSrc: "/experience-brands/reasonapps.svg",
+      logoSrc: "reasonapps",
       caseStudies: t.raw(`items.reasonapps.caseStudies`),
     },
     {
@@ -41,7 +41,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
       yearFrom: 2021,
       yearTo: 2021,
       technologies: ["React", "TypeScript", "Webpack", "Rollup", "Storybook", "Ant Design", "Monorepo"],
-      logoSrc: "/experience-brands/edocs.svg",
+      logoSrc: "edocs",
       caseStudies: t.raw(`items.edocs.caseStudies`),
     },
     {
@@ -51,7 +51,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
       yearFrom: 2021,
       yearTo: 2022,
       technologies: ["React", "React Native", "TypeScript", "Redux", "JavaScript"],
-      logoSrc: "/experience-brands/global4net.svg",
+      logoSrc: "global4net",
       caseStudies: t.raw(`items.global4net.caseStudies`),
     },
     {
@@ -61,7 +61,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
       yearFrom: 2022,
       yearTo: 2025,
       technologies: ["React", "TypeScript", "Redux", "Material UI", "Rails", "Jest", "React Testing Library", "Monorepo", "JavaScript"],
-      logoSrc: "/experience-brands/punkta.svg",
+      logoSrc: "punkta",
       caseStudies: t.raw(`items.punkta.caseStudies`),
     },
     {
@@ -83,7 +83,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
         "PostgreSQL",
         "Node.js",
       ],
-      logoSrc: "/experience-brands/neti.svg",
+      logoSrc: "neti",
       caseStudies: t.raw(`items.neti.caseStudies`),
     },
     {
@@ -93,7 +93,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
       yearFrom: 2026,
       yearTo: null,
       technologies: ["Branding", "NestJS", "Hasura", "Monorepo"],
-      logoSrc: "/experience-brands/off.svg",
+      logoSrc: "off",
     },
   ];
 };

@@ -11,7 +11,7 @@ const email = "bartosz.r.buczkowski@gmail.com";
 export async function Hero() {
   const t = await getTranslations("Hero");
   const avatarSrc = "/avatar.jfif";
-  const mailToLink = `mailto:${email}`;
+  const mailToLink = `mailto:${email}`.replace("@", "+collab@");
 
   return (
     <header className="relative flex w-full flex-col overflow-hidden bg-background px-6 py-20">

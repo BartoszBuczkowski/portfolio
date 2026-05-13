@@ -26,6 +26,8 @@
     "emailLabel": "Adres e‑mail",
     "emailPlaceholder": "Wpisz adres e‑mail",
     "sendEmail": "Wyślij e‑mail",
+    "dialogTitle": "Napisz do mnie",
+    "invalidEmail": "Podaj prawidłowy adres e‑mail.",
     "copyright": "© Bartosz Buczkowski"
   },
   "FAQ": {
@@ -241,7 +243,11 @@
     "server": {
       "requiredFields": "Wszystkie pola są wymagane.",
       "invalidEmail": "Podaj prawidłowy adres e‑mail.",
-      "success": "Dzięki! Wiadomość została wysłana."
+      "success": "Dzięki! Wiadomość została wysłana.",
+      "turnstileRequired": "Dokończ weryfikację bezpieczeństwa przed wysłaniem.",
+      "turnstileFailed": "Weryfikacja bezpieczeństwa nie powiodła się. Spróbuj ponownie.",
+      "turnstileMisconfigured": "Formularz kontaktowy nie jest skonfigurowany (Turnstile).",
+      "databaseError": "Nie udało się zapisać wiadomości. Spróbuj ponownie później."
     }
   },
   "Theme": {

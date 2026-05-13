@@ -26,6 +26,8 @@
     "emailLabel": "Email address",
     "emailPlaceholder": "Enter e-mail address",
     "sendEmail": "Send an email",
+    "dialogTitle": "Get in touch",
+    "invalidEmail": "Please enter a valid email address.",
     "copyright": "© Bartosz Buczkowski"
   },
   "FAQ": {
@@ -155,7 +157,11 @@
     "server": {
       "requiredFields": "All fields are required.",
       "invalidEmail": "Please enter a valid email address.",
-      "success": "Thanks! Your message has been sent."
+      "success": "Thanks! Your message has been sent.",
+      "turnstileRequired": "Please complete the security check before sending.",
+      "turnstileFailed": "Security verification failed. Please try again.",
+      "turnstileMisconfigured": "Contact form is not configured (Turnstile).",
+      "databaseError": "We could not save your message. Please try again later."
     }
   },
   "Theme": {

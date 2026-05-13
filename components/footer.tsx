@@ -1,7 +1,6 @@
 import { AvailabilityBadge } from "@/components/availability-badge";
+import { FooterContactCta } from "@/components/footer-contact-cta";
 import { Logo } from "@/components/logo";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { getTranslations } from "next-intl/server";
 
 export async function Footer() {
@@ -19,22 +18,13 @@ export async function Footer() {
           <div className="w-full max-w-[440px] space-y-6">
             <h2 className="text-2xl font-bold">{t("ctaTitle")}</h2>
             <p className="text-sm leading-5 text-muted-foreground">{t("ctaDescription")}</p>
-            <form className="flex flex-col gap-2 sm:flex-row sm:items-center">
-              <label htmlFor="footer-email" className="sr-only">
-                {t("emailLabel")}
-              </label>
-              <input
-                id="footer-email"
-                type="email"
-                placeholder={t("emailPlaceholder")}
-                className={cn(
-                  "h-11 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground shadow-xs placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-accent-foreground/5",
-                )}
-              />
-              <Button type="button" variant="default">
-                {t("sendEmail")}
-              </Button>
-            </form>
+            <FooterContactCta
+              emailLabel={t("emailLabel")}
+              emailPlaceholder={t("emailPlaceholder")}
+              sendEmail={t("sendEmail")}
+              dialogTitle={t("dialogTitle")}
+              invalidEmail={t("invalidEmail")}
+            />
           </div>
         </div>
 

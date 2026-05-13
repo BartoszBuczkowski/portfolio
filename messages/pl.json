@@ -6,7 +6,7 @@
   "Hero": {
     "avatarAlt": "Bartosz Buczkowski - Software Developer - Awatar",
     "headline": "Tworzę rozwiązania software’owe wspierany przez AI",
-    "description": "Projektuję i buduję nowoczesne aplikacje webowe z naciskiem na myślenie produktowe, skalowalność i szybkie iteracje w ekosystemie JavaScript."
+    "description": "Projektuję i buduję nowoczesne aplikacje webowe z naciskiem na myślenie produktowe, skalowalność i szybkie testowanie koncepcji w ekosystemie JavaScript."
   },
   "Availability": {
     "label": "Otwarty na propozycje"
@@ -77,7 +77,8 @@
       "problem": "Problem",
       "contribution": "Wkład",
       "goTo": "Przejdź do realizacji",
-      "next": "Dalej"
+      "previous": "Poprzednia realizacja",
+      "next": "Następna realizacja"
     },
     "timeline": {
       "present": "Obecnie"
@@ -113,7 +114,7 @@
           {
             "productName": "Brisk / Tisa Group",
             "problem": "Dziennikarze sportowi potrzebowali narzędzia do szybkiego generowania i publikowania grafik opartych o dane z wydarzeń sportowych na żywo.",
-            "contribution": "Współtworzyłem aplikację do automatycznego generowania grafik z integracją API Statscore oraz projektowałem edytor graficzny inspirowany Photoshopem. Brałem udział w konsultacjach technicznych i bezpośredniej współpracy z klientem."
+            "contribution": "Współtworzyłem aplikację do automatycznego generowania grafik z integracją API Statscore oraz zrealizowałem edytor graficzny inspirowany Photoshopem. Brałem udział w konsultacjach technicznych i bezpośredniej współpracy z klientem."
           },
           {
             "productName": "Legia.com",
@@ -130,7 +131,7 @@
       "edocs": {
         "roleTitle": "Frontend Engineer",
         "companyName": "Europa Systems",
-        "description": "Skalowalna architektura frontendu, biblioteki komponentów i optymalizacja wydajności dużych aplikacji opartych na danych.",
+        "description": "Mój wkład to skalowalna architektura frontendu, biblioteki komponentów i optymalizacja wydajności dużych aplikacji opartych na danych.",
         "caseStudies": [
           {
             "productName": "EDOCS Systems",

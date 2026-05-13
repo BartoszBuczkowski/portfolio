@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { TechnologiesList } from "./components/technologies-list";
 import { TimelineCaseStudies } from "./components/timeline-case-studies";
@@ -12,9 +11,15 @@ import { formatPeriod } from "./helpers";
 import { useTimelineItemRowMotion } from "./hooks/use-timeline-item-row-motion";
 import { TimelineItemRowProps } from "./types";
 
+const timelineRowClassName =
+  "group/timeline-row relative flex min-h-[100px] flex-col items-stretch md:flex-row md:items-center md:[&>.spacer]:block";
+const timelineItemDetailsClassName = "w-full py-4 md:w-[calc(50%-32px)] text-left pl-0 md:pl-0 md:pr-8 md:text-right";
+const caseStudiesClassName =
+  "spacer flex w-full shrink-0 flex-col pt-2 pb-4 md:w-[calc(50%-32px)] md:items-start md:justify-start md:py-4 md:pt-0 md:pl-8";
+
 export function TimelineItemRow({ item, index }: TimelineItemRowProps) {
   const { lineHeight, setItemRef, dotOffsets, activeIndex, itemVariants, presentLabel } = useExperienceTimelineScroll();
-  const isLeft = true;
+
   const dotOffset = dotOffsets[index] ?? 0;
   const isActive = activeIndex === index;
 
@@ -27,66 +32,32 @@ export function TimelineItemRow({ item, index }: TimelineItemRowProps) {
 
   const period = formatPeriod(item.yearFrom, item.yearTo, presentLabel);
   const animateVariant = isInView ? "visible" : "hidden";
-  const side = isLeft ? "left" : "right";
+  const opacity = isActive ? 1 : contentOpacity;
 
   return (
     <motion.li
       ref={handleItemRef}
-      data-timeline-side={isLeft ? "left" : "right"}
-      className={cn(
-        "group/timeline-row relative flex min-h-[100px] flex-col items-stretch md:flex-row md:items-center md:[&>.spacer]:block",
-        {
-          "md:flex-row": isLeft,
-          "md:flex-row-reverse": !isLeft,
-        },
-      )}
+      className={timelineRowClassName}
       initial="hidden"
       animate={animateVariant}
       variants={itemVariants}
-      custom={side}
-      style={{
-        opacity: isActive ? 1 : contentOpacity,
-      }}
+      style={{ opacity }}
     >
-      <motion.div
-        className={cn("w-full py-4 md:w-[calc(50%-32px)] text-left pl-0", "md:pl-0 md:pr-0", {
-          "md:pr-8 md:text-right": isLeft,
-          "md:pl-8 md:text-left": !isLeft,
-        })}
-      >
-        <div className={cn("mb-4 flex justify-start p-4", isLeft && "md:justify-end")}>
-          <TimelineItemLogo item={item} />
-        </div>
+      <motion.div className={timelineItemDetailsClassName}>
+        <TimelineItemLogo item={item} />
 
         <TimelineItemDetails period={period} item={item} />
 
-        <TechnologiesList technologies={item.technologies} isLeft={isLeft} />
+        <TechnologiesList technologies={item.technologies} />
       </motion.div>
 
       <TimelineDot dotScale={dotScale} dotOpacity={dotOpacity} />
 
-      <div
-        className={cn(
-          "spacer",
-          "flex w-full shrink-0 flex-col pt-2 pb-4 md:w-[calc(50%-32px)] md:items-start md:justify-start md:py-4 md:pt-0",
-          {
-            "md:pl-8 md:justify-start": isLeft,
-            "md:pr-8 md:justify-end": !isLeft,
-          },
-        )}
-      >
-        {item.caseStudies && (
-          <TimelineCaseStudies
-            caseStudies={item.caseStudies}
-            isRight={!isLeft}
-            isTimelineRowActive={isActive}
-            className={cn({
-              "ml-6 mr-2 md:ml-14": isLeft,
-              "ml-6 mr-2 md:ml-0 md:mr-14": !isLeft,
-            })}
-          />
-        )}
-      </div>
+      {item.caseStudies && (
+        <div className={caseStudiesClassName}>
+          <TimelineCaseStudies caseStudies={item.caseStudies} isTimelineRowActive={isActive} />
+        </div>
+      )}
     </motion.li>
   );
 }

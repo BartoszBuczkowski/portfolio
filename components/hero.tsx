@@ -1,8 +1,9 @@
 import { AvailabilityBadge } from "@/components/availability-badge";
+import { HeroBackground } from "@/components/hero-background";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { getTranslations } from "next-intl/server";
 import { MailIcon } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 const email = "bartosz.r.buczkowski@gmail.com";
@@ -14,29 +15,7 @@ export async function Hero() {
 
   return (
     <header className="relative flex w-full flex-col overflow-hidden bg-background px-6 py-20">
-      <div
-        className="absolute inset-0 opacity-[0.4] dark:opacity-[0.15]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, var(--border) 1px, transparent 1px),
-            linear-gradient(to bottom, var(--border) 1px, transparent 1px)
-          `,
-          backgroundSize: "48px 48px",
-        }}
-      />
-
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: `radial-gradient(
-            ellipse 80% 70% at 50% 45%,
-            transparent 0%,
-            transparent 35%,
-            var(--background) 75%,
-            var(--background) 100%
-          )`,
-        }}
-      />
+      <HeroBackground />
 
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-8 text-center">
         <AvailabilityBadge />

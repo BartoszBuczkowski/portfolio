@@ -15,9 +15,11 @@ export function TimelineItemLogo({ item }: TimelineItemLogoProps) {
   const mobileIconSrc = dir + item.logoSrc + "-mobile.svg";
 
   return (
-    <div className={logoSlotClassName}>
-      <Image src={desktopIconSrc} alt={item.companyName} fill className="hidden md:block dark:invert" />
-      <Image src={mobileIconSrc} alt={item.companyName} fill className="block md:hidden dark:invert" />
+    <div className="mb-4 flex justify-start p-4 md:justify-end">
+      <div className={logoSlotClassName}>
+        <Image src={desktopIconSrc} alt={item.companyName} fill className="hidden md:block dark:invert" />
+        <Image src={mobileIconSrc} alt={item.companyName} fill className="block md:hidden dark:invert" />
+      </div>
     </div>
   );
 }

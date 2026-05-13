@@ -1,6 +1,6 @@
 "use client";
 
-import { MotionValue, useInView, useSpring, useTransform } from "framer-motion";
+import { MotionValue, MultiTransformer, useInView, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 type UseTimelineItemRowMotionParams = {
@@ -8,6 +8,17 @@ type UseTimelineItemRowMotionParams = {
   lineHeight: MotionValue<number>;
   dotOffset: number;
   isActive: boolean;
+};
+
+type Transformer = MultiTransformer<[number, number, number], number>;
+
+const dotOpacityTransformer: Transformer = ([reveal, activity, entrance]) => {
+  return Number(reveal) * Number(activity) * Number(entrance);
+};
+
+const contentOpacityTransformer: Transformer = ([reveal, activity, entrance]) => {
+  const combined = Number(reveal) * Number(activity) * Number(entrance);
+  return Math.min(Math.max(combined, 0.3 * Number(entrance)), 1);
 };
 
 export function useTimelineItemRowMotion({ setItemRef, lineHeight, dotOffset, isActive }: UseTimelineItemRowMotionParams) {
@@ -42,14 +53,11 @@ export function useTimelineItemRowMotion({ setItemRef, lineHeight, dotOffset, is
     entranceOpacity.set(isInView ? 1 : 0);
   }, [isInView, entranceOpacity]);
 
+  const commonTransformerInput = [smoothReveal, smoothActivity, entranceOpacity];
+
   const dotScale = useTransform(smoothReveal, [0, 1], [0.7, 1]);
-  const dotOpacity = useTransform([smoothReveal, smoothActivity, entranceOpacity], ([reveal, activity, entrance]) => {
-    return Number(reveal) * Number(activity) * Number(entrance);
-  });
-  const contentOpacity = useTransform([smoothReveal, smoothActivity, entranceOpacity], ([reveal, activity, entrance]) => {
-    const combined = Number(reveal) * Number(activity) * Number(entrance);
-    return Math.min(Math.max(combined, 0.3 * Number(entrance)), 1);
-  });
+  const dotOpacity = useTransform(commonTransformerInput, dotOpacityTransformer);
+  const contentOpacity = useTransform(commonTransformerInput, contentOpacityTransformer);
 
   const handleItemRef = (el: HTMLLIElement | null) => {
     itemRef.current = el;

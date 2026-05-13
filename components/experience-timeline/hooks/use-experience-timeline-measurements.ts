@@ -40,13 +40,16 @@ export function useExperienceTimelineMeasurements() {
   }, [scrollYProgress, listHeight, dotOffsets, activeIndex, lineHeight]);
 
   const updateLineHeightRef = useRef(updateLineHeight);
+
   useLayoutEffect(() => {
     updateLineHeightRef.current = updateLineHeight;
   }, [updateLineHeight]);
 
   const onScrollProgressChange = useCallback((latest: number) => {
     const initial = initialScrollProgressRef.current;
-    if (initial === null) {
+    const noInitialScrollProgress = initial === null;
+
+    if (noInitialScrollProgress) {
       initialScrollProgressRef.current = latest;
     } else if (Math.abs(latest - initial) > 0.001) {
       isScrollTrackingEnabledRef.current = true;
@@ -116,7 +119,9 @@ export function useExperienceTimelineMeasurements() {
     });
     itemResizeObserverRef.current = itemResizeObserver;
     itemRefs.current.forEach((item) => {
-      if (item) itemResizeObserver.observe(item);
+      if (!item) return;
+
+      itemResizeObserver.observe(item);
     });
 
     initialScrollProgressRef.current = scrollYProgress.get();

@@ -12,7 +12,7 @@ binding = "WORKER_SELF_REFERENCE"
 service = "portfolio"
 
 [[d1_databases]]
-binding = "DB"
+binding = "portfolio_db"
 database_name = "portfolio-db"
-database_id = "REPLACE_WITH_WRANGLER_D1_CREATE_OUTPUT"
+database_id = "8303ee89-c1aa-41d2-831b-c5e58baa66ba"
 migrations_dir = "migrations"

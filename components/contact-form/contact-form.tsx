@@ -35,6 +35,7 @@ function ContactFormRoot({ className, children, variant = "page", defaultEmail =
   const [state, setState] = useState<ContactState | null>(null);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileInstance | null>(null);
+  const prevDefaultEmail = useRef<string | undefined>(undefined);
 
   const contactSchema = useMemo(
     () =>
@@ -52,7 +53,10 @@ function ContactFormRoot({ className, children, variant = "page", defaultEmail =
 
   useEffect(() => {
     form.reset({ name: "", email: defaultEmail, message: "" });
-    turnstileRef.current?.reset();
+    if (prevDefaultEmail.current !== undefined && prevDefaultEmail.current !== defaultEmail) {
+      turnstileRef.current?.reset();
+    }
+    prevDefaultEmail.current = defaultEmail;
     queueMicrotask(() => {
       setTurnstileToken(null);
     });

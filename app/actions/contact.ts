@@ -40,7 +40,7 @@ export async function submitContact(formData: FormData): Promise<ContactState> {
   }
 
   const { env } = await getCloudflareContext({ async: true });
-  const db = env.DB;
+  const db = env.portfolio_db;
   if (!db) {
     return { ok: false, message: t("server.databaseError") };
   }

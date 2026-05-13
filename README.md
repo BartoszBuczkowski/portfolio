@@ -16,7 +16,7 @@ Copy [`.env.example`](./.env.example) to `.env.local` for local Next.js developm
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Public | Turnstile widget site key from the Cloudflare dashboard. |
 | `TURNSTILE_SECRET_KEY` | Server only | Turnstile secret for server-side `siteverify`. In production, set with `pnpm exec wrangler secret put TURNSTILE_SECRET_KEY`. |
 
-D1 is configured in [`wrangler.toml`](./wrangler.toml) (`DB` binding), not in `.env`.
+D1 is configured in [`wrangler.toml`](./wrangler.toml) (`portfolio_db` binding), not in `.env`.
 
 ## Install
 

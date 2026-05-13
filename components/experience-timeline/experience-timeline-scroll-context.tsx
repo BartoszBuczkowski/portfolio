@@ -2,10 +2,13 @@
 
 import type { MotionValue } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { createContext, useContext } from "react";
+import { createContext, useContext, type RefObject } from "react";
 
 export type ExperienceTimelineScrollContextValue = {
+  sectionRef: RefObject<HTMLElement | null>;
+  listRef: RefObject<HTMLUListElement | null>;
   lineHeight: MotionValue<number>;
+  indicatorTop: MotionValue<number>;
   setItemRef: (index: number, el: HTMLLIElement | null) => void;
   dotOffsets: number[];
   activeIndex: number;

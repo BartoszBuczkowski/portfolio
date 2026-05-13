@@ -5,7 +5,8 @@ import { getCandidateTechItems, getNextIndex, getPreviouslyActiveLabel, getVisib
 import type { TechStackItem } from "../types";
 
 type OptionalTechStackItem = TechStackItem | undefined;
-type ActiveTech = [OptionalTechStackItem, OptionalTechStackItem, OptionalTechStackItem, OptionalTechStackItem] | [];
+
+export type ActiveTechTuple = [OptionalTechStackItem, OptionalTechStackItem, OptionalTechStackItem, OptionalTechStackItem] | [];
 
 const intervalMs = 2000;
 
@@ -14,12 +15,12 @@ function getRandomItem<T>(items: T[]) {
 }
 
 export function useActiveTech() {
-  const [activeTech, setActiveTech] = useState<ActiveTech>([]);
+  const [activeTech, setActiveTech] = useState<ActiveTechTuple>([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveTech((prev) => {
-        const next: ActiveTech = [undefined, undefined, undefined, undefined];
+        const next: ActiveTechTuple = [undefined, undefined, undefined, undefined];
         const visibleTechLabels = getVisibleTechLabels();
         const visibleTechItems = techStack.filter((item) => visibleTechLabels.includes(item.label));
 

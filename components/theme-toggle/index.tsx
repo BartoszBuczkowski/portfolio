@@ -4,10 +4,24 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
-import { MoonIcon } from "../icons/moon-icon";
-import { SunIcon } from "../icons/sun-icon";
 
 const THEME_COOKIE_NAME = "theme";
+
+function ThemeGlyph({ id, src }: { id: string; src: string }) {
+  return (
+    <svg
+      width={16}
+      height={16}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden
+      className="shrink-0"
+    >
+      <use href={`${src}#${id}`} width="24" height="24" />
+    </svg>
+  );
+}
+
 const THEME_COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 365;
 
 const setCookieTheme = (theme: "dark" | "light") => {
@@ -52,7 +66,7 @@ export function ThemeToggle({ initialDark }: ThemeToggleProps) {
           "text-foreground": !dark,
         })}
       >
-        <SunIcon />
+        <ThemeGlyph id="sun-icon" src="/sun-icon.svg" />
       </span>
       <span
         aria-hidden
@@ -67,7 +81,7 @@ export function ThemeToggle({ initialDark }: ThemeToggleProps) {
           "text-foreground": dark,
         })}
       >
-        <MoonIcon />
+        <ThemeGlyph id="moon-icon" src="/moon-icon.svg" />
       </span>
     </Button>
   );

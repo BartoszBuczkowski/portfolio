@@ -14,7 +14,7 @@ import { TimelineItemRowProps } from "./types";
 
 export function TimelineItemRow({ item, index }: TimelineItemRowProps) {
   const { lineHeight, setItemRef, dotOffsets, activeIndex, itemVariants, presentLabel } = useExperienceTimelineScroll();
-  const isLeft = index % 2 === 0;
+  const isLeft = true;
   const dotOffset = dotOffsets[index] ?? 0;
   const isActive = activeIndex === index;
 
@@ -54,7 +54,7 @@ export function TimelineItemRow({ item, index }: TimelineItemRowProps) {
           "md:pl-8 md:text-left": !isLeft,
         })}
       >
-        <div className={cn("mb-8 flex justify-start", isLeft && "md:justify-end")}>
+        <div className={cn("mb-4 flex justify-start p-4", isLeft && "md:justify-end")}>
           <TimelineItemLogo item={item} />
         </div>
 

@@ -1,5 +1,3 @@
-import { JSX } from "react";
-
 export type CaseStudy = {
   productName: string;
   problem: string;
@@ -13,7 +11,8 @@ export type TimelineItem = {
   companyName: string;
   description: string;
   technologies: string[];
-  icon: (props: { className?: string }) => JSX.Element;
+  /** Public URL under `/experience-brands/` (e.g. `/experience-brands/laras.svg`). */
+  logoSrc: string;
   caseStudies?: CaseStudy[];
 };
 

@@ -1,11 +1,4 @@
 import type { TimelineItem } from "@/components/experience-timeline/types";
-import { EdocsIcon } from "@/components/icons/edocs-icon";
-import { LarasIcon } from "@/components/icons/laras-icon";
-import { NetiIcon } from "@/components/icons/neti-icon";
-import { OffIcon } from "@/components/icons/off-icon";
-import { PunktaPlIcon } from "@/components/icons/punkta-icon";
-import { ReasonappsIcon } from "@/components/icons/reasonapps-icon";
-import { UnivioG4nIcon } from "@/components/icons/univio-g4n-icon";
 import { _Translator } from "next-intl";
 
 export const getExperience = (t: _Translator): TimelineItem[] => {
@@ -17,7 +10,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
       yearFrom: 2018,
       yearTo: 2020,
       technologies: ["E-commerce", "Graphic Design", "Branding", "Marketing"],
-      icon: LarasIcon,
+      logoSrc: "/experience-brands/laras.svg",
       caseStudies: t.raw(`items.laras.caseStudies`),
     },
     {
@@ -38,7 +31,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
         "Storybook",
         "Tailwind CSS",
       ],
-      icon: ReasonappsIcon,
+      logoSrc: "/experience-brands/reasonapps.svg",
       caseStudies: t.raw(`items.reasonapps.caseStudies`),
     },
     {
@@ -48,7 +41,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
       yearFrom: 2021,
       yearTo: 2021,
       technologies: ["React", "TypeScript", "Webpack", "Rollup", "Storybook", "Ant Design", "Monorepo"],
-      icon: EdocsIcon,
+      logoSrc: "/experience-brands/edocs.svg",
       caseStudies: t.raw(`items.edocs.caseStudies`),
     },
     {
@@ -58,7 +51,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
       yearFrom: 2021,
       yearTo: 2022,
       technologies: ["React", "React Native", "TypeScript", "Redux", "JavaScript"],
-      icon: UnivioG4nIcon,
+      logoSrc: "/experience-brands/global4net.svg",
       caseStudies: t.raw(`items.global4net.caseStudies`),
     },
     {
@@ -68,7 +61,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
       yearFrom: 2022,
       yearTo: 2025,
       technologies: ["React", "TypeScript", "Redux", "Material UI", "Rails", "Jest", "React Testing Library", "Monorepo", "JavaScript"],
-      icon: PunktaPlIcon,
+      logoSrc: "/experience-brands/punkta.svg",
       caseStudies: t.raw(`items.punkta.caseStudies`),
     },
     {
@@ -90,7 +83,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
         "PostgreSQL",
         "Node.js",
       ],
-      icon: NetiIcon,
+      logoSrc: "/experience-brands/neti.svg",
       caseStudies: t.raw(`items.neti.caseStudies`),
     },
     {
@@ -100,7 +93,7 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
       yearFrom: 2026,
       yearTo: null,
       technologies: ["Branding", "NestJS", "Hasura", "Monorepo"],
-      icon: OffIcon,
+      logoSrc: "/experience-brands/off.svg",
     },
   ];
 };

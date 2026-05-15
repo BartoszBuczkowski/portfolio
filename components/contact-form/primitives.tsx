@@ -14,7 +14,7 @@ export function ContactFormHeader() {
 }
 
 export function ContactFormSurface({ children }: { children: ReactNode }) {
-  return <div className="focus-within:ring-2 focus-within:ring-accent-violet/20">{children}</div>;
+  return <div>{children}</div>;
 }
 
 export function ContactFormBody({ children }: { children: ReactNode }) {

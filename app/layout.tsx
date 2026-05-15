@@ -1,8 +1,11 @@
+import { metadata, viewport } from "@/lib/site-metadata";
 import { cn } from "@/lib/utils";
 import { cookies } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import "./globals.css";
+
+export { metadata, viewport };
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,11 +31,20 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      className={cn({
+      suppressHydrationWarning
+      className={cn("h-full", {
         dark: isThemeDark,
       })}
     >
-      <body className={cn(geistSans.variable, geistMono.variable, "antialiased scroll-smooth")}>{children}</body>
+      <body
+        className={cn(
+          geistSans.variable,
+          geistMono.variable,
+          "flex min-h-full flex-col overflow-x-hidden bg-background font-sans text-foreground antialiased scroll-smooth",
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }

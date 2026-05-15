@@ -3,8 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { useState } from "react";
 
 type FaqItem = {
@@ -32,7 +32,7 @@ export function FAQSection() {
 
           <div className="absolute bottom-0 flex flex-col gap-4 p-10">
             <h2 className="text-5xl font-extrabold text-white">{t("title")}</h2>
-            <p className="max-w-xl text-base text-muted dark:text-muted-foreground">{t("subtitle")}</p>
+            <p className="max-w-xl text-base text-muted dark:text-gray-300">{t("subtitle")}</p>
           </div>
         </div>
 
@@ -49,7 +49,7 @@ export function FAQSection() {
                     className="w-full justify-between"
                     onClick={() => setExpandedItemId(isExpanded ? "" : item.id)}
                   >
-                    <span className="max-w-full text-base leading-6 font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">
+                    <span className="max-w-full text-base leading-6 font-medium text-foreground whitespace-break-spaces text-left">
                       {item.question}
                     </span>
 

@@ -4,8 +4,8 @@ import { ContactForm } from "@/components/contact-form";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
-import { z } from "zod";
 import { useCallback, useId, useState } from "react";
+import { z } from "zod";
 
 export type FooterContactCtaLabels = {
   emailLabel: string;
@@ -19,13 +19,7 @@ type FooterContactCtaProps = FooterContactCtaLabels;
 
 const emailSchema = z.string().email();
 
-export function FooterContactCta({
-  emailLabel,
-  emailPlaceholder,
-  sendEmail,
-  dialogTitle,
-  invalidEmail,
-}: FooterContactCtaProps) {
+export function FooterContactCta({ emailLabel, emailPlaceholder, sendEmail, dialogTitle, invalidEmail }: FooterContactCtaProps) {
   const formId = useId();
   const [email, setEmail] = useState("");
   const [footerError, setFooterError] = useState<string | null>(null);
@@ -79,16 +73,15 @@ export function FooterContactCta({
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent
+          mobileKeyboardSafe
           aria-describedby={undefined}
-          className="flex max-h-[min(90vh,640px)] flex-col gap-0 p-0 sm:max-w-md"
+          className="flex max-h-[min(90vh,640px)] flex-col gap-0 overflow-hidden p-0 sm:max-w-md"
         >
-          <div className="relative min-h-0 flex-1 overflow-y-auto p-6">
-            <DialogHeader>
-              <DialogTitle>{dialogTitle}</DialogTitle>
-            </DialogHeader>
-            <div className="mt-4">
-              <ContactForm key={modalEmail} variant="embedded" defaultEmail={modalEmail} className="py-0 px-0" />
-            </div>
+          <DialogHeader className="shrink-0 border-b border-border px-6 pt-6 pb-4 text-left">
+            <DialogTitle>{dialogTitle}</DialogTitle>
+          </DialogHeader>
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 py-4">
+            <ContactForm key={modalEmail} variant="embedded" defaultEmail={modalEmail} className="py-0 px-0" />
           </div>
         </DialogContent>
       </Dialog>

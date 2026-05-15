@@ -1,4 +1,5 @@
 import { routing } from "@/i18n/routing";
+import { getAbsoluteUrl, getLocalePath, getOpenGraphLocale, siteConfig } from "@/lib/site-config";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
@@ -16,16 +17,44 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Pick<Props, "params">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
+  const title = t("title");
+  const description = t("description");
+  const keywords = t("keywords");
+  const canonicalPath = getLocalePath(locale);
+  const pageUrl = getAbsoluteUrl(canonicalPath);
+  const ogLocale = getOpenGraphLocale(locale);
+  const alternateOgLocale = routing.locales
+    .filter((loc) => loc !== locale)
+    .map((loc) => getOpenGraphLocale(loc));
 
   return {
-    title: t("title"),
-    description: t("description"),
+    title,
+    description,
+    keywords: keywords.split(",").map((keyword) => keyword.trim()),
     alternates: {
-      canonical: locale === routing.defaultLocale ? "/" : `/${locale}`,
-      languages: {
-        en: "/",
-        pl: "/pl",
-      },
+      canonical: canonicalPath,
+      languages: Object.fromEntries(
+        routing.locales.map((loc) => [loc, getLocalePath(loc)]),
+      ),
+    },
+    openGraph: {
+      title,
+      description,
+      url: pageUrl ?? canonicalPath,
+      locale: ogLocale,
+      alternateLocale: alternateOgLocale,
+      images: [
+        {
+          url: siteConfig.ogImage.path,
+          width: siteConfig.ogImage.width,
+          height: siteConfig.ogImage.height,
+          alt: siteConfig.ogImage.alt,
+        },
+      ],
+    },
+    twitter: {
+      title,
+      description,
     },
   };
 }

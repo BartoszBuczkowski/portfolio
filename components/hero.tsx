@@ -26,7 +26,7 @@ export async function Hero() {
             "ring-2 ring-black/5 dark:ring-white/10",
           )}
         >
-          <Image src={avatarSrc} alt={t("avatarAlt")} className="h-full w-full object-cover" width={208} height={208} />
+          <Image priority src={avatarSrc} alt={t("avatarAlt")} className="h-full w-full object-cover" width={208} height={208} />
         </div>
 
         <div className="flex flex-col gap-6">

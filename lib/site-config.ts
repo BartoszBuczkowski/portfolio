@@ -33,6 +33,21 @@ export function getLocalePath(locale: string): string {
   return locale === siteConfig.defaultLocale ? "/" : `/${locale}`;
 }
 
+/** Absolute URLs for `<link rel="alternate" hreflang="…">` (requires NEXT_PUBLIC_SITE_URL). */
+export function getHreflangLanguages(): Record<string, string> | undefined {
+  if (!siteUrl) return undefined;
+
+  const languages: Record<string, string> = {
+    "x-default": getAbsoluteUrl(getLocalePath(siteConfig.defaultLocale))!,
+  };
+
+  for (const locale of siteConfig.locales) {
+    languages[locale] = getAbsoluteUrl(getLocalePath(locale))!;
+  }
+
+  return languages;
+}
+
 export function getSocialProfiles(): string[] {
   const profiles = [
     process.env.NEXT_PUBLIC_LINKEDIN_URL,

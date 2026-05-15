@@ -1,5 +1,11 @@
 import { routing } from "@/i18n/routing";
-import { getAbsoluteUrl, getLocalePath, getOpenGraphLocale, siteConfig } from "@/lib/site-config";
+import {
+  getAbsoluteUrl,
+  getHreflangLanguages,
+  getLocalePath,
+  getOpenGraphLocale,
+  siteConfig,
+} from "@/lib/site-config";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
@@ -22,6 +28,8 @@ export async function generateMetadata({ params }: Pick<Props, "params">): Promi
   const keywords = t("keywords");
   const canonicalPath = getLocalePath(locale);
   const pageUrl = getAbsoluteUrl(canonicalPath);
+  const hreflangLanguages = getHreflangLanguages();
+  const ogImageUrl = getAbsoluteUrl(siteConfig.ogImage.path);
   const ogLocale = getOpenGraphLocale(locale);
   const alternateOgLocale = routing.locales
     .filter((loc) => loc !== locale)
@@ -32,10 +40,8 @@ export async function generateMetadata({ params }: Pick<Props, "params">): Promi
     description,
     keywords: keywords.split(",").map((keyword) => keyword.trim()),
     alternates: {
-      canonical: canonicalPath,
-      languages: Object.fromEntries(
-        routing.locales.map((loc) => [loc, getLocalePath(loc)]),
-      ),
+      canonical: pageUrl ?? canonicalPath,
+      ...(hreflangLanguages ? { languages: hreflangLanguages } : {}),
     },
     openGraph: {
       title,
@@ -45,7 +51,7 @@ export async function generateMetadata({ params }: Pick<Props, "params">): Promi
       alternateLocale: alternateOgLocale,
       images: [
         {
-          url: siteConfig.ogImage.path,
+          url: ogImageUrl ?? siteConfig.ogImage.path,
           width: siteConfig.ogImage.width,
           height: siteConfig.ogImage.height,
           alt: siteConfig.ogImage.alt,

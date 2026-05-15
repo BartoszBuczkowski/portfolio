@@ -1,7 +1,6 @@
 "use client";
 
-import type { MotionValue } from "framer-motion";
-import type { Variants } from "framer-motion";
+import type { MotionValue, Variants } from "framer-motion";
 import { createContext, useContext, type RefObject } from "react";
 
 export type ExperienceTimelineScrollContextValue = {

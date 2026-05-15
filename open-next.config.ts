@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { defineCloudflareConfig } from "@opennextjs/cloudflare";
 
 // OpenNext runs the package "build" script by default (`pnpm build`). This repo

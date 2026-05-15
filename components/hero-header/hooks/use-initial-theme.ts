@@ -2,15 +2,18 @@
 
 import { useSyncExternalStore } from "react";
 
-type Theme = "dark" | "light" | null;
+type Theme = "dark" | "light";
 
-export const useInitialTheme = () => {
+function readThemeFromCookie(): Theme | null {
+  const match = document.cookie.match(/(?:^|;\s*)theme=(dark|light)(?:;|$)/);
+  if (match?.[1] === "dark" || match?.[1] === "light") return match[1];
+  return null;
+}
+
+export const useInitialTheme = (): Theme => {
   return useSyncExternalStore(
     () => () => {},
-    () => {
-      const match = document.cookie.match(/(?:^|;\s*)theme=(dark|light)(?:;|$)/);
-      return (match?.[1] as Theme) ?? null;
-    },
-    () => null,
+    () => readThemeFromCookie() ?? "light",
+    () => "light",
   );
 };

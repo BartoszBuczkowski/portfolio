@@ -14,13 +14,8 @@ type ExperienceTimelineScrollProviderProps = {
   children: ReactNode;
 };
 
-export function ExperienceTimelineScrollProvider({
-  presentLabel,
-  itemVariants,
-  children,
-}: ExperienceTimelineScrollProviderProps) {
-  const { sectionRef, listRef, dotOffsets, activeIndex, lineHeight, indicatorTop, setItemRef } =
-    useExperienceTimelineMeasurements();
+export function ExperienceTimelineScrollProvider({ presentLabel, itemVariants, children }: ExperienceTimelineScrollProviderProps) {
+  const { sectionRef, listRef, dotOffsets, activeIndex, lineHeight, indicatorTop, setItemRef } = useExperienceTimelineMeasurements();
 
   const value = useMemo<ExperienceTimelineScrollContextValue>(
     () => ({
@@ -34,17 +29,7 @@ export function ExperienceTimelineScrollProvider({
       itemVariants,
       presentLabel,
     }),
-    [
-      sectionRef,
-      listRef,
-      lineHeight,
-      indicatorTop,
-      setItemRef,
-      dotOffsets,
-      activeIndex,
-      itemVariants,
-      presentLabel,
-    ],
+    [sectionRef, listRef, lineHeight, indicatorTop, setItemRef, dotOffsets, activeIndex, itemVariants, presentLabel],
   );
 
   return <ExperienceTimelineScrollContext.Provider value={value}>{children}</ExperienceTimelineScrollContext.Provider>;

@@ -15,7 +15,7 @@ export function HeroHeader() {
 
       <div className="flex items-center gap-4">
         <LanguageSwitcher />
-        {initialTheme && <ThemeToggle initialDark={initialTheme === "dark"} />}
+        <ThemeToggle initialDark={initialTheme === "dark"} />
       </div>
     </div>
   );

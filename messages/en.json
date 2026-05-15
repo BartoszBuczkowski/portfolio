@@ -1,15 +1,15 @@
 {
   "Metadata": {
-    "title": "Your Name | JavaScript Developer",
-    "description": "Portfolio of a JavaScript Developer. Experience, projects, and contact."
+    "title": "Bartosz Buczkowski | Software Developer",
+    "description": "Software Developer portfolio. Experience, projects, and contact."
   },
   "Hero": {
     "avatarAlt": "Bartosz Buczkowski - Software Developer - Avatar",
-    "headline": "AI-Driven Software Solutions Builder",
-    "description": "I design and build modern web applications with a strong focus on product thinking, scalability, and fast iteration using the JavaScript ecosystem."
+    "headline": "I build AI-supported software solutions",
+    "description": "I design and build modern web applications with a strong focus on product thinking, scalability, and rapid concept testing in the JavaScript ecosystem."
   },
   "Availability": {
-    "label": "Open to work"
+    "label": "Open to opportunities"
   },
   "Logo": {
     "location": "Rzeszów, Poland"
@@ -21,11 +21,11 @@
     "polish": "PL"
   },
   "Footer": {
-    "ctaTitle": "Let’s Build Something Valuable",
-    "ctaDescription": "Have a product idea, technical challenge, or project in mind? Send me an email and let’s discuss how I can help.",
+    "ctaTitle": "Looking for a product development partner?",
+    "ctaDescription": "Have a product idea, technical challenge, or project but need a Software Developer? Email me and let's discuss how I can help.",
     "emailLabel": "Email address",
-    "emailPlaceholder": "Enter e-mail address",
-    "sendEmail": "Send an email",
+    "emailPlaceholder": "Enter email address",
+    "sendEmail": "Send email",
     "dialogTitle": "Get in touch",
     "invalidEmail": "Please enter a valid email address.",
     "copyright": "© Bartosz Buczkowski"
@@ -33,53 +33,54 @@
   "FAQ": {
     "imageAlt": "Bartosz Buczkowski - Software Developer",
     "title": "FAQ",
-    "subtitle": "Everything you may want to know about collaboration, development workflows, and how I help teams build and improve software products.",
+    "subtitle": "Everything you may want to know about working together, my approach, and how I help teams build and grow products.",
     "items": [
       {
         "id": "faq-1",
         "question": "What services do you offer?",
-        "answer": "I provide software development and technical consulting services focused on modern web applications, product development, system modernization, and AI-assisted engineering workflows."
+        "answer": "I provide software development and technical consulting focused on modern web applications, product development, system modernization, and AI-supported workflows."
       },
       {
         "id": "faq-2",
         "question": "Do you work only as a frontend developer?",
-        "answer": "Frontend engineering is my main specialization, particularly in React and TypeScript, but I also work across backend services, architecture decisions, product development, and technical consulting."
+        "answer": "Frontend is my main specialization, especially React and TypeScript, but I also work on the backend, architecture, product development, and technical consulting."
       },
       {
         "id": "faq-3",
         "question": "Can you help with existing projects?",
-        "answer": "Yes. I often work with existing products, helping teams modernize codebases, improve maintainability, optimize workflows, and deliver new features faster."
+        "answer": "Yes. I often work on existing products: code modernization, maintenance, process optimization, and faster feature delivery."
       },
       {
         "id": "faq-4",
-        "question": "What is AI-assisted development?",
-        "answer": "AI-assisted development means using modern AI tools to accelerate repetitive work, improve research and debugging, speed up prototyping, and reduce delivery time while maintaining engineering quality."
+        "question": "What is AI-supported development?",
+        "answer": "It means using modern AI tools to speed up repetitive tasks, research and debugging, prototyping, and shorter delivery times while maintaining engineering quality."
       },
       {
         "id": "faq-5",
         "question": "Do you work with startups?",
-        "answer": "Yes. I enjoy working with startups, especially where fast iteration, pragmatic decisions, and rapid product delivery are important."
+        "answer": "Yes. I enjoy working with startups, especially where fast iteration, pragmatic decisions, and delivery pace matter."
       },
       {
         "id": "faq-6",
         "question": "Can you modernize legacy applications?",
-        "answer": "Yes. I have experience working with legacy systems and gradually modernizing them without interrupting ongoing business operations."
+        "answer": "Yes. I have experience gradually modernizing legacy systems without interrupting ongoing operations."
       },
       {
         "id": "faq-7",
-        "question": "Do you offer consulting services?",
-        "answer": "Yes. Besides implementation, I help teams make technical decisions related to architecture, scalability, modernization, workflows, and product development strategy."
+        "question": "Do you offer consulting?",
+        "answer": "Yes. Beyond implementation, I help teams with architecture, scalability, modernization, workflows, and product strategy decisions."
       }
     ]
   },
   "Experience": {
     "title": "Experience",
-    "caseStudiesHeading": "Selected work",
+    "caseStudiesHeading": "Selected projects",
     "caseStudy": {
       "problem": "Problem",
       "contribution": "Contribution",
-      "goTo": "Go to case study",
-      "next": "Next"
+      "goTo": "Go to project",
+      "previous": "Previous project",
+      "next": "Next project"
     },
     "timeline": {
       "present": "Present"
@@ -88,60 +89,145 @@
       "laras": {
         "roleTitle": "Owner / Creative Graphic Designer",
         "companyName": "Lara’s Clothes",
-        "description": "Managed own clothing brand, including design, branding, e-commerce operations, logistics, and marketing.",
+        "description": "Running my own clothing brand: design, branding, e-commerce, logistics, and marketing.",
         "caseStudies": [
           {
-            "productName": "Brand online store",
-            "problem": "The offer was scattered across several channels, and customers lacked one straightforward place to shop online.",
-            "contribution": "Designed the website and purchase flow aligned with the collection’s visual identity."
+            "productName": "Clothing brand and online store",
+            "problem": "A cohesive brand and online sales channel needed to be built from the ground up.",
+            "contribution": "I designed the brand's visual identity, launched a PrestaShop-based store, and handled sales and logistics."
           },
           {
-            "productName": "Collection identity and materials",
-            "problem": "New product lines needed cohesive graphic treatment to stand out in the market and build recognition.",
-            "contribution": "Developed core branding elements and layouts for lookbooks and promotional assets."
+            "productName": "Product designs and branding",
+            "problem": "New collections required cohesive visual presentation and promotional materials.",
+            "contribution": "I designed prints, marketing materials, and brand identity elements supporting brand growth."
           },
           {
-            "productName": "Marketing channels",
-            "problem": "Brand messaging was inconsistent across social, newsletter, and the store, which weakened ongoing engagement.",
-            "contribution": "Unified the visual language and tone across campaigns and recurring content."
+            "productName": "Marketing and brand communication",
+            "problem": "The brand needed recognizable communication to support online product sales.",
+            "contribution": "I created social media and promotional campaign materials, ensuring visual communication consistency."
           }
         ]
       },
       "reasonapps": {
         "roleTitle": "Junior Frontend Engineer",
         "companyName": "ReasonApps",
-        "description": "Developed browser-based graphic editor for sports journalists, worked on e-commerce solutions and maintained React on Rails applications."
+        "description": "Development of a browser-based graphic editor for sports journalists, e-commerce, and maintenance of React on Rails applications.",
+        "caseStudies": [
+          {
+            "productName": "Brisk / Tisa Group",
+            "problem": "Sports journalists needed a tool to quickly generate and publish graphics based on live sports event data.",
+            "contribution": "I co-built an app for automatic graphic generation with Statscore API integration and delivered a Photoshop-inspired graphic editor. I took part in technical consultations and direct client collaboration."
+          },
+          {
+            "productName": "Legia.com",
+            "problem": "The website of Poland's largest football club required ongoing development and maintenance on a niche React on Rails stack.",
+            "contribution": "I developed and maintained the application frontend, working with a demanding architecture and supporting platform growth."
+          },
+          {
+            "productName": "Fansi.pl",
+            "problem": "The platform needed a scalable frontend architecture and shared components across multiple parts of the system.",
+            "contribution": "I co-created a monorepo with Yarn Workspaces and Lerna, developed the Next.js application, and integrated a GraphQL API using Hasura GraphQL Engine."
+          }
+        ]
       },
       "edocs": {
         "roleTitle": "Frontend Engineer",
         "companyName": "Europa Systems",
-        "description": "Worked on scalable frontend architecture, component libraries, and performance optimization for large data-driven applications."
+        "description": "My focus: scalable frontend architecture, component libraries, and performance optimization for large data-driven applications.",
+        "caseStudies": [
+          {
+            "productName": "EDOCS Systems",
+            "problem": "The company was developing an advanced system for monitoring production-line processes, processing data from hundreds of devices and electrical receivers.",
+            "contribution": "I maintained the existing product and co-designed the architecture of a new version for deployment in clients' closed networks. I built the React frontend with a custom Webpack setup, co-created a Rollup-bundled component library documented in Storybook."
+          },
+          {
+            "productName": "Monorepo architecture and UI system",
+            "problem": "The new platform required scalable frontend architecture and the ability to deploy only selected system modules depending on client needs.",
+            "contribution": "I participated in designing modular frontend architecture with Yarn Workspaces, Lerna, and shared UI components."
+          },
+          {
+            "productName": "Industrial interface performance",
+            "problem": "The system operated on large volumes of data generated in real time by production environments.",
+            "contribution": "I worked on interface performance optimization and rendering of large datasets."
+          }
+        ]
       },
       "global4net": {
         "roleTitle": "Frontend Engineer",
         "companyName": "Global4Net",
-        "description": "Contributed to React Native mobile applications and modernized React applications with TypeScript and Redux improvements."
+        "description": "React Native mobile applications and modernization of React apps with TypeScript and Redux.",
+        "caseStudies": [
+          {
+            "productName": "MyBenefit",
+            "problem": "An extensive platform required further development and gradual modernization of the frontend technology stack.",
+            "contribution": "I initiated TypeScript adoption in the existing codebase, supporting improved typing and application maintainability."
+          },
+          {
+            "productName": "React Native mobile application",
+            "problem": "The project required parallel mobile app development and rapid onboarding into the React Native ecosystem.",
+            "contribution": "I developed a React Native mobile application, quickly adapting to the new environment and supporting product feature development."
+          },
+          {
+            "productName": "Frontend architecture improvements",
+            "problem": "A growing application needed simplified data flow and more predictable state management.",
+            "contribution": "I optimized global application state management and supported further frontend architecture development."
+          }
+        ]
       },
       "punkta": {
         "roleTitle": "Senior Frontend Engineer",
         "companyName": "Punkta",
-        "description": "Led frontend modernization initiatives, migrated legacy systems to React, unified frontend technologies, and improved UX consistency."
+        "description": "Frontend modernization initiatives, migrating legacy systems to React, stack unification, and UX consistency.",
+        "caseStudies": [
+          {
+            "productName": "Frontend stack modernization",
+            "problem": "The application ran AngularJS, Vue 1, React on Rails, Webpacker, and global CSS styles in parallel—difficult to maintain and scale.",
+            "contribution": "I participated in gradual legacy stack reduction and migration of existing business logic to an architecture based on React, SCSS Modules, and Material UI."
+          },
+          {
+            "productName": "Punkta insurance calculator",
+            "problem": "An extensive insurance calculator required ongoing development and stability maintenance on a continuously evolving product.",
+            "contribution": "I developed and maintained key platform features, supporting product growth and implementation of new business requirements."
+          },
+          {
+            "productName": "Sales funnel optimization",
+            "problem": "The purchase process needed improved user experience and reduction of issues affecting conversion.",
+            "contribution": "I worked on tightening the sales funnel, optimizing interfaces, and improving UX at key stages of the purchase process."
+          }
+        ]
       },
       "neti": {
         "roleTitle": "JavaScript Engineer",
         "companyName": "Neti Soft",
-        "description": "Worked on secure business solutions, including biometric authentication, encryption, and Web3-related applications."
+        "description": "Secure business solutions including biometrics, encryption, and Web3 applications.",
+        "caseStudies": [
+          {
+            "productName": "Kryptonim",
+            "problem": "The project required a secure cryptocurrency wallet enabling conversion to stablecoins, contact management, and convenient fund transfers.",
+            "contribution": "I co-built a React Native mobile app, developing wallet features and a security system based on PIN, biometrics, and a local Mongo Realm database. I also worked on app UX and secure cryptocurrency transfer handling."
+          },
+          {
+            "productName": "Golem Base / Arkiv",
+            "problem": "Products needed tools for monitoring and analyzing blockchain data and handling bridging transactions between network layers.",
+            "contribution": "I developed L2 and L3 block explorers based on Blockscout, built bridging interfaces, and created a Subsquid-based indexer for tracking and processing cross-chain blockchain transactions."
+          },
+          {
+            "productName": "Aertura",
+            "problem": "The carbon credits market needed a modern platform for managing and executing emission-offset transactions.",
+            "contribution": "I co-built the product from scratch using TanStack Start, NestJS, Prisma, and RainbowKit, developing application architecture and blockchain transaction integrations."
+          }
+        ]
       },
       "off": {
         "roleTitle": "Owner / Software Engineer",
         "companyName": "The Off",
-        "description": "Building a new business from scratch, including branding, software development, and marketing."
+        "description": "Building a business from scratch: branding, software development, and marketing."
       }
     }
   },
   "Contact": {
     "title": "Contact",
-    "name": "Name",
+    "name": "Full name",
     "email": "Email",
     "message": "Message",
     "namePlaceholder": "Your name",
@@ -151,7 +237,7 @@
     "submitting": "Sending…",
     "validation": {
       "nameMin": "Name must be at least 2 characters",
-      "emailInvalid": "Please enter a valid email",
+      "emailInvalid": "Please enter a valid email address",
       "messageMin": "Message must be at least 10 characters"
     },
     "server": {

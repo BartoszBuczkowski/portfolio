@@ -19,15 +19,7 @@ const itemVariants: Variants = {
   }),
 };
 
-function ExperienceTimelineSection({
-  className,
-  title,
-  experience,
-}: {
-  className?: string;
-  title: string;
-  experience: TimelineItem[];
-}) {
+function ExperienceTimelineSection({ className, title, experience }: { className?: string; title: string; experience: TimelineItem[] }) {
   const { sectionRef, listRef, lineHeight, indicatorTop } = useExperienceTimelineScroll();
 
   return (

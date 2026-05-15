@@ -10,7 +10,7 @@ const email = "bartosz.r.buczkowski@gmail.com";
 
 export async function Hero() {
   const t = await getTranslations("Hero");
-  const avatarSrc = "/avatar.jfif";
+  const avatarSrc = "/avatar.jpg";
   const mailToLink = `mailto:${email}`.replace("@", "+collab@");
 
   return (
@@ -26,7 +26,15 @@ export async function Hero() {
             "ring-2 ring-black/5 dark:ring-white/10",
           )}
         >
-          <Image priority src={avatarSrc} alt={t("avatarAlt")} className="h-full w-full object-cover" width={208} height={208} />
+          <Image
+            priority
+            src={avatarSrc}
+            alt={t("avatarAlt")}
+            width={208}
+            height={208}
+            sizes="208px"
+            className="h-full w-full object-cover"
+          />
         </div>
 
         <div className="flex flex-col gap-6">

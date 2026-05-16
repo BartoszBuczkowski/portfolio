@@ -253,6 +253,7 @@
   },
   "Theme": {
     "switchToLight": "Przełącz na tryb jasny",
-    "switchToDark": "Przełącz na tryb ciemny"
+    "switchToDark": "Przełącz na tryb ciemny",
+    "switchToSystem": "Użyj ustawień urządzenia"
   }
 }

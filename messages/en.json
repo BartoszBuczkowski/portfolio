@@ -253,6 +253,7 @@
   },
   "Theme": {
     "switchToLight": "Switch to light mode",
-    "switchToDark": "Switch to dark mode"
+    "switchToDark": "Switch to dark mode",
+    "switchToSystem": "Use device settings"
   }
 }

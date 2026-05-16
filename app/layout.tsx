@@ -1,4 +1,5 @@
 import { metadata, viewport } from "@/lib/site-metadata";
+import { THEME_COOKIE_NAME, themeInitScript } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 import { cookies } from "next/headers";
 import { Geist } from "next/font/google";
@@ -14,8 +15,6 @@ const geistSans = Geist({
   preload: true,
   adjustFontFallback: true,
 });
-
-const THEME_COOKIE_NAME = "theme";
 
 export default async function RootLayout({
   children,
@@ -34,10 +33,13 @@ export default async function RootLayout({
         dark: isThemeDark,
       })}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body
         className={cn(
           geistSans.variable,
-          "flex min-h-full flex-col overflow-x-hidden bg-background font-sans text-foreground antialiased scroll-smooth",
+          "relative flex min-h-full flex-col overflow-x-hidden bg-background font-sans text-foreground antialiased scroll-smooth",
         )}
       >
         {children}

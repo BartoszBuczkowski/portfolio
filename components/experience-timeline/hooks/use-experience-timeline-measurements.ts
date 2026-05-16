@@ -1,11 +1,14 @@
 "use client";
 
 import { useMotionValueEvent, useScroll, useSpring, useTransform } from "framer-motion";
-import { useCallback, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useLayoutEffect, useRef, useState, type RefObject } from "react";
 
-export function useExperienceTimelineMeasurements() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const listRef = useRef<HTMLUListElement>(null);
+type UseExperienceTimelineMeasurementsParams = {
+  sectionRef: RefObject<HTMLElement | null>;
+  listRef: RefObject<HTMLUListElement | null>;
+};
+
+export function useExperienceTimelineMeasurements({ sectionRef, listRef }: UseExperienceTimelineMeasurementsParams) {
   const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
   const itemResizeObserverRef = useRef<ResizeObserver | null>(null);
 
@@ -137,7 +140,7 @@ export function useExperienceTimelineMeasurements() {
       itemResizeObserver.disconnect();
       itemResizeObserverRef.current = null;
     };
-  }, [scrollYProgress]);
+  }, [listRef, scrollYProgress]);
 
   const setItemRef = useCallback((index: number, el: HTMLLIElement | null) => {
     const observer = itemResizeObserverRef.current;
@@ -154,8 +157,6 @@ export function useExperienceTimelineMeasurements() {
   }, [updateLineHeight]);
 
   return {
-    sectionRef,
-    listRef,
     dotOffsets,
     activeIndex,
     lineHeight,

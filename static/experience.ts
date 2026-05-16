@@ -2,7 +2,7 @@ import type { TimelineItem } from "@/components/experience-timeline/types";
 import { _Translator } from "next-intl";
 
 export const getExperience = (t: _Translator): TimelineItem[] => {
-  return [
+  const listOfExperience = [
     {
       roleTitle: t(`items.laras.roleTitle`),
       companyName: t(`items.laras.companyName`),
@@ -96,4 +96,6 @@ export const getExperience = (t: _Translator): TimelineItem[] => {
       logoSrc: "off",
     },
   ];
+
+  return listOfExperience.reverse();
 };

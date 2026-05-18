@@ -109,11 +109,11 @@ export function ContactFormTurnstile() {
   }
 
   return (
-    <div className="flex justify-center overflow-x-auto">
+    <div className="flex justify-center">
       <Turnstile
         ref={turnstileRef}
         siteKey={siteKey}
-        options={{ size: "flexible" }}
+        options={{ size: "flexible", theme: "auto" }}
         onSuccess={(token) => setTurnstileToken(token)}
         onExpire={() => setTurnstileToken(null)}
         onError={() => setTurnstileToken(null)}

@@ -26,7 +26,10 @@ export const siteConfig = {
   },
   favicon: {
     backgroundColor: "#ffffff",
-    source: "/favicon-96x96.png",
+    ico: "/favicon.ico",
+    svg: "/favicon.svg",
+    png96: "/favicon-96x96.png",
+    appleTouchIcon: "/apple-touch-icon.png",
     pwaIcons: {
       "192": "/web-app-manifest-192x192.png",
       "512": "/web-app-manifest-512x512.png",
@@ -38,6 +41,10 @@ export const siteConfig = {
     },
   },
 } as const;
+
+export function versionedPublicAsset(path: string): string {
+  return `${path}?v=${siteConfig.favicon.cacheVersion}`;
+}
 
 export function getSiteUrl(): string | undefined {
   return siteUrl;

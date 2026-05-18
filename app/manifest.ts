@@ -1,9 +1,8 @@
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig, versionedPublicAsset } from "@/lib/site-config";
 import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   const { favicon } = siteConfig;
-  const versionQuery = `?v=${favicon.cacheVersion}`;
 
   const pwaIconEntries: MetadataRoute.Manifest["icons"] = (
     [
@@ -12,13 +11,13 @@ export default function manifest(): MetadataRoute.Manifest {
     ] as const
   ).flatMap(({ size, path: iconPath }) => [
     {
-      src: `${iconPath}${versionQuery}`,
+      src: versionedPublicAsset(iconPath),
       sizes: `${size}x${size}`,
       type: "image/png",
       purpose: "any",
     },
     {
-      src: `${iconPath}${versionQuery}`,
+      src: versionedPublicAsset(iconPath),
       sizes: `${size}x${size}`,
       type: "image/png",
       purpose: "maskable",

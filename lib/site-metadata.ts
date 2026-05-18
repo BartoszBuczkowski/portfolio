@@ -1,7 +1,8 @@
-import { getSiteUrl, siteConfig } from "@/lib/site-config";
+import { getSiteUrl, siteConfig, versionedPublicAsset } from "@/lib/site-config";
 import type { Metadata, Viewport } from "next";
 
 const siteUrl = getSiteUrl();
+const { favicon } = siteConfig;
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -14,6 +15,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
+  icons: {
+    icon: [
+      { url: versionedPublicAsset(favicon.ico), sizes: "any" },
+      { url: versionedPublicAsset(favicon.svg), type: "image/svg+xml" },
+      { url: versionedPublicAsset(favicon.png96), sizes: "96x96", type: "image/png" },
+    ],
+    apple: versionedPublicAsset(favicon.appleTouchIcon),
+  },
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name, url: siteUrl }],
   creator: siteConfig.name,
@@ -60,7 +69,5 @@ export const metadata: Metadata = {
   other: {
     "msapplication-TileColor": siteConfig.favicon.backgroundColor,
   },
-  ...(process.env.GOOGLE_SITE_VERIFICATION
-    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
-    : {}),
+  ...(process.env.GOOGLE_SITE_VERIFICATION ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } } : {}),
 };

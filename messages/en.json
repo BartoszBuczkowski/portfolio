@@ -1,13 +1,13 @@
 {
   "Metadata": {
-    "title": "Bartosz Buczkowski | Software Developer",
-    "description": "Software Developer portfolio. Experience, projects, and contact.",
-    "keywords": "Bartosz Buczkowski, software developer, React, TypeScript, Next.js, web development, frontend developer, AI-assisted development, Rzeszów, Poland, portfolio"
+    "title": "Bartosz Buczkowski | Product-Focused Full-Stack Developer",
+    "description": "Product-focused full-stack developer (React, TypeScript, Next.js). MVP to production for founders and product teams. Rzeszów, Poland · remote.",
+    "keywords": "Bartosz Buczkowski, product-focused full-stack developer, full-stack developer for startups, MVP development, React, TypeScript, Next.js, frontend architecture, legacy modernization, AI-assisted development, Rzeszów, Poland, remote full-stack developer"
   },
   "Hero": {
-    "avatarAlt": "Bartosz Buczkowski - Software Developer - Avatar",
+    "avatarAlt": "Bartosz Buczkowski - Product-Focused Full-Stack Developer - Avatar",
     "headline": "From idea to a finished app - without the technical chaos",
-    "description": "I design and build modern web applications with a strong focus on product thinking, scalability, and rapid concept testing in the JavaScript ecosystem."
+    "description": "I'm a product-focused full-stack developer. I design and build modern web apps with product thinking, scalability, and rapid concept testing in the JavaScript ecosystem."
   },
   "Availability": {
     "label": "Open to opportunities"

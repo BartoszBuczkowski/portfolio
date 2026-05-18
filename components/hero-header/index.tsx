@@ -7,15 +7,13 @@ export type ContactLink = { label: string; href: string };
 
 export function HeroHeader() {
   return (
-    <Theme.Provider>
-      <div className="relative z-10 mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4">
-        <Logo />
+    <div className="relative z-10 mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4">
+      <Logo />
 
-        <div className="flex items-center gap-4">
-          <LanguageSwitcher />
-          <Theme.Toggle.Root />
-        </div>
+      <div className="flex items-center gap-4">
+        <LanguageSwitcher />
+        <Theme.Toggle.Root />
       </div>
-    </Theme.Provider>
+    </div>
   );
 }

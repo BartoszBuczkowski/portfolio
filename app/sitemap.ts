@@ -1,6 +1,9 @@
 import { getHreflangLanguages, getSiteUrl, siteConfig } from "@/lib/site-config";
 import type { MetadataRoute } from "next";
 
+/** Generate at request time so runtime env (e.g. Cloudflare Worker vars) is applied. */
+export const dynamic = "force-dynamic";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
   if (!siteUrl) return [];

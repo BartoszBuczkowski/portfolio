@@ -25,7 +25,7 @@ export function buildStructuredData({ locale, title, description, faqItems }: St
     jobTitle: siteConfig.jobTitle,
     email: siteConfig.email,
     description,
-    image: getAbsoluteUrl(siteConfig.ogImage.path),
+    image: getAbsoluteUrl(siteConfig.profileImage.path),
     url: pageUrl,
     ...(socialProfiles.length > 0 ? { sameAs: socialProfiles } : {}),
     address: {
@@ -75,7 +75,7 @@ export function buildStructuredData({ locale, title, description, faqItems }: St
     name: `${siteConfig.name} — ${siteConfig.jobTitle}`,
     description,
     url: pageUrl,
-    image: getAbsoluteUrl(siteConfig.ogImage.path),
+    image: getAbsoluteUrl(siteConfig.profileImage.path),
     email: siteConfig.email,
     areaServed: siteConfig.location.countryCode,
     address: {

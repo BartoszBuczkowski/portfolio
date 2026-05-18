@@ -2,7 +2,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
 
 export const siteConfig = {
   name: "Bartosz Buczkowski",
-  jobTitle: "Software Developer",
+  jobTitle: "Product-Focused Full-Stack Developer",
   email: "bartosz.r.buczkowski@gmail.com",
   location: {
     city: "Rzeszów",
@@ -12,10 +12,17 @@ export const siteConfig = {
   defaultLocale: "en" as const,
   locales: ["en", "pl"] as const,
   ogImage: {
+    path: "/og.jpg",
+    width: 1200,
+    height: 630,
+    alt: "Bartosz Buczkowski — Product-Focused Full-Stack Developer",
+    type: "image/jpeg",
+  },
+  profileImage: {
     path: "/bartosz.jpg",
     width: 1200,
     height: 1794,
-    alt: "Bartosz Buczkowski — Software Developer",
+    alt: "Bartosz Buczkowski — Product-Focused Full-Stack Developer",
   },
 } as const;
 

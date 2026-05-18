@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         width: siteConfig.ogImage.width,
         height: siteConfig.ogImage.height,
         alt: siteConfig.ogImage.alt,
-        type: "image/jpeg",
+        type: siteConfig.ogImage.type,
       },
     ],
   },

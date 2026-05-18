@@ -1,13 +1,13 @@
 {
   "Metadata": {
-    "title": "Bartosz Buczkowski | Software Developer",
-    "description": "Portfolio Software Developera. Doświadczenie, projekty i kontakt.",
-    "keywords": "Bartosz Buczkowski, software developer, React, TypeScript, Next.js, rozwój oprogramowania, frontend developer, rozwój wspierany przez AI, Rzeszów, Polska, portfolio"
+    "title": "Bartosz Buczkowski | Full-Stack Developer — produkt A–Z",
+    "description": "Full-stack developer produktowy (React, TypeScript, Next.js). MVP do produkcji dla founderów i zespołów produktowych. Rzeszów · zdalnie.",
+    "keywords": "Bartosz Buczkowski, full-stack developer produktowy, full-stack developer dla startupów, rozwój MVP, React, TypeScript, Next.js, architektura frontendu, modernizacja legacy, rozwój wspierany AI, Rzeszów, Polska, zdalny full-stack developer"
   },
   "Hero": {
-    "avatarAlt": "Bartosz Buczkowski - Software Developer - Awatar",
+    "avatarAlt": "Bartosz Buczkowski - Full-Stack Developer produktowy - Awatar",
     "headline": "Od pomysłu do gotowej aplikacji - bez technicznego chaosu",
-    "description": "Projektuję i buduję nowoczesne aplikacje webowe z naciskiem na myślenie produktowe, skalowalność i szybkie testowanie koncepcji w ekosystemie JavaScript."
+    "description": "Jestem full-stack developerem produktowym. Projektuję i buduję nowoczesne aplikacje webowe z naciskiem na myślenie produktowe, skalowalność i szybkie testowanie koncepcji w ekosystemie JavaScript."
   },
   "Availability": {
     "label": "Otwarty na propozycje"

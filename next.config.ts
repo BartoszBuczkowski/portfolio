@@ -2,6 +2,10 @@ import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
+if (process.env.NODE_ENV === "production" && !process.env.NEXT_PUBLIC_SITE_URL?.trim()) {
+  throw new Error("NEXT_PUBLIC_SITE_URL is required in production (no trailing slash).");
+}
+
 void initOpenNextCloudflareForDev();
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.ts");

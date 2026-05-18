@@ -13,8 +13,14 @@ Copy [`.env.example`](./.env.example) to `.env.local` for local Next.js developm
 
 | Variable | Scope | Description |
 | --- | --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Public | Canonical site URL without a trailing slash (e.g. `https://bartoszbuczkowski.pl`). **Required for production builds** — powers canonical URLs, hreflang, sitemap, and Open Graph absolute URLs. |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Public | Turnstile widget site key from the Cloudflare dashboard. |
 | `TURNSTILE_SECRET_KEY` | Server only | Turnstile secret for server-side `siteverify`. In production, set with `pnpm exec wrangler secret put TURNSTILE_SECRET_KEY`. |
+| `NEXT_PUBLIC_LINKEDIN_URL` | Public | Optional. LinkedIn profile URL for JSON-LD `sameAs`. |
+| `NEXT_PUBLIC_GITHUB_URL` | Public | Optional. GitHub profile URL for JSON-LD `sameAs`. |
+| `NEXT_PUBLIC_TWITTER_URL` | Public | Optional. Twitter/X profile URL for JSON-LD `sameAs`. |
+| `NEXT_PUBLIC_TWITTER_HANDLE` | Public | Optional. Twitter handle for Open Graph/Twitter card metadata. |
+| `GOOGLE_SITE_VERIFICATION` | Server | Optional. Google Search Console HTML tag verification value. |
 
 D1 is configured in [`wrangler.toml`](./wrangler.toml) (`portfolio_db` binding), not in `.env`.
 
@@ -67,8 +73,10 @@ pnpm format
 ## Deploy to Cloudflare Workers
 
 1. Log in with Wrangler if you have not already: `pnpm exec wrangler login`.
-2. Set the Turnstile secret on the Worker: `pnpm exec wrangler secret put TURNSTILE_SECRET_KEY`.
-3. Deploy:
+2. Set `NEXT_PUBLIC_SITE_URL` for production (already in [`wrangler.toml`](./wrangler.toml) `[vars]` — change if your canonical domain differs). Use the **apex** URL without `www` and without a trailing slash.
+3. In Cloudflare **DNS / Workers custom domains**: attach both `bartoszbuczkowski.pl` and `www.bartoszbuczkowski.pl` to the Worker, **or** add a **Redirect Rule** `www.bartoszbuczkowski.pl/*` → `https://bartoszbuczkowski.pl/$1` (301). Without this, `https://www.…/sitemap.xml` returns 522.
+4. Set the Turnstile secret on the Worker: `pnpm exec wrangler secret put TURNSTILE_SECRET_KEY`.
+5. Deploy:
 
    ```bash
    pnpm deploy

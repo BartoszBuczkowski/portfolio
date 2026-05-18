@@ -19,7 +19,7 @@ export function FAQSection() {
   const [expandedItemId, setExpandedItemId] = useState<string>("faq-1");
 
   return (
-    <section className="bg-muted/5 py-12">
+    <section id="faq" className="bg-muted/5 py-12">
       <div className="mx-auto flex w-full max-w-5xl gap-6 px-6 flex-col md:flex-row">
         <div className="relative flex-1 h-152">
           <Image

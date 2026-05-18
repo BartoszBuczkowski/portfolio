@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
 import { HeroHeader } from "@/components/hero-header";
 import { ExperienceTimeline } from "@/components/experience-timeline";
+import { FaqStructuredData } from "@/components/faq-structured-data";
 import { StructuredData } from "@/components/structured-data";
 import { TechStackMarquee } from "@/components/tech-stack-marquee";
 import { Theme } from "@/components/theme";
@@ -12,6 +13,7 @@ export default function Home() {
     <Theme.Provider>
     <div className="min-h-screen bg-background font-sans text-foreground">
       <StructuredData />
+      <FaqStructuredData />
       <main>
         <HeroHeader />
         <Hero />

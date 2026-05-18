@@ -7,7 +7,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: light)", color: siteConfig.favicon.backgroundColor },
     { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
   ],
 };
@@ -57,9 +57,8 @@ export const metadata: Metadata = {
     email: false,
     address: false,
   },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/favicon.ico",
+  other: {
+    "msapplication-TileColor": siteConfig.favicon.backgroundColor,
   },
   ...(process.env.GOOGLE_SITE_VERIFICATION
     ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }

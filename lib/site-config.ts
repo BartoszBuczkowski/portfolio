@@ -24,6 +24,19 @@ export const siteConfig = {
     height: 1794,
     alt: "Bartosz Buczkowski — Product-Focused Full-Stack Developer",
   },
+  favicon: {
+    backgroundColor: "#ffffff",
+    source: "/favicon-96x96.png",
+    pwaIcons: {
+      "192": "/web-app-manifest-192x192.png",
+      "512": "/web-app-manifest-512x512.png",
+    },
+    cacheVersion: "20260518",
+    manifest: {
+      name: "Bartosz Buczkowski | Software Dev",
+      shortName: "Bartosz B.",
+    },
+  },
 } as const;
 
 export function getSiteUrl(): string | undefined {

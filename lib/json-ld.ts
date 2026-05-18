@@ -1,18 +1,12 @@
 import { getAbsoluteUrl, getLocalePath, getSocialProfiles, siteConfig } from "@/lib/site-config";
 
-type FaqItem = {
-  question: string;
-  answer: string;
-};
-
 type StructuredDataInput = {
   locale: string;
   title: string;
   description: string;
-  faqItems: FaqItem[];
 };
 
-export function buildStructuredData({ locale, title, description, faqItems }: StructuredDataInput) {
+export function buildStructuredData({ locale, title, description }: StructuredDataInput) {
   const pageUrl = getAbsoluteUrl(getLocalePath(locale));
   const personId = pageUrl ? `${pageUrl}#person` : "#person";
   const websiteId = pageUrl ? `${pageUrl}#website` : "#website";
@@ -57,19 +51,6 @@ export function buildStructuredData({ locale, title, description, faqItems }: St
     mainEntity: { "@id": personId },
   };
 
-  const faqPage = {
-    "@type": "FAQPage",
-    "@id": pageUrl ? `${pageUrl}#faq` : "#faq",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-
   const professionalService = {
     "@type": "ProfessionalService",
     name: `${siteConfig.name} — ${siteConfig.jobTitle}`,
@@ -88,6 +69,6 @@ export function buildStructuredData({ locale, title, description, faqItems }: St
 
   return {
     "@context": "https://schema.org",
-    "@graph": [person, website, profilePage, faqPage, professionalService],
+    "@graph": [person, website, profilePage, professionalService],
   };
 }

@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
 
-import { techStack } from "../data";
-import { getCandidateTechItems, getNextIndex, getPreviouslyActiveLabel, getVisibleTechLabels } from "../functions";
-import type { TechStackItem } from "../types";
-
-type OptionalTechStackItem = TechStackItem | undefined;
-
-export type ActiveTechTuple = [OptionalTechStackItem, OptionalTechStackItem, OptionalTechStackItem, OptionalTechStackItem] | [];
-
-const intervalMs = 2000;
-
-function getRandomItem<T>(items: T[]) {
-  return items[Math.floor(Math.random() * items.length)];
-}
+import { ACTIVE_TECH_INTERVAL_MS, techStack } from "../data";
+import {
+  getCandidateTechItems,
+  getCurrentActiveDisplayIndex,
+  getNextIndex,
+  getPreviouslyActiveLabel,
+  getRandomItem,
+  getVisibleTechLabels,
+} from "../functions";
+import type { ActiveTechTuple } from "../types";
 
 export function useActiveTech() {
   const [activeTech, setActiveTech] = useState<ActiveTechTuple>([]);
@@ -28,15 +25,7 @@ export function useActiveTech() {
           return prev;
         }
 
-        let currentActiveDisplayIndex = -1;
-
-        for (let index = 3; index >= 0; index -= 1) {
-          if (prev[index]) {
-            currentActiveDisplayIndex = index;
-            break;
-          }
-        }
-
+        const currentActiveDisplayIndex = getCurrentActiveDisplayIndex(prev);
         const nextIndex = getNextIndex(currentActiveDisplayIndex);
         const previouslyActiveLabel = getPreviouslyActiveLabel(prev, currentActiveDisplayIndex);
         const candidateTechItems = getCandidateTechItems(visibleTechItems, previouslyActiveLabel);
@@ -51,7 +40,7 @@ export function useActiveTech() {
 
         return next;
       });
-    }, intervalMs);
+    }, ACTIVE_TECH_INTERVAL_MS);
 
     return () => clearInterval(interval);
   }, []);

@@ -1,11 +1,7 @@
 import { cn } from "@/lib/utils";
-import type { TechStackItem } from "../types";
+import type { TechStackMarqueeGlitchLabelProps } from "./types";
 
-type ActiveTechGlitchLabelProps = {
-  tech: TechStackItem | undefined;
-};
-
-export function ActiveTechGlitchLabel({ tech }: ActiveTechGlitchLabelProps) {
+export function TechStackMarqueeGlitchLabel({ tech }: TechStackMarqueeGlitchLabelProps) {
   return (
     <p
       data-text={tech?.label}

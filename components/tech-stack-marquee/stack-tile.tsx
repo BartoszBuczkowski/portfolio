@@ -1,19 +1,18 @@
 "use client";
+
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-import { useActiveTechLabel } from "../active-tech-label-context";
-import type { TechStackItem } from "../types";
+import { useTechStackMarquee } from "./hooks/use-tech-stack-marquee";
+import type { TechStackMarqueeStackTileProps } from "./types";
 
-type StackTileProps = {
-  item: TechStackItem;
-};
-
-export function StackTile({ item }: StackTileProps) {
+export function TechStackMarqueeStackTile({ item }: TechStackMarqueeStackTileProps) {
+  const {
+    state: { activeTechLabel },
+  } = useTechStackMarquee();
   const src = `/tech/stack/${item.icon}`;
   const alt = `${item.label} icon`;
   const size = 34;
-  const activeTechLabel = useActiveTechLabel();
   const isActive = activeTechLabel === item.label;
 
   return (

@@ -2,7 +2,7 @@ import { buildStructuredData } from "@/lib/json-ld";
 import { JsonLdScript } from "@/lib/json-ld-script";
 import { getLocale, getTranslations } from "next-intl/server";
 
-export async function StructuredData() {
+export async function StructuredDataRoot() {
   const locale = await getLocale();
   const tMeta = await getTranslations("Metadata");
 

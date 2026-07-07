@@ -1,11 +1,12 @@
+import type { FaqItem } from "@/components/faq-section/types";
 import { JsonLdScript } from "@/lib/json-ld-script";
-import { buildFaqPageSchema, type FaqSchemaItem } from "@/lib/faq-schema";
+import { buildFaqPageSchema } from "@/lib/faq-schema";
 import { getLocale, getTranslations } from "next-intl/server";
 
-export async function FaqStructuredData() {
+export async function StructuredDataFaq() {
   const locale = await getLocale();
   const tFaq = await getTranslations("FAQ");
-  const faqItems = tFaq.raw("items") as FaqSchemaItem[];
+  const faqItems = tFaq.raw("items") as FaqItem[];
 
   return <JsonLdScript data={buildFaqPageSchema(locale, faqItems)} />;
 }

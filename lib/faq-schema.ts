@@ -1,9 +1,7 @@
+import type { FaqItem } from "@/components/faq-section/types";
 import { getAbsoluteUrl, getLocalePath } from "@/lib/site-config";
 
-export type FaqSchemaItem = {
-  question: string;
-  answer: string;
-};
+export type FaqSchemaItem = Pick<FaqItem, "question" | "answer">;
 
 export function buildFaqPageSchema(locale: string, faqItems: FaqSchemaItem[]) {
   const pageUrl = getAbsoluteUrl(getLocalePath(locale));

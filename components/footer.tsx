@@ -18,13 +18,7 @@ export async function Footer() {
             <AvailabilityBadge />
             <h2 className="text-2xl font-bold">{t("ctaTitle")}</h2>
             <p className="text-sm leading-5 text-muted-foreground">{t("ctaDescription")}</p>
-            <FooterContactCta
-              emailLabel={t("emailLabel")}
-              emailPlaceholder={t("emailPlaceholder")}
-              sendEmail={t("sendEmail")}
-              dialogTitle={t("dialogTitle")}
-              invalidEmail={t("invalidEmail")}
-            />
+            <FooterContactCta />
           </div>
         </div>
 

@@ -3,16 +3,9 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
-import type { CaseStudy } from "../types";
+import type { ExperienceTimelineCaseStudyDotsProps } from "../types";
 
-type TimelineCaseStudyDotsProps = {
-  caseStudies: CaseStudy[];
-  activeIndex: number;
-  onSelect: (index: number) => void;
-  className?: string;
-};
-
-export function TimelineCaseStudyDots({ caseStudies, activeIndex, onSelect, className }: TimelineCaseStudyDotsProps) {
+export function ExperienceTimelineCaseStudyDots({ caseStudies, activeIndex, onSelect, className }: ExperienceTimelineCaseStudyDotsProps) {
   const t = useTranslations("Experience");
 
   if (caseStudies.length <= 1) return null;

@@ -1,22 +1,14 @@
 "use client";
 
-import { MotionValue, MultiTransformer, useInView, useSpring, useTransform } from "framer-motion";
+import { type MultiTransformer, useInView, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
+import type { UseTimelineItemRowMotionParams } from "../types";
 
-type UseTimelineItemRowMotionParams = {
-  setItemRef: (el: HTMLLIElement | null) => void;
-  lineHeight: MotionValue<number>;
-  dotOffset: number;
-  isActive: boolean;
-};
-
-type Transformer = MultiTransformer<[number, number, number], number>;
-
-const dotOpacityTransformer: Transformer = ([reveal, activity, entrance]) => {
+const dotOpacityTransformer: MultiTransformer<[number, number, number], number> = ([reveal, activity, entrance]) => {
   return Number(reveal) * Number(activity) * Number(entrance);
 };
 
-const contentOpacityTransformer: Transformer = ([reveal, activity, entrance]) => {
+const contentOpacityTransformer: MultiTransformer<[number, number, number], number> = ([reveal, activity, entrance]) => {
   const combined = Number(reveal) * Number(activity) * Number(entrance);
   return Math.min(Math.max(combined, 0.3 * Number(entrance)), 1);
 };

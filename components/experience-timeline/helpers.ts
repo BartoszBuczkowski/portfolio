@@ -1,8 +1,4 @@
-export type FormatPeriod = (
-  yearFrom: number,
-  yearTo: number | null,
-  presentLabel: string,
-) => string;
+import type { FormatPeriod } from "./types";
 
 export const formatPeriod: FormatPeriod = (yearFrom, yearTo, presentLabel) => {
   if (yearTo === null) return `${yearFrom} — ${presentLabel}`;

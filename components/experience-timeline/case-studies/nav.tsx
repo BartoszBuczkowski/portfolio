@@ -4,27 +4,18 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useExperienceTimelineItem } from "../item/use-experience-timeline-item";
+import type { ExperienceTimelineCaseStudyNavProps } from "../types";
 
-type TimelineCaseStudyNavProps = {
-  isHovering: boolean;
-  isTimelineRowActive: boolean;
-  onPrevious: () => void;
-  onNext: () => void;
-};
-
-export function TimelineCaseStudyNav({
-  isHovering,
-  isTimelineRowActive,
-  onPrevious,
-  onNext,
-}: TimelineCaseStudyNavProps) {
+export function ExperienceTimelineCaseStudyNav({ isHovering, onPrevious, onNext }: ExperienceTimelineCaseStudyNavProps) {
   const t = useTranslations("Experience");
+  const { state } = useExperienceTimelineItem();
 
   return (
     <div
       className={cn(
         "flex shrink-0 items-center gap-0.5 transition-opacity duration-300",
-        isHovering && isTimelineRowActive ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
+        isHovering && state.isActive ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
       )}
     >
       <Button

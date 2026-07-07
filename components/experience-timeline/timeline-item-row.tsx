@@ -8,8 +8,8 @@ import { TimelineItemDetails } from "./components/timeline-item-details";
 import { TimelineItemLogo } from "./components/timeline-item-logo";
 import { useExperienceTimelineScroll } from "./experience-timeline-scroll-context";
 import { formatPeriod } from "./helpers";
-import { useTimelineItemRowMotion } from "./hooks/use-timeline-item-row-motion";
 import { TimelineItemRowProps } from "./types";
+import { useTimelineItemRowMotion } from "./use-timeline-item-row-motion";
 
 const timelineRowClassName =
   "group/timeline-row relative flex min-h-[100px] flex-col items-stretch md:flex-row md:items-center md:[&>.spacer]:block";

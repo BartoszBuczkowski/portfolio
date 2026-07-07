@@ -1,11 +1,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { resolveTechIcon } from "./tech-icon";
-
-type TechBadgeProps = {
-  label: string;
-  className?: string;
-};
+import type { TechBadgeProps } from "../types";
 
 export function TechBadge({ label, className }: TechBadgeProps) {
   const icon = resolveTechIcon(label);

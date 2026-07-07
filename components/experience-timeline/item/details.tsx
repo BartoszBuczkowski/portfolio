@@ -1,13 +1,8 @@
 "use client";
 
-import { TimelineItem } from "../types";
+import type { ExperienceTimelineItemDetailsProps } from "../types";
 
-type TimelineItemDetailsProps = {
-  period: string;
-  item: TimelineItem;
-};
-
-export function TimelineItemDetails({ period, item }: TimelineItemDetailsProps) {
+export function ExperienceTimelineItemDetails({ period, item }: ExperienceTimelineItemDetailsProps) {
   return (
     <div>
       <p className="mb-1 text-sm font-medium text-muted-foreground">{period}</p>

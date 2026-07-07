@@ -16,10 +16,7 @@ import {
   Wind,
 } from "lucide-react";
 import { techStack } from "@/components/tech-stack-marquee/data";
-
-export type TechIcon =
-  | { kind: "image"; src: string; alt: string }
-  | { kind: "lucide"; Icon: LucideIcon };
+import type { TechIcon } from "../types";
 
 const stackIconByLabel = new Map(techStack.map((item) => [item.label, item.icon]));
 

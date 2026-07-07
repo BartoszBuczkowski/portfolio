@@ -1,16 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import type { CaseStudy } from "../types";
+import type { UseTimelineCaseStudiesParams } from "../../types";
 
 const AUTO_ADVANCE_MS = 6500;
 
-type UseTimelineCaseStudiesParams = {
-  caseStudies: CaseStudy[];
-  isTimelineRowActive?: boolean;
-};
-
-export function useTimelineCaseStudies({ caseStudies, isTimelineRowActive = false }: UseTimelineCaseStudiesParams) {
+export function useTimelineCaseStudies({ caseStudies, isActive }: UseTimelineCaseStudiesParams) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1);
   const [isHovering, setIsHovering] = useState(false);
@@ -32,11 +27,11 @@ export function useTimelineCaseStudies({ caseStudies, isTimelineRowActive = fals
   }, [caseStudies.length, hasManyCaseStudies]);
 
   useEffect(() => {
-    if (!hasManyCaseStudies || !isTimelineRowActive || isHovering) return;
+    if (!hasManyCaseStudies || !isActive || isHovering) return;
 
     const id = window.setInterval(goToNext, AUTO_ADVANCE_MS);
     return () => window.clearInterval(id);
-  }, [goToNext, hasManyCaseStudies, isHovering, isTimelineRowActive]);
+  }, [goToNext, hasManyCaseStudies, isHovering, isActive]);
 
   const activeCaseStudy = caseStudies[activeIndex];
 

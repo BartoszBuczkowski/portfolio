@@ -1,15 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { TimelineItem } from "../types";
+import { logoSlotClassName } from "../constants";
+import type { ExperienceTimelineItemLogoProps } from "../types";
 
-type TimelineItemLogoProps = {
-  item: TimelineItem;
-};
-
-const logoSlotClassName = "relative h-24 w-[min(100%,12rem)]";
-
-export function TimelineItemLogo({ item }: TimelineItemLogoProps) {
+export function ExperienceTimelineItemLogo({ item }: ExperienceTimelineItemLogoProps) {
   const dir = "/experience/brands/";
   const desktopIconSrc = dir + item.logoSrc + ".svg";
   const mobileIconSrc = dir + item.logoSrc + "-mobile.svg";

@@ -1,15 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import type { ReactNode } from "react";
+import type { ExperienceTimelineCaseStudySlideProps } from "../types";
 
-type TimelineCaseStudySlideWrapperProps = {
-  activeIndex: number;
-  direction: 1 | -1;
-  children: ReactNode;
-};
-
-export function TimelineCaseStudySlideWrapper({ activeIndex, direction, children }: TimelineCaseStudySlideWrapperProps) {
+export function ExperienceTimelineCaseStudySlide({ activeIndex, direction, children }: ExperienceTimelineCaseStudySlideProps) {
   return (
     <AnimatePresence custom={direction} initial={false} mode="wait">
       <motion.div

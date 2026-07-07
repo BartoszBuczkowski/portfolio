@@ -1,12 +1,9 @@
 "use client";
 
-import { TechBadge } from "../tech-badge";
+import { TechBadge } from "./tech-badge";
+import type { ExperienceTimelineTechnologiesProps } from "../types";
 
-type TechnologiesListProps = {
-  technologies: string[];
-};
-
-export function TechnologiesList({ technologies }: TechnologiesListProps) {
+export function ExperienceTimelineTechnologies({ technologies }: ExperienceTimelineTechnologiesProps) {
   return (
     <ul className="mt-3 flex flex-wrap gap-1.5 md:justify-end">
       {technologies.map((tech) => (

@@ -42,7 +42,7 @@ const lucideIconByLabel: Record<string, LucideIcon> = {
 export function resolveTechIcon(label: string): TechIcon | null {
   const stackIcon = stackIconByLabel.get(label);
   if (stackIcon) {
-    return { kind: "image", src: `/stack/${stackIcon}`, alt: `${label} icon` };
+    return { kind: "image", src: `/tech/stack/${stackIcon}`, alt: `${label} icon` };
   }
 
   const fallback = lucideIconByLabel[label] ?? Layers;

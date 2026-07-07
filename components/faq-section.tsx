@@ -23,7 +23,7 @@ export function FAQSection() {
       <div className="mx-auto flex w-full max-w-5xl gap-6 px-6 flex-col md:flex-row">
         <div className="relative flex-1 h-152">
           <Image
-            src="/bartosz.jpg"
+            src="/profile/bartosz.jpg"
             alt={t("imageAlt")}
             width={1200}
             height={1794}

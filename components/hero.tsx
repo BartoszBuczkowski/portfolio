@@ -10,7 +10,7 @@ const email = "bartosz.r.buczkowski@gmail.com";
 
 export async function Hero() {
   const t = await getTranslations("Hero");
-  const avatarSrc = "/avatar.jpg";
+  const avatarSrc = "/profile/avatar.jpg";
   const mailToLink = `mailto:${email}`.replace("@", "+collab@");
 
   return (

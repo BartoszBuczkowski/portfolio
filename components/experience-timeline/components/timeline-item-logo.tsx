@@ -10,7 +10,7 @@ type TimelineItemLogoProps = {
 const logoSlotClassName = "relative h-24 w-[min(100%,12rem)]";
 
 export function TimelineItemLogo({ item }: TimelineItemLogoProps) {
-  const dir = "/experience-brands/";
+  const dir = "/experience/brands/";
   const desktopIconSrc = dir + item.logoSrc + ".svg";
   const mobileIconSrc = dir + item.logoSrc + "-mobile.svg";
 

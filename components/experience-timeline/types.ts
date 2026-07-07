@@ -11,7 +11,7 @@ export type TimelineItem = {
   companyName: string;
   description: string;
   technologies: string[];
-  /** Public URL under `/experience-brands/` (e.g. `/experience-brands/laras.svg`). */
+  /** Public URL under `/experience/brands/` (e.g. `/experience/brands/laras.svg`). */
   logoSrc: string;
   caseStudies?: CaseStudy[];
 };

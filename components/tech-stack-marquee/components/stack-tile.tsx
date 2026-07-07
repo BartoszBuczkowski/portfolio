@@ -10,7 +10,7 @@ type StackTileProps = {
 };
 
 export function StackTile({ item }: StackTileProps) {
-  const src = `/stack/${item.icon}`;
+  const src = `/tech/stack/${item.icon}`;
   const alt = `${item.label} icon`;
   const size = 34;
   const activeTechLabel = useActiveTechLabel();

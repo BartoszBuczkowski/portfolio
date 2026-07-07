@@ -1,13 +1,18 @@
 {
   "Metadata": {
-    "title": "Bartosz Buczkowski | Product-Focused Full-Stack Developer",
-    "description": "Product-focused full-stack developer (React, TypeScript, Next.js). MVP to production for founders and product teams. Rzeszów, Poland · remote.",
-    "keywords": "Bartosz Buczkowski, product-focused full-stack developer, full-stack developer for startups, MVP development, React, TypeScript, Next.js, frontend architecture, legacy modernization, AI-assisted development, Rzeszów, Poland, remote full-stack developer"
+    "title": "Bartosz Buczkowski | Product-Oriented Full-stack Developer",
+    "description": "Product-oriented full-stack developer (React, TypeScript, Next.js). MVP to production for founders and product teams. Rzeszów, Poland · remote.",
+    "keywords": "Bartosz Buczkowski, product-oriented full-stack developer, full-stack developer for startups, MVP development, React, TypeScript, Next.js, frontend architecture, legacy modernization, AI-assisted development, Rzeszów, Poland, remote full-stack developer",
+    "jobTitle": "Product-Oriented Full-stack Developer",
+    "ogImageAlt": "Bartosz Buczkowski - Product-Oriented Full-stack Developer"
   },
   "Hero": {
-    "avatarAlt": "Bartosz Buczkowski - Product-Focused Full-Stack Developer - Avatar",
-    "headline": "From idea to a finished app - without the technical chaos",
-    "description": "I'm a product-focused full-stack developer. I design and build modern web apps with product thinking, scalability, and rapid concept testing in the JavaScript ecosystem."
+    "avatarAlt": "Bartosz Buczkowski - Product-Oriented Full-stack Developer - Avatar",
+    "headlineName": "Bartosz Buczkowski",
+    "headlineRoleBefore": "Product-Oriented ",
+    "headlineRoleCore": "Full-stack",
+    "headlineRoleAfter": " Developer",
+    "description": "From idea to a finished app - without the technical chaos. I design and build modern web apps with product thinking, scalability, and rapid concept testing in the JavaScript ecosystem."
   },
   "Availability": {
     "label": "Open to opportunities"
@@ -20,6 +25,20 @@
     "switchToPolish": "Switch to Polish",
     "english": "EN",
     "polish": "PL"
+  },
+  "Nav": {
+    "label": "Primary",
+    "menu": "Menu",
+    "language": "Language",
+    "theme": "Theme",
+    "experience": "Experience",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "skipToContent": "Skip to content"
+  },
+  "TechStack": {
+    "title": "Tech stack",
+    "intro": "I build web products from first prototype to a stable production app. Below are the main tools I use every day to design interfaces, develop features, and keep applications running reliably for startups and product teams."
   },
   "Footer": {
     "ctaTitle": "Looking for a product development partner?",
@@ -42,37 +61,37 @@
       {
         "id": "faq-1",
         "question": "What services do you offer?",
-        "answer": "I provide software development and technical consulting focused on modern web applications, product development, system modernization, and AI-supported workflows."
+        "answer": "I offer full-stack product development with React, TypeScript, and Next.js, legacy modernization, and AI-assisted engineering workflows. With 8+ years across 7 companies and 15+ shipped products - from Brisk and Legia.com to Kryptonim and Aertura - I take teams from MVP to production with CI/CD, SSR, and scalable architecture."
       },
       {
         "id": "faq-2",
         "question": "Do you work only as a frontend developer?",
-        "answer": "Frontend is my main specialization, especially React and TypeScript, but I also work on the backend, architecture, product development, and technical consulting."
+        "answer": "No - frontend is my core strength in React and TypeScript, but I also deliver backend APIs (NestJS, Node.js), GraphQL integrations, monorepo architecture, and product consulting. I work end-to-end across the JavaScript stack."
       },
       {
         "id": "faq-3",
         "question": "Can you help with existing projects?",
-        "answer": "Yes. I often work on existing products: code modernization, maintenance, process optimization, and faster feature delivery."
+        "answer": "Yes. I regularly join existing codebases for incremental modernization, TypeScript migration, performance tuning, and faster feature delivery - without stopping live operations."
       },
       {
         "id": "faq-4",
         "question": "What is AI-supported development?",
-        "answer": "It means using modern AI tools to speed up repetitive tasks, research and debugging, prototyping, and shorter delivery times while maintaining engineering quality."
+        "answer": "AI-supported development uses LLM tooling for research, debugging, prototyping, and boilerplate generation while keeping TypeScript strict mode, code review, and CI/CD quality gates. It shortens delivery cycles without sacrificing engineering standards."
       },
       {
         "id": "faq-5",
         "question": "Do you work with startups?",
-        "answer": "Yes. I enjoy working with startups, especially where fast iteration, pragmatic decisions, and delivery pace matter."
+        "answer": "Yes. I work with founders and early-stage teams that need fast MVP iteration, pragmatic architecture, and production-ready Next.js delivery - often remotely from Rzeszów, Poland across the EU."
       },
       {
         "id": "faq-6",
         "question": "Can you modernize legacy applications?",
-        "answer": "Yes. I have experience gradually modernizing legacy systems without interrupting ongoing operations."
+        "answer": "Yes. I have migrated AngularJS, Vue 1, and React-on-Rails stacks to modern React, SCSS Modules, and TypeScript incrementally - reducing risk while keeping business features shipping."
       },
       {
         "id": "faq-7",
         "question": "Do you offer consulting?",
-        "answer": "Yes. Beyond implementation, I help teams with architecture, scalability, modernization, workflows, and product strategy decisions."
+        "answer": "Yes. Beyond implementation, I advise on frontend architecture, scalability, legacy modernization, AI workflows, and product strategy for teams building web applications."
       }
     ]
   },
@@ -185,7 +204,7 @@
         "caseStudies": [
           {
             "productName": "Frontend stack modernization",
-            "problem": "The application ran AngularJS, Vue 1, React on Rails, Webpacker, and global CSS styles in parallel—difficult to maintain and scale.",
+            "problem": "The application ran AngularJS, Vue 1, React on Rails, Webpacker, and global CSS styles in parallel - difficult to maintain and scale.",
             "contribution": "I participated in gradual legacy stack reduction and migration of existing business logic to an architecture based on React, SCSS Modules, and Material UI."
           },
           {

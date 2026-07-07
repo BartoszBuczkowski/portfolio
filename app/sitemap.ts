@@ -1,4 +1,4 @@
-import { getHreflangLanguages, getSiteUrl, siteConfig } from "@/lib/site-config";
+import { getHreflangLanguages, getSiteLastModified, getSiteUrl, siteConfig } from "@/lib/site-config";
 import type { MetadataRoute } from "next";
 
 /** Generate at request time so runtime env (e.g. Cloudflare Worker vars) is applied. */
@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
   if (!siteUrl) return [];
 
-  const lastModified = new Date();
+  const lastModified = getSiteLastModified();
   const hreflangLanguages = getHreflangLanguages();
 
   return siteConfig.locales.map((locale) => ({

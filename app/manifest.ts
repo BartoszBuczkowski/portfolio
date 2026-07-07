@@ -27,6 +27,8 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: favicon.manifest.name,
     short_name: favicon.manifest.shortName,
+    description: "Product-oriented full-stack developer portfolio - React, TypeScript, Next.js.",
+    lang: "en",
     start_url: "/",
     display: "standalone",
     background_color: favicon.backgroundColor,

@@ -74,9 +74,10 @@ pnpm format
 
 1. Log in with Wrangler if you have not already: `pnpm exec wrangler login`.
 2. Set `NEXT_PUBLIC_SITE_URL` for production (already in [`wrangler.toml`](./wrangler.toml) `[vars]` — change if your canonical domain differs). Use the **apex** URL without `www` and without a trailing slash.
-3. In Cloudflare **DNS / Workers custom domains**: attach both `bartoszbuczkowski.pl` and `www.bartoszbuczkowski.pl` to the Worker, **or** add a **Redirect Rule** `www.bartoszbuczkowski.pl/*` → `https://bartoszbuczkowski.pl/$1` (301). Without this, `https://www.…/sitemap.xml` returns 522.
-4. Set the Turnstile secret on the Worker: `pnpm exec wrangler secret put TURNSTILE_SECRET_KEY`.
-5. Deploy:
+3. **Canonical host (required for SEO):** add a **Redirect Rule** in Cloudflare → **Rules** → **Redirect Rules**: when hostname equals `www.bartoszbuczkowski.pl`, redirect to `https://bartoszbuczkowski.pl/${uri.path}` (301). Do **not** attach `www` to the Worker without a redirect — `https://www.…` returns 522. The app middleware also redirects `www` → apex when traffic reaches the Worker.
+4. **AI search / GEO:** in Cloudflare → **Security** → **Bots** → **AI Crawl Control**, allow crawlers used for search and citation (`GPTBot`, `ClaudeBot`, `Google-Extended`, `PerplexityBot`). Disable or relax **Managed robots.txt** blocks that `Disallow` these bots. The app `robots.ts` explicitly allows them; Cloudflare managed rules must not override with `Disallow`.
+5. Set the Turnstile secret on the Worker: `pnpm exec wrangler secret put TURNSTILE_SECRET_KEY`.
+6. Deploy:
 
    ```bash
    pnpm deploy

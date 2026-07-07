@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: Pick<Props, "params">): Promi
   const title = t("title");
   const description = t("description");
   const keywords = t("keywords");
+  const ogImageAlt = t("ogImageAlt");
   const canonicalPath = getLocalePath(locale);
   const pageUrl = getAbsoluteUrl(canonicalPath);
   const hreflangLanguages = getHreflangLanguages();
@@ -34,6 +35,13 @@ export async function generateMetadata({ params }: Pick<Props, "params">): Promi
   const alternateOgLocale = routing.locales
     .filter((loc) => loc !== locale)
     .map((loc) => getOpenGraphLocale(loc));
+  const ogImage = {
+    url: ogImageUrl ?? siteConfig.ogImage.path,
+    width: siteConfig.ogImage.width,
+    height: siteConfig.ogImage.height,
+    alt: ogImageAlt,
+    type: siteConfig.ogImage.type,
+  };
 
   return {
     title,
@@ -44,23 +52,19 @@ export async function generateMetadata({ params }: Pick<Props, "params">): Promi
       ...(hreflangLanguages ? { languages: hreflangLanguages } : {}),
     },
     openGraph: {
+      type: "website",
       title,
       description,
       url: pageUrl ?? canonicalPath,
       locale: ogLocale,
       alternateLocale: alternateOgLocale,
-      images: [
-        {
-          url: ogImageUrl ?? siteConfig.ogImage.path,
-          width: siteConfig.ogImage.width,
-          height: siteConfig.ogImage.height,
-          alt: siteConfig.ogImage.alt,
-        },
-      ],
+      images: [ogImage],
     },
     twitter: {
+      card: "summary_large_image",
       title,
       description,
+      images: [ogImage.url],
     },
   };
 }

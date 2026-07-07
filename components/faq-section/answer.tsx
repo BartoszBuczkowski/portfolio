@@ -7,9 +7,14 @@ import { useFaqSection } from "./use-faq-section";
 export function FaqSectionAnswer({ item }: FaqSectionItemProps) {
   const { actions } = useFaqSection();
   const expanded = actions.isExpanded(item.id);
+  const answerId = `${item.id}-answer`;
+  const questionId = `${item.id}-question`;
 
   return (
     <div
+      id={answerId}
+      role="region"
+      aria-labelledby={questionId}
       className={cn("pt-3 transition-all duration-600 overflow-hidden", {
         "max-h-0": !expanded,
         "max-h-64": expanded,

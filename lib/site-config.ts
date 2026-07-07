@@ -2,7 +2,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
 
 export const siteConfig = {
   name: "Bartosz Buczkowski",
-  jobTitle: "Product-Focused Full-Stack Developer",
+  jobTitle: "Product-Oriented Full-stack Developer",
   email: "bartosz.r.buczkowski@gmail.com",
   location: {
     city: "Rzeszów",
@@ -15,14 +15,14 @@ export const siteConfig = {
     path: "/seo/og.jpg",
     width: 1200,
     height: 630,
-    alt: "Bartosz Buczkowski — Product-Focused Full-Stack Developer",
+    alt: "Bartosz Buczkowski - Product-Oriented Full-stack Developer",
     type: "image/jpeg",
   },
   profileImage: {
     path: "/profile/bartosz.jpg",
     width: 1200,
     height: 1794,
-    alt: "Bartosz Buczkowski — Product-Focused Full-Stack Developer",
+    alt: "Bartosz Buczkowski - Product-Oriented Full-stack Developer",
   },
   favicon: {
     backgroundColor: "#ffffff",
@@ -75,9 +75,18 @@ export function getHreflangLanguages(): Record<string, string> | undefined {
   return languages;
 }
 
+const DEFAULT_LINKEDIN_URL = "https://www.linkedin.com/in/bartosz-r-buczkowski/";
+
+export function getSiteLastModified(): Date {
+  const raw = process.env.NEXT_PUBLIC_SITE_LAST_MODIFIED;
+  if (!raw) return new Date("2026-07-07");
+  const parsed = new Date(raw);
+  return Number.isNaN(parsed.getTime()) ? new Date("2026-07-07") : parsed;
+}
+
 export function getSocialProfiles(): string[] {
   const profiles = [
-    process.env.NEXT_PUBLIC_LINKEDIN_URL,
+    process.env.NEXT_PUBLIC_LINKEDIN_URL ?? DEFAULT_LINKEDIN_URL,
     process.env.NEXT_PUBLIC_GITHUB_URL,
     process.env.NEXT_PUBLIC_TWITTER_URL,
   ].filter((url): url is string => Boolean(url?.trim()));

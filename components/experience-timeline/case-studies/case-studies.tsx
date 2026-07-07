@@ -25,11 +25,11 @@ export function ExperienceTimelineCaseStudies({ caseStudies }: ExperienceTimelin
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      <p className={timelineCaseStudiesHeadingClassName}>{t("caseStudiesHeading")}</p>
+      <h4 className={timelineCaseStudiesHeadingClassName}>{t("caseStudiesHeading")}</h4>
 
       <div className="overflow-hidden">
         <ExperienceTimelineCaseStudySlide activeIndex={activeIndex} direction={direction}>
-          <p className="text-sm font-medium text-foreground">{activeCaseStudy.productName}</p>
+          <h3 className="text-sm font-medium text-foreground">{activeCaseStudy.productName}</h3>
 
           <ExperienceTimelineCaseStudyContent title={t("caseStudy.problem")} value={activeCaseStudy.problem} />
           <ExperienceTimelineCaseStudyContent title={t("caseStudy.contribution")} value={activeCaseStudy.contribution} />

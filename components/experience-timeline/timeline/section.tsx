@@ -5,7 +5,7 @@ import type { ExperienceTimelineSectionProps } from "../types";
 
 export function ExperienceTimelineSection({ className, children, ref, ...props }: ExperienceTimelineSectionProps) {
   return (
-    <section ref={ref} id="experience" className={cn("relative py-24 px-4 md:px-6", className)} {...props}>
+    <section ref={ref} id="experience" className={cn("relative scroll-mt-24 py-24 px-4 md:px-6", className)} {...props}>
       {children}
     </section>
   );

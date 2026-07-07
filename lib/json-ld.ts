@@ -1,27 +1,39 @@
+import type { TimelineItem } from "@/components/experience-timeline/types";
+import { buildExperienceGraph } from "@/lib/experience-schema";
 import { getAbsoluteUrl, getLocalePath, getSocialProfiles, siteConfig } from "@/lib/site-config";
 
 type StructuredDataInput = {
   locale: string;
   title: string;
   description: string;
+  jobTitle: string;
+  experience: TimelineItem[];
 };
 
-export function buildStructuredData({ locale, title, description }: StructuredDataInput) {
+export function buildStructuredData({ locale, title, description, jobTitle, experience }: StructuredDataInput) {
   const pageUrl = getAbsoluteUrl(getLocalePath(locale));
   const personId = pageUrl ? `${pageUrl}#person` : "#person";
   const websiteId = pageUrl ? `${pageUrl}#website` : "#website";
   const socialProfiles = getSocialProfiles();
+  const currentRole = experience.find((item) => item.yearTo === null);
 
   const person = {
     "@type": "Person",
     "@id": personId,
     name: siteConfig.name,
-    jobTitle: siteConfig.jobTitle,
-    email: siteConfig.email,
+    jobTitle,
     description,
     image: getAbsoluteUrl(siteConfig.profileImage.path),
     url: pageUrl,
     ...(socialProfiles.length > 0 ? { sameAs: socialProfiles } : {}),
+    ...(currentRole
+      ? {
+          worksFor: {
+            "@type": "Organization",
+            name: currentRole.companyName,
+          },
+        }
+      : {}),
     address: {
       "@type": "PostalAddress",
       addressLocality: siteConfig.location.city,
@@ -53,11 +65,10 @@ export function buildStructuredData({ locale, title, description }: StructuredDa
 
   const professionalService = {
     "@type": "ProfessionalService",
-    name: `${siteConfig.name} — ${siteConfig.jobTitle}`,
+    name: `${siteConfig.name} - ${jobTitle}`,
     description,
     url: pageUrl,
     image: getAbsoluteUrl(siteConfig.profileImage.path),
-    email: siteConfig.email,
     areaServed: siteConfig.location.countryCode,
     address: {
       "@type": "PostalAddress",
@@ -67,8 +78,10 @@ export function buildStructuredData({ locale, title, description }: StructuredDa
     provider: { "@id": personId },
   };
 
+  const experienceGraph = buildExperienceGraph(personId, experience);
+
   return {
     "@context": "https://schema.org",
-    "@graph": [person, website, profilePage, professionalService],
+    "@graph": [person, website, profilePage, professionalService, ...experienceGraph],
   };
 }

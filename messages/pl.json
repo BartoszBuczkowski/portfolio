@@ -1,13 +1,18 @@
 {
   "Metadata": {
-    "title": "Bartosz Buczkowski | Full-Stack Developer — produkt A–Z",
-    "description": "Full-stack developer produktowy (React, TypeScript, Next.js). MVP do produkcji dla founderów i zespołów produktowych. Rzeszów · zdalnie.",
-    "keywords": "Bartosz Buczkowski, full-stack developer produktowy, full-stack developer dla startupów, rozwój MVP, React, TypeScript, Next.js, architektura frontendu, modernizacja legacy, rozwój wspierany AI, Rzeszów, Polska, zdalny full-stack developer"
+    "title": "Bartosz Buczkowski | Zorientowany na produkt Full-stack Developer",
+    "description": "Zorientowany na produkt Full-stack Developer (React, TypeScript, Next.js). MVP do produkcji dla founderów i zespołów produktowych. Rzeszów · zdalnie.",
+    "keywords": "Bartosz Buczkowski, zorientowany na produkt full-stack developer, full-stack developer dla startupów, rozwój MVP, React, TypeScript, Next.js, architektura frontendu, modernizacja legacy, rozwój wspierany AI, Rzeszów, Polska, zdalny full-stack developer",
+    "jobTitle": "Zorientowany na produkt Full-stack Developer",
+    "ogImageAlt": "Bartosz Buczkowski - Zorientowany na produkt Full-stack Developer"
   },
   "Hero": {
-    "avatarAlt": "Bartosz Buczkowski - Full-Stack Developer produktowy - Awatar",
-    "headline": "Od pomysłu do gotowej aplikacji - bez technicznego chaosu",
-    "description": "Jestem full-stack developerem produktowym. Projektuję i buduję nowoczesne aplikacje webowe z naciskiem na myślenie produktowe, skalowalność i szybkie testowanie koncepcji w ekosystemie JavaScript."
+    "avatarAlt": "Bartosz Buczkowski - Zorientowany na produkt Full-stack Developer - Awatar",
+    "headlineName": "Bartosz Buczkowski",
+    "headlineRoleBefore": "Zorientowany na produkt ",
+    "headlineRoleCore": "Full-stack",
+    "headlineRoleAfter": " Developer",
+    "description": "Od pomysłu do gotowej aplikacji - bez technicznego chaosu. Projektuję i buduję nowoczesne aplikacje webowe z naciskiem na myślenie produktowe, skalowalność i szybkie testowanie koncepcji w ekosystemie JavaScript."
   },
   "Availability": {
     "label": "Otwarty na propozycje"
@@ -20,6 +25,20 @@
     "switchToPolish": "Przełącz na polski",
     "english": "EN",
     "polish": "PL"
+  },
+  "Nav": {
+    "label": "Główne",
+    "menu": "Menu",
+    "language": "Język",
+    "theme": "Motyw",
+    "experience": "Doświadczenie",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "skipToContent": "Przejdź do treści"
+  },
+  "TechStack": {
+    "title": "Stack technologiczny",
+    "intro": "Tworzę aplikacje internetowe od pierwszej wersji produktu po stabilne wdrożenie i dalszy rozwój. Poniżej narzędzia, z których korzystam na co dzień, aby projektować interfejs, rozwijać funkcje i utrzymywać produkt w produkcji."
   },
   "Footer": {
     "ctaTitle": "Szukasz partnera do rozwoju produktu?",
@@ -35,44 +54,44 @@
     "copyright": "© Bartosz Buczkowski"
   },
   "FAQ": {
-    "imageAlt": "Bartosz Buczkowski - Software Developer",
+    "imageAlt": "Bartosz Buczkowski - Zorientowany na produkt Full-stack Developer",
     "title": "FAQ",
     "subtitle": "Wszystko, co możesz chcieć wiedzieć o współpracy, sposobie pracy i o tym, jak pomagam zespołom budować i rozwijać produkty.",
     "items": [
       {
         "id": "faq-1",
         "question": "Jakie usługi oferujesz?",
-        "answer": "Świadczę usługi rozwoju oprogramowania i konsultingu technicznego z naciskiem na nowoczesne aplikacje webowe, rozwój produktu, modernizację systemów oraz procesy wspierane przez AI."
+        "answer": "Oferuję full-stack development produktowy w React, TypeScript i Next.js, modernizację legacy oraz procesy inżynierskie wspierane AI. Przez 8+ lat w 7 firmach i 15+ dostarczonych produktach - od Brisk i Legia.com po Kryptonim i Aertura - prowadzę zespoły od MVP do produkcji z CI/CD, SSR i skalowalną architekturą."
       },
       {
         "id": "faq-2",
         "question": "Pracujesz wyłącznie jako frontend developer?",
-        "answer": "Frontend to moja główna specjalizacja, zwłaszcza React i TypeScript, ale działam też po stronie backendu, architektury, rozwoju produktu i konsultingu technicznego."
+        "answer": "Nie - frontend w React i TypeScript to moja główna specjalizacja, ale dostarczam też backend (NestJS, Node.js), integracje GraphQL, architekturę monorepo i konsulting produktowy. Pracuję end-to-end w ekosystemie JavaScript."
       },
       {
         "id": "faq-3",
         "question": "Czy pomagasz przy istniejących projektach?",
-        "answer": "Tak. Często pracuję przy istniejących produktach: modernizacja kodu, utrzymanie, optymalizacja procesów i szybsze dostarczanie funkcji."
+        "answer": "Tak. Regularnie dołączam do istniejących codebase'ów w celu stopniowej modernizacji, migracji na TypeScript, optymalizacji wydajności i szybszego dostarczania funkcji - bez zatrzymywania działającego produktu."
       },
       {
         "id": "faq-4",
         "question": "Na czym polega rozwój wspierany przez AI?",
-        "answer": "To wykorzystanie nowoczesnych narzędzi AI do przyspieszania powtarzalnych zadań, researchu i debugowania, prototypowania i skracania czasu dostaw przy zachowaniu jakości inżynierskiej."
+        "answer": "Rozwój wspierany AI wykorzystuje narzędzia LLM do researchu, debugowania, prototypowania i generowania boilerplate'u, zachowując TypeScript strict mode, code review i bramki jakości CI/CD. Skraca cykle dostaw bez obniżania standardów inżynierskich."
       },
       {
         "id": "faq-5",
         "question": "Czy współpracujesz ze startupami?",
-        "answer": "Tak. Lubię pracę ze startupami, zwłaszcza tam, gdzie liczy się szybka iteracja, pragmatyczne decyzje i tempo dostarczania."
+        "answer": "Tak. Współpracuję z founderami i zespołami we wczesnej fazie, które potrzebują szybkiej iteracji MVP, pragmatycznej architektury i produkcyjnego Next.js - często zdalnie z Rzeszowa w całej UE."
       },
       {
         "id": "faq-6",
         "question": "Czy modernizujesz aplikacje legacy?",
-        "answer": "Tak. Mam doświadczenie w stopniowej modernizacji systemów legacy bez przerywania bieżącej działalności."
+        "answer": "Tak. Migrowałem stacki AngularJS, Vue 1 i React on Rails do nowoczesnego React, SCSS Modules i TypeScript etapami - ograniczając ryzyko przy ciągłym dostarczaniu funkcji biznesowych."
       },
       {
         "id": "faq-7",
         "question": "Czy oferujesz konsulting?",
-        "answer": "Tak. Oprócz implementacji pomagam zespołom w decyzjach dotyczących architektury, skalowalności, modernizacji, workflow i strategii produktowej."
+        "answer": "Tak. Poza implementacją doradzam w architekturze frontendu, skalowalności, modernizacji legacy, workflow AI i strategii produktowej dla zespołów budujących aplikacje webowe."
       }
     ]
   },

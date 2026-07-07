@@ -29,7 +29,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       suppressHydrationWarning
-      className={cn("h-full", {
+      className={cn("h-full scroll-smooth", {
         dark: isThemeDark,
       })}
     >

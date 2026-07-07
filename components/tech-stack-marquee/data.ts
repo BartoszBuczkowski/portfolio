@@ -24,7 +24,7 @@ export const techStack: TechStackItem[] = [
   { label: "Yarn Workspaces", icon: "yarn.svg" },
   { label: "React Native", icon: "react-native.svg" },
   { label: "Storybook", icon: "storybook.svg" },
-  { label: "Biome", icon: "hasura.svg" },
+  { label: "Biome", icon: "biome.svg" },
   { label: "Git", icon: "git.svg" },
   { label: "GitHub Actions", icon: "github.svg" },
 ];

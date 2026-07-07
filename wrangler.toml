@@ -3,9 +3,6 @@ main = ".open-next/worker.js"
 compatibility_date = "2026-05-01"
 compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 
-# Public vars for Worker runtime (sitemap, canonical, OG). Use apex URL; redirect www in Cloudflare.
-# SEO: also configure in Cloudflare Dashboard → Rules → Redirect Rules (www → apex 301)
-# and Security → Bots → AI Crawl Control (allow GPTBot, ClaudeBot, Google-Extended for GEO).
 [vars]
 NEXT_PUBLIC_SITE_URL = "https://bartoszbuczkowski.pl"
 NEXT_PUBLIC_SITE_LAST_MODIFIED = "2026-07-07"

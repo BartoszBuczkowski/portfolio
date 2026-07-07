@@ -17,6 +17,10 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: oneYearInSeconds,
   },
   async headers() {
+    if (process.env.NODE_ENV !== "production") {
+      return [];
+    }
+
     return [
       {
         source: "/_next/image",

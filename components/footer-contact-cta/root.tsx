@@ -7,15 +7,15 @@ import { FooterContactCtaContext } from "./context";
 import { FooterContactCtaDefaultLayout } from "./default-layout";
 import type { FooterContactCtaContextValue, FooterContactCtaRootProps } from "./types";
 
-const emailSchema = z.string().email();
-
 export function FooterContactCtaRoot({ children }: FooterContactCtaRootProps) {
   const t = useTranslations("Footer");
   const formId = useId();
-  const [email, setEmailState] = useState("");
-  const [footerError, setFooterError] = useState<string | null>(null);
+
   const [open, setOpen] = useState(false);
+
+  const [email, setEmailState] = useState("");
   const [modalEmail, setModalEmail] = useState("");
+  const [footerError, setFooterError] = useState<string | null>(null);
 
   const setEmail = useCallback(
     (value: string) => {
@@ -25,17 +25,20 @@ export function FooterContactCtaRoot({ children }: FooterContactCtaRootProps) {
     [footerError],
   );
 
+  const emailSchema = useMemo(() => z.email(t("invalidEmail")), [t]);
+
   const tryOpenModal = useCallback(() => {
     const trimmed = email.trim();
     const parsed = emailSchema.safeParse(trimmed);
     if (!parsed.success) {
-      setFooterError(t("invalidEmail"));
+      const errorMessage = parsed.error.issues[0]?.message;
+      setFooterError(errorMessage ?? t("invalidEmail"));
       return;
     }
     setFooterError(null);
     setModalEmail(parsed.data);
     setOpen(true);
-  }, [email, t]);
+  }, [email, emailSchema, t]);
 
   const contextValue = useMemo<FooterContactCtaContextValue>(
     () => ({
@@ -46,9 +49,5 @@ export function FooterContactCtaRoot({ children }: FooterContactCtaRootProps) {
     [email, footerError, open, modalEmail, setEmail, tryOpenModal, formId],
   );
 
-  return (
-    <FooterContactCtaContext value={contextValue}>
-      {children ?? <FooterContactCtaDefaultLayout />}
-    </FooterContactCtaContext>
-  );
+  return <FooterContactCtaContext value={contextValue}>{children ?? <FooterContactCtaDefaultLayout />}</FooterContactCtaContext>;
 }

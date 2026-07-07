@@ -1,14 +1,10 @@
-import type { ContactState } from "@/app/actions/contact";
+import type { ContactFormValues, ContactState } from "@/lib/contact";
 import type { TurnstileInstance } from "@marsidev/react-turnstile";
 import type { RefObject } from "react";
 import { createContext, use } from "react";
 import type { UseFormReturn } from "react-hook-form";
 
-export type ContactFormValues = {
-  name: string;
-  email: string;
-  message: string;
-};
+export type { ContactFormValues };
 
 export type ContactFormVariant = "page" | "embedded";
 

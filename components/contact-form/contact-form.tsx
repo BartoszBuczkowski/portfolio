@@ -1,22 +1,26 @@
 "use client";
 
-import { submitContact, type ContactState } from "@/app/actions/contact";
+import { submitContact } from "@/app/actions/contact";
+import { CONTACT_FORM_FIELDS, createContactSchema, type ContactState } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import type { TurnstileInstance } from "@marsidev/react-turnstile";
 import { ContactFormContext, type ContactFormContextValue, type ContactFormValues, type ContactFormVariant } from "./context";
 import {
   ContactFormBody,
   ContactFormDefaultLayout,
   ContactFormEmailField,
+  ContactFormErrorStatus,
   ContactFormHeader,
   ContactFormMessageField,
   ContactFormNameField,
   ContactFormStatus,
   ContactFormSubmit,
+  ContactFormSuccessDescription,
+  ContactFormSuccessIcon,
+  ContactFormSuccessTitle,
   ContactFormSurface,
   ContactFormTurnstile,
 } from "./primitives";
@@ -37,15 +41,7 @@ function ContactFormRoot({ className, children, variant = "page", defaultEmail =
   const turnstileRef = useRef<TurnstileInstance | null>(null);
   const prevDefaultEmail = useRef<string | undefined>(undefined);
 
-  const contactSchema = useMemo(
-    () =>
-      z.object({
-        name: z.string().min(2, tv("nameMin")),
-        email: z.email(tv("emailInvalid")),
-        message: z.string().min(10, tv("messageMin")),
-      }),
-    [tv],
-  );
+  const contactSchema = useMemo(() => createContactSchema(tv), [tv]);
 
   const form = useForm<ContactFormValues>({
     defaultValues: { name: "", email: defaultEmail, message: "" },
@@ -76,11 +72,11 @@ function ContactFormRoot({ className, children, variant = "page", defaultEmail =
 
       const { name, email, message } = parsed.data;
       const fd = new FormData();
-      fd.set("name", name);
-      fd.set("email", email);
-      fd.set("message", message);
-      fd.set("locale", locale);
-      if (turnstileToken) fd.set("cf-turnstile-response", turnstileToken);
+      fd.set(CONTACT_FORM_FIELDS.name, name);
+      fd.set(CONTACT_FORM_FIELDS.email, email);
+      fd.set(CONTACT_FORM_FIELDS.message, message);
+      fd.set(CONTACT_FORM_FIELDS.locale, locale);
+      if (turnstileToken) fd.set(CONTACT_FORM_FIELDS.turnstile, turnstileToken);
 
       const result = await submitContact(fd);
       setState(result);
@@ -110,7 +106,11 @@ function ContactFormRoot({ className, children, variant = "page", defaultEmail =
   );
 
   const inner = (
-    <div className={cn(variant === "page" ? "mx-auto max-w-lg" : "mx-auto w-full max-w-full")}>
+    <div
+      className={cn(
+        variant === "page" ? "mx-auto max-w-lg" : "mx-auto flex min-h-0 w-full max-w-full flex-1 flex-col",
+      )}
+    >
       {children ?? <ContactFormDefaultLayout />}
     </div>
   );
@@ -118,7 +118,7 @@ function ContactFormRoot({ className, children, variant = "page", defaultEmail =
   return (
     <ContactFormContext value={contextValue}>
       {variant === "embedded" ? (
-        <div className={cn("w-full", className)}>{inner}</div>
+        <div className={cn("flex min-h-0 w-full flex-1 flex-col", className)}>{inner}</div>
       ) : (
         <section id="contact" className={cn("py-24 px-6", className)}>
           {inner}
@@ -137,7 +137,11 @@ export const ContactForm = Object.assign(ContactFormRoot, {
   MessageField: ContactFormMessageField,
   Turnstile: ContactFormTurnstile,
   Status: ContactFormStatus,
+  ErrorStatus: ContactFormErrorStatus,
   Submit: ContactFormSubmit,
+  SuccessIcon: ContactFormSuccessIcon,
+  SuccessTitle: ContactFormSuccessTitle,
+  SuccessDescription: ContactFormSuccessDescription,
 });
 
-export type { ContactFormValues } from "./context";
+export type { ContactFormValues } from "@/lib/contact";

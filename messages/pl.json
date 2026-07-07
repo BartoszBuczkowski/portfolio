@@ -28,6 +28,9 @@
     "emailPlaceholder": "Wpisz adres e‑mail",
     "sendEmail": "Wyślij e‑mail",
     "dialogTitle": "Napisz do mnie",
+    "dialogSuccessTitle": "Wiadomość wysłana",
+    "dialogSuccessDescription": "Dziękuję za kontakt. Odpowiem tak szybko, jak to możliwe.",
+    "dialogClose": "Zamknij",
     "invalidEmail": "Podaj prawidłowy adres e‑mail.",
     "copyright": "© Bartosz Buczkowski"
   },

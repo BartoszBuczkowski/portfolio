@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { CircleCheck } from "lucide-react";
 import { Turnstile } from "@marsidev/react-turnstile";
 import type { ReactNode } from "react";
 import { useContactForm } from "./context";
@@ -126,6 +127,37 @@ export function ContactFormStatus() {
   const { state } = useContactForm();
   if (!state) return null;
   return <p className={cn("text-sm", state.ok ? "text-accent-violet" : "text-destructive")}>{state.message}</p>;
+}
+
+export function ContactFormErrorStatus() {
+  const { state } = useContactForm();
+  if (!state || state.ok) return null;
+  return <p className="text-sm text-destructive">{state.message}</p>;
+}
+
+export function ContactFormSuccessIcon() {
+  const { state } = useContactForm();
+  if (!state?.ok) return null;
+
+  return (
+    <div className="flex justify-center">
+      <CircleCheck className="size-12 text-accent-violet" aria-hidden />
+    </div>
+  );
+}
+
+export function ContactFormSuccessTitle({ children }: { children: ReactNode }) {
+  const { state } = useContactForm();
+  if (!state?.ok) return null;
+
+  return <h2 className="text-center text-lg font-semibold tracking-tight text-foreground">{children}</h2>;
+}
+
+export function ContactFormSuccessDescription({ children }: { children: ReactNode }) {
+  const { state } = useContactForm();
+  if (!state?.ok) return null;
+
+  return <p className="text-center text-sm text-muted-foreground">{children}</p>;
 }
 
 export function ContactFormSubmit() {

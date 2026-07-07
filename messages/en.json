@@ -28,6 +28,9 @@
     "emailPlaceholder": "Enter email address",
     "sendEmail": "Send email",
     "dialogTitle": "Get in touch",
+    "dialogSuccessTitle": "Message sent",
+    "dialogSuccessDescription": "Thanks for reaching out. I'll get back to you as soon as possible.",
+    "dialogClose": "Close",
     "invalidEmail": "Please enter a valid email address.",
     "copyright": "© Bartosz Buczkowski"
   },

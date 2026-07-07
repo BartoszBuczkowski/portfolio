@@ -1,12 +1,11 @@
 "use client";
 
 import { ContactForm } from "@/components/contact-form";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { useTranslations } from "next-intl";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { FooterContactCtaDialogBody } from "./dialog-body";
 import { useFooterContactCta } from "./use-footer-contact-cta";
 
 export function FooterContactCtaDialog() {
-  const t = useTranslations("Footer");
   const {
     state: { open, modalEmail },
     actions: { setOpen },
@@ -19,12 +18,14 @@ export function FooterContactCtaDialog() {
         aria-describedby={undefined}
         className="flex max-h-[min(90vh,640px)] flex-col gap-0 overflow-hidden p-0 sm:max-w-md"
       >
-        <DialogHeader className="shrink-0 border-b border-border px-6 pt-6 pb-4 text-left">
-          <DialogTitle>{t("dialogTitle")}</DialogTitle>
-        </DialogHeader>
-        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 py-4">
-          <ContactForm key={modalEmail} variant="embedded" defaultEmail={modalEmail} className="py-0 px-0" />
-        </div>
+        <ContactForm
+          key={open ? modalEmail : "closed"}
+          variant="embedded"
+          defaultEmail={modalEmail}
+          className="flex min-h-0 flex-1 flex-col"
+        >
+          <FooterContactCtaDialogBody />
+        </ContactForm>
       </DialogContent>
     </Dialog>
   );

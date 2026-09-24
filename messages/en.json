@@ -53,6 +53,12 @@
     "invalidEmail": "Please enter a valid email address.",
     "copyright": "© Bartosz Buczkowski"
   },
+  "LinkedInBadge": {
+    "headline": "AI-Native Full-stack Developer",
+    "location": "Rzeszów Metropolitan Area, Poland",
+    "cta": "View LinkedIn profile",
+    "avatarAlt": "Bartosz Buczkowski - AI-Native Full-stack Developer"
+  },
   "FAQ": {
     "imageAlt": "Bartosz Buczkowski - Software Developer",
     "title": "FAQ",

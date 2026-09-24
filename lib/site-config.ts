@@ -84,9 +84,13 @@ export function getSiteLastModified(): Date {
   return Number.isNaN(parsed.getTime()) ? new Date("2026-07-07") : parsed;
 }
 
+export function getLinkedInUrl(): string {
+  return process.env.NEXT_PUBLIC_LINKEDIN_URL ?? DEFAULT_LINKEDIN_URL;
+}
+
 export function getSocialProfiles(): string[] {
   const profiles = [
-    process.env.NEXT_PUBLIC_LINKEDIN_URL ?? DEFAULT_LINKEDIN_URL,
+    getLinkedInUrl(),
     process.env.NEXT_PUBLIC_GITHUB_URL,
     process.env.NEXT_PUBLIC_TWITTER_URL,
   ].filter((url): url is string => Boolean(url?.trim()));

@@ -53,6 +53,12 @@
     "invalidEmail": "Podaj prawidłowy adres e‑mail.",
     "copyright": "© Bartosz Buczkowski"
   },
+  "LinkedInBadge": {
+    "headline": "AI-Native Full-stack Developer",
+    "location": "Aglomeracja rzeszowska, Polska",
+    "cta": "Zobacz profil LinkedIn",
+    "avatarAlt": "Bartosz Buczkowski - AI-Native Full-stack Developer"
+  },
   "FAQ": {
     "imageAlt": "Bartosz Buczkowski - Zorientowany na produkt Full-stack Developer",
     "title": "FAQ",
